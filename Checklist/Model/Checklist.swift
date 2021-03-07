@@ -17,7 +17,7 @@ class Checklist {
     func defineAvailablePrograms(drone: Drone) -> [String] {
         let drone = drone
         let programs = drone.availablePrograms
-        let programNames = programs.map { $0.name.rawValue }
+        let programNames = programs.map { $0.name.rawValue.localized }
         return programNames
     }
     

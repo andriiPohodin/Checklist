@@ -18,6 +18,7 @@
 		1880BDA825D6D77E004B6BFE /* Drone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880BDA725D6D77E004B6BFE /* Drone.swift */; };
 		188BBF3925F3FC570060E34E /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF3825F3FC570060E34E /* Checklist.swift */; };
 		188BBF4125F5284D0060E34E /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4025F5284D0060E34E /* Program.swift */; };
+		188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4A25F578F30060E34E /* LocalizedKeys.swift */; };
 		18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */; };
 		18A0772025EE5677005E7C20 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771F25EE5677005E7C20 /* ChecklistViewController.swift */; };
 		18DCB75A25EF78FD00AE1463 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB75925EF78FD00AE1463 /* CustomCell.swift */; };
@@ -49,6 +50,7 @@
 		188BBF3225F37F610060E34E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		188BBF3825F3FC570060E34E /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		188BBF4025F5284D0060E34E /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		188BBF4A25F578F30060E34E /* LocalizedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedKeys.swift; sourceTree = "<group>"; };
 		18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPartSelectionViewController.swift; sourceTree = "<group>"; };
 		18A0771F25EE5677005E7C20 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		18DCB75925EF78FD00AE1463 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				18DCB77325F138E600AE1463 /* UserDefaults.swift */,
 				18DCB77625F1395E00AE1463 /* Navigation.swift */,
 				18DCB77925F13AF400AE1463 /* PasswordValidator.swift */,
+				188BBF4A25F578F30060E34E /* LocalizedKeys.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -122,9 +125,9 @@
 				18A0771825EE5552005E7C20 /* Model */,
 				18A0771925EE5561005E7C20 /* View Controllers */,
 				18A0771A25EE5575005E7C20 /* Storyboards */,
-				183C088425EE2E980025D57F /* Supporting Files */,
 				18DCB76425EF86E200AE1463 /* MyTableViewCell */,
 				18DCB78825F37D7600AE1463 /* Localizable.strings */,
+				183C088425EE2E980025D57F /* Supporting Files */,
 				1880BDA025D6D727004B6BFE /* Info.plist */,
 				1880BD9825D6D71B004B6BFE /* Checklist.xcdatamodeld */,
 			);
@@ -326,6 +329,7 @@
 				18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */,
 				1880BD9025D6D71B004B6BFE /* AppDelegate.swift in Sources */,
 				18DCB76725EF9AB800AE1463 /* Identifiers.swift in Sources */,
+				188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */,
 				18DCB77A25F13AF400AE1463 /* PasswordValidator.swift in Sources */,
 				18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */,
 				188BBF4125F5284D0060E34E /* Program.swift in Sources */,

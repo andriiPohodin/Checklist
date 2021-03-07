@@ -6,23 +6,23 @@ class SelectDroneAndProgramViewController: UIViewController {
     @IBOutlet weak var dronesDropDown: DropDown! {
         didSet {
             defineAvailableDronesAndPrograms()
-            setUp(dropDown: dronesDropDown, placeholder: "selectDrone")
+            setUp(dropDown: dronesDropDown, placeholder: LocalizedKeys.Placeholders.dronesDropDown)
         }
     }
     @IBOutlet weak var mainImageView: UIImageView! {
         didSet {
-            mainImageView.image = UIImage(named: "defaultImage")
+            mainImageView.image = UIImage(named: LocalizedKeys.ImgNames.mainImageView)
         }
     }
     @IBOutlet weak var programsDropDown: DropDown! {
         didSet {
             specifyProgramName()
-            setUp(dropDown: programsDropDown, placeholder: "selectProgram")
+            setUp(dropDown: programsDropDown, placeholder: LocalizedKeys.Placeholders.programsDropDown)
         }
     }
     @IBOutlet weak var nextBtn: UIButton! {
         didSet {
-            nextBtn.setTitle("nextBtnTitle".localized, for: .normal)
+            nextBtn.setTitle(LocalizedKeys.BtnTitles.nextBtn, for: .normal)
         }
     }
     
@@ -85,7 +85,7 @@ class SelectDroneAndProgramViewController: UIViewController {
         dropDown.borderWidth = 1
         dropDown.borderColor = .black
         dropDown.cornerRadius = dropDown.frame.height / 2
-        dropDown.placeholder = placeholder.localized
+        dropDown.placeholder = placeholder
     }
     
     func resetBorder(dropDown: DropDown) {
