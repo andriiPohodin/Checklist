@@ -1,1 +1,12 @@
-"nextBtn" = "Next";
+"selectDrone" = "Select a drone";
+"selectProgram" = "Select a program";
+"nextBtnTitle" = "Next";
+"previousBtnTitle" = "Previous";
+"indoorPreparations" = "Indoor preparations";
+"outdoorPreparations" = "Outdoor preparations";
+"indoorDescription" = "Preparations needed to be done before leaving. PC, power outlet and Internet connection required";
+"outdoorDescription" = "Preparations needed to be done after arriving on site. No PC, power outlet or Internet connection required";
+"Step" = "Step";
+"Basic" = "Basic";
+"Advanced" = "Advanced";
+"Pro" = "Pro";

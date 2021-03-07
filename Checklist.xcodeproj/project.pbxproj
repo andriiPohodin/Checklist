@@ -17,13 +17,13 @@
 		1880BD9F25D6D727004B6BFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1880BD9D25D6D727004B6BFE /* LaunchScreen.storyboard */; };
 		1880BDA825D6D77E004B6BFE /* Drone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880BDA725D6D77E004B6BFE /* Drone.swift */; };
 		188BBF3925F3FC570060E34E /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF3825F3FC570060E34E /* Checklist.swift */; };
+		188BBF4125F5284D0060E34E /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4025F5284D0060E34E /* Program.swift */; };
 		18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */; };
 		18A0772025EE5677005E7C20 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771F25EE5677005E7C20 /* ChecklistViewController.swift */; };
-		18DCB75A25EF78FD00AE1463 /* MyTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB75925EF78FD00AE1463 /* MyTableViewCellModel.swift */; };
+		18DCB75A25EF78FD00AE1463 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB75925EF78FD00AE1463 /* CustomCell.swift */; };
 		18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */; };
 		18DCB76025EF7E1500AE1463 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */; };
 		18DCB76725EF9AB800AE1463 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB76625EF9AB800AE1463 /* Identifiers.swift */; };
-		18DCB76A25EFE7B200AE1463 /* Content View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB76925EFE7B200AE1463 /* Content View.swift */; };
 		18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB76D25F1366900AE1463 /* String+localized.swift */; };
 		18DCB77125F136BF00AE1463 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB77025F136BF00AE1463 /* Constants.swift */; };
 		18DCB77425F138E600AE1463 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB77325F138E600AE1463 /* UserDefaults.swift */; };
@@ -48,13 +48,13 @@
 		188BBF3125F37F4F0060E34E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		188BBF3225F37F610060E34E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		188BBF3825F3FC570060E34E /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		188BBF4025F5284D0060E34E /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPartSelectionViewController.swift; sourceTree = "<group>"; };
 		18A0771F25EE5677005E7C20 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
-		18DCB75925EF78FD00AE1463 /* MyTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCellModel.swift; sourceTree = "<group>"; };
+		18DCB75925EF78FD00AE1463 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 		18DCB76625EF9AB800AE1463 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
-		18DCB76925EFE7B200AE1463 /* Content View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content View.swift"; sourceTree = "<group>"; };
 		18DCB76D25F1366900AE1463 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		18DCB77025F136BF00AE1463 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18DCB77325F138E600AE1463 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				18A0771825EE5552005E7C20 /* Model */,
-				18A0772625EE6587005E7C20 /* Views */,
 				18A0771925EE5561005E7C20 /* View Controllers */,
 				18A0771A25EE5575005E7C20 /* Storyboards */,
 				183C088425EE2E980025D57F /* Supporting Files */,
@@ -135,9 +134,10 @@
 		18A0771825EE5552005E7C20 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1880BDA725D6D77E004B6BFE /* Drone.swift */,
 				188BBF3825F3FC570060E34E /* Checklist.swift */,
-				18DCB75925EF78FD00AE1463 /* MyTableViewCellModel.swift */,
+				1880BDA725D6D77E004B6BFE /* Drone.swift */,
+				188BBF4025F5284D0060E34E /* Program.swift */,
+				18DCB75925EF78FD00AE1463 /* CustomCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,14 +159,6 @@
 				18DCB78025F13CAC00AE1463 /* LogIn.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		18A0772625EE6587005E7C20 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				18DCB76925EFE7B200AE1463 /* Content View.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		18DCB76425EF86E200AE1463 /* MyTableViewCell */ = {
@@ -324,10 +316,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1880BD9A25D6D71B004B6BFE /* Checklist.xcdatamodeld in Sources */,
-				18DCB76A25EFE7B200AE1463 /* Content View.swift in Sources */,
 				188BBF3925F3FC570060E34E /* Checklist.swift in Sources */,
 				18A0772025EE5677005E7C20 /* ChecklistViewController.swift in Sources */,
-				18DCB75A25EF78FD00AE1463 /* MyTableViewCellModel.swift in Sources */,
+				18DCB75A25EF78FD00AE1463 /* CustomCell.swift in Sources */,
 				1880BDA825D6D77E004B6BFE /* Drone.swift in Sources */,
 				1880BD9425D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift in Sources */,
 				18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */,
@@ -337,6 +328,7 @@
 				18DCB76725EF9AB800AE1463 /* Identifiers.swift in Sources */,
 				18DCB77A25F13AF400AE1463 /* PasswordValidator.swift in Sources */,
 				18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */,
+				188BBF4125F5284D0060E34E /* Program.swift in Sources */,
 				18DCB77725F1395E00AE1463 /* Navigation.swift in Sources */,
 				18DCB77425F138E600AE1463 /* UserDefaults.swift in Sources */,
 				1880BD9225D6D71B004B6BFE /* SceneDelegate.swift in Sources */,

@@ -2,21 +2,20 @@ import UIKit
 
 class ChecklistViewController: UIViewController {
     
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollView.delegate = self
         }
     }
-    @IBOutlet weak var contentView: ContentView!
     
-    var stepNames = [String]()
+    var generatedStepNames = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(stepNames)
+        print(generatedStepNames)
     }
-    
 }
 
 extension ChecklistViewController: UIScrollViewDelegate {

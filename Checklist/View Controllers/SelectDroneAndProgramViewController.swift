@@ -5,17 +5,8 @@ class SelectDroneAndProgramViewController: UIViewController {
     
     @IBOutlet weak var dronesDropDown: DropDown! {
         didSet {
-            let dronesList = dataSource.map { $0.model.rawValue }
-            dronesDropDown.optionArray = dronesList
-            defineAvailableProgramsList()
-            
-            dronesDropDown.isSearchEnable = false
-            dronesDropDown.checkMarkEnabled = false
-            dronesDropDown.rowHeight = dronesDropDown.frame.height
-            dronesDropDown.listHeight = dronesDropDown.frame.height * CGFloat(dronesDropDown.optionArray.count)
-            dronesDropDown.borderWidth = 1
-            dronesDropDown.borderColor = .black
-            dronesDropDown.cornerRadius = dronesDropDown.frame.height / 2
+            defineAvailableDronesAndPrograms()
+            setUp(dropDown: dronesDropDown, placeholder: "selectDrone")
         }
     }
     @IBOutlet weak var mainImageView: UIImageView! {
@@ -25,96 +16,97 @@ class SelectDroneAndProgramViewController: UIViewController {
     }
     @IBOutlet weak var programsDropDown: DropDown! {
         didSet {
-            specifyProgramType()
-            
-            programsDropDown.isSearchEnable = false
-            programsDropDown.checkMarkEnabled = false
-            programsDropDown.rowHeight = programsDropDown.frame.height
-            programsDropDown.borderWidth = 1
-            programsDropDown.borderColor = .black
-            programsDropDown.cornerRadius = programsDropDown.frame.height / 2
+            specifyProgramName()
+            setUp(dropDown: programsDropDown, placeholder: "selectProgram")
         }
     }
     @IBOutlet weak var nextBtn: UIButton! {
         didSet {
-            nextBtn.setTitle("nextBtn".localized, for: .normal)
+            nextBtn.setTitle("nextBtnTitle".localized, for: .normal)
         }
     }
     
     var selectedDrone: Drone?
     var selectedProgram: Program?
-//    var checklist: Checklist
-    let dataSource =
-        [Drone(model: .mavic2pro, availablePrograms: [
-                Program(type: .basic, software: .djiGo4, description: ([.weatherForecastCheck, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .manualTakeOff])),
-                Program(type: .advanced, software: .djiGsPro, description: ([.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
-                Program(type: .pro, software: .djiGsPro, description: ([.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
-         Drone(model: .phantom4rtk, availablePrograms: [
-                Program(type: .advanced, software: .djiGsRtk, description: ([.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
-                Program(type: .pro, software: .djiGsRtk, description: ([.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
-         Drone(model: .matrice300rtk, availablePrograms: [
-                Program(type: .basic, software: .djiPilot, description: ([.weatherForecastCheck, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .manualTakeOff])),
-                Program(type: .advanced, software: .djiPilot, description: ([.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
-                Program(type: .pro, software: .djiPilot, description: ([.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))])]
+    
+    lazy var checklist =
+        Checklist(drones:
+                    [Drone(name: .mavic2pro, availablePrograms: [
+                            Program(name: .basic, software: .djiGo4, description: ([.weatherForecastCheck, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .manualTakeOff])),
+                            Program(name: .advanced, software: .djiGsPro, description: ([.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
+                            Program(name: .pro, software: .djiGsPro, description: ([.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
+                     Drone(name: .phantom4rtk, availablePrograms: [
+                            Program(name: .advanced, software: .djiGsRtk, description: ([.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
+                            Program(name: .pro, software: .djiGsRtk, description: ([.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
+                     Drone(name: .matrice300rtk, availablePrograms: [
+                            Program(name: .basic, software: .djiPilot, description: ([.weatherForecastCheck, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .manualTakeOff])),
+                            Program(name: .advanced, software: .djiPilot, description: ([.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
+                            Program(name: .pro, software: .djiPilot, description: ([.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))])])
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "ProgramPartSelection":
             guard let destinationVC = segue.destination as? ProgramPartSelectionViewController else { return }
-            destinationVC.specifiedDrone = selectedDrone
+            destinationVC.selectedDrone = selectedDrone
             guard let program = selectedProgram else { return }
-            destinationVC.specifiedDrone?.availablePrograms = [program]
+            destinationVC.selectedDrone?.availablePrograms = [program]
         default:
             break
         }
     }
     
-    func defineAvailableProgramsList() {
-        dronesDropDown.didSelect { [weak self] (model, index, _) in
-            self?.selectedDrone = self?.dataSource[index]
-            guard let availablePrograms = self?.selectedDrone?.availablePrograms else { return }
-            let programsList = availablePrograms.map { $0.type.rawValue }
-            self?.programsDropDown.optionArray = programsList
-            self?.mainImageView.image = UIImage(named: model)
-            self?.resetDropDownBorder(dropDown: self!.dronesDropDown)
-            self?.resetDropDownText(dropDown: self!.programsDropDown)
+    func defineAvailableDronesAndPrograms() {
+        let dronesList = checklist.drones.map { $0.name.rawValue }
+        dronesDropDown.optionArray = dronesList
+        dronesDropDown.didSelect { [weak self] (name, index, _) in
+            self?.selectedDrone = self?.checklist.defineSelectedDrone(at: index)
+            self?.programsDropDown.optionArray = self!.checklist.defineAvailablePrograms(drone: self!.selectedDrone!)
+            self?.mainImageView.image = UIImage(named: name)
+            self?.resetBorder(dropDown: self!.dronesDropDown)
+            self?.programsDropDown.text = ""
             self?.programsDropDown.selectedRowColor = .clear
         }
     }
     
-    func specifyProgramType() {
+    func specifyProgramName() {
         programsDropDown.didSelect { [weak self] (_, index, _) in
-            self?.selectedProgram = self?.selectedDrone?.availablePrograms[index]
-            self?.resetDropDownBorder(dropDown: self!.programsDropDown)
-            self?.programsDropDown.selectedRowColor = .systemGray4
+            if self?.selectedDrone != nil {
+                self?.selectedProgram = self?.checklist.defineSelectedProgram(at: index, from: self!.selectedDrone!)
+                self?.resetBorder(dropDown: self!.programsDropDown)
+                self?.programsDropDown.selectedRowColor = .systemGray4
+            }
         }
     }
     
-    func resetDropDownText(dropDown: DropDown) {
-        dropDown.text = ""
+    func setUp(dropDown: DropDown, placeholder: String) {
+        dropDown.isSearchEnable = false
+        dropDown.checkMarkEnabled = false
+        dropDown.rowHeight = dropDown.frame.height
+        dropDown.borderWidth = 1
+        dropDown.borderColor = .black
+        dropDown.cornerRadius = dropDown.frame.height / 2
+        dropDown.placeholder = placeholder.localized
     }
     
-    func resetDropDownBorder(dropDown: DropDown) {
+    func resetBorder(dropDown: DropDown) {
         dropDown.borderWidth = 1
         dropDown.borderColor = .black
     }
     
-    func markDropDownBorder(dropDown: DropDown) {
+    func markBorder(dropDown: DropDown) {
         dropDown.borderWidth = 3
         dropDown.borderColor = .systemRed
     }
     
     func validateRequiredInfoInput() {
         if dronesDropDown.text == "" {
-            markDropDownBorder(dropDown: dronesDropDown)
-            markDropDownBorder(dropDown: programsDropDown)
+            markBorder(dropDown: dronesDropDown)
+            markBorder(dropDown: programsDropDown)
         }
         if programsDropDown.text == "" {
-            markDropDownBorder(dropDown: programsDropDown)
+            markBorder(dropDown: programsDropDown)
         }
         else {
-            resetDropDownBorder(dropDown: dronesDropDown)
-            resetDropDownBorder(dropDown: programsDropDown)
             performSegue(withIdentifier: "ProgramPartSelection", sender: nil)
         }
     }
