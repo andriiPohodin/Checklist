@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q59-wT-hM8">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Select Drone And Program View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="SelectDroneAndProgramViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jFB-aC-ogH">
+                                <rect key="frame" x="20" y="64" width="335" height="337"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Select a drone" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ejl-4R-OP7" customClass="DropDown" customModule="iOSDropDown">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="pO9-M4-ekr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
+                                                <color key="value" systemColor="systemGray4Color"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gbq-Oc-Hgo">
+                                        <rect key="frame" x="57" y="58" width="221" height="221"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Gbq-Oc-Hgo" secondAttribute="height" multiplier="1:1" id="Qmw-2R-iSi"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Select a program" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLK-ut-2OS" customClass="DropDown" customModule="iOSDropDown">
+                                        <rect key="frame" x="0.0" y="287" width="335" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
+                                                <color key="value" systemColor="systemGray4Color"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="FLK-ut-2OS" firstAttribute="height" secondItem="ejl-4R-OP7" secondAttribute="height" id="XTL-h1-ezo"/>
+                                    <constraint firstItem="FLK-ut-2OS" firstAttribute="width" secondItem="ejl-4R-OP7" secondAttribute="width" id="btS-ZH-1Aj"/>
+                                    <constraint firstAttribute="trailing" secondItem="ejl-4R-OP7" secondAttribute="trailing" id="l1v-DH-ZnN"/>
+                                    <constraint firstItem="Gbq-Oc-Hgo" firstAttribute="width" secondItem="ejl-4R-OP7" secondAttribute="width" multiplier="0.66" id="lDp-fW-i3P"/>
+                                    <constraint firstItem="ejl-4R-OP7" firstAttribute="leading" secondItem="jFB-aC-ogH" secondAttribute="leading" id="r7a-YD-Y2D"/>
+                                    <constraint firstItem="ejl-4R-OP7" firstAttribute="top" secondItem="jFB-aC-ogH" secondAttribute="top" id="rQU-oH-DZO"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3N-9b-J9b">
+                                <rect key="frame" x="255" y="597" width="100" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="OdC-x7-Q8C"/>
+                                    <constraint firstAttribute="height" constant="50" id="hiU-R3-pjp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dPQ-1M-2ct"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OIZ-f2-n5f"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jFB-aC-ogH" firstAttribute="top" secondItem="OIZ-f2-n5f" secondAttribute="top" constant="20" id="4kQ-sv-mW0"/>
+                            <constraint firstItem="OIZ-f2-n5f" firstAttribute="trailing" secondItem="jFB-aC-ogH" secondAttribute="trailing" constant="20" id="8Yk-2j-Jss"/>
+                            <constraint firstItem="OIZ-f2-n5f" firstAttribute="trailing" secondItem="l3N-9b-J9b" secondAttribute="trailing" constant="20" id="OAP-po-FdK"/>
+                            <constraint firstItem="jFB-aC-ogH" firstAttribute="leading" secondItem="OIZ-f2-n5f" secondAttribute="leading" constant="20" id="Sam-ya-3fe"/>
+                            <constraint firstItem="l3N-9b-J9b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OIZ-f2-n5f" secondAttribute="leading" symbolic="YES" id="m8W-SI-qlm"/>
+                            <constraint firstItem="OIZ-f2-n5f" firstAttribute="bottom" secondItem="l3N-9b-J9b" secondAttribute="bottom" constant="20" id="mYO-YT-dJg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vqE-aV-IJg"/>
+                    <connections>
+                        <outlet property="dronesDropDown" destination="ejl-4R-OP7" id="lfg-J0-6ny"/>
+                        <outlet property="mainImageView" destination="Gbq-Oc-Hgo" id="jha-Va-ghf"/>
+                        <outlet property="nextBtn" destination="l3N-9b-J9b" id="1sF-HA-mdq"/>
+                        <outlet property="programsDropDown" destination="FLK-ut-2OS" id="rhc-UP-MNB"/>
+                        <segue destination="x7j-8H-xGd" kind="show" identifier="ProgramPartSelection" id="bId-cr-XqP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1732" y="37.331334332833585"/>
+        </scene>
+        <!--Program Part Selection View Controller-->
+        <scene sceneID="3M8-Ss-iGR">
+            <objects>
+                <viewController id="x7j-8H-xGd" customClass="ProgramPartSelectionViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Doe-AR-Cmj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="btp-GQ-PP7">
+                                <rect key="frame" x="28" y="113.5" width="319" height="440"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="A94-pv-cdW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="btp-GQ-PP7" firstAttribute="width" secondItem="Doe-AR-Cmj" secondAttribute="width" multiplier="0.85" id="ERO-E7-bOg"/>
+                            <constraint firstItem="btp-GQ-PP7" firstAttribute="centerX" secondItem="A94-pv-cdW" secondAttribute="centerX" id="SEf-Ia-T1Q"/>
+                            <constraint firstItem="btp-GQ-PP7" firstAttribute="height" secondItem="Doe-AR-Cmj" secondAttribute="height" multiplier="0.66" id="bUe-UT-Hjo"/>
+                            <constraint firstItem="btp-GQ-PP7" firstAttribute="centerY" secondItem="Doe-AR-Cmj" secondAttribute="centerY" id="cph-Do-Cmd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mIA-R2-znK"/>
+                    <connections>
+                        <outlet property="tableView" destination="btp-GQ-PP7" id="oYB-2L-OVK"/>
+                        <segue destination="9D4-ds-Pc3" kind="show" identifier="ToChecklist" id="3TH-Gh-v9z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Eb-Hq-LTA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2672.8000000000002" y="36.431784107946029"/>
+        </scene>
+        <!--Checklist View Controller-->
+        <scene sceneID="HwH-dg-apX">
+            <objects>
+                <viewController id="9D4-ds-Pc3" customClass="ChecklistViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MYc-nY-egt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="d4M-aL-koL">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeO-oW-kB1" userLabel="ContentView" customClass="ContentView" customModule="Checklist" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1881"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1a-UF-mER">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="xvL-ER-CeC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="textColor" systemColor="systemBlueColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProDjiPilotMatrice300RTKLaunchPoint" translatesAutoresizingMaskIntoConstraints="NO" id="04W-pW-VCj">
+                                                <rect key="frame" x="0.0" y="50" width="375" height="1831"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="k1a-UF-mER" firstAttribute="leading" secondItem="HeO-oW-kB1" secondAttribute="leading" id="1vC-Ib-Lpq"/>
+                                            <constraint firstItem="04W-pW-VCj" firstAttribute="top" secondItem="k1a-UF-mER" secondAttribute="bottom" id="254-pa-jrN"/>
+                                            <constraint firstItem="04W-pW-VCj" firstAttribute="top" secondItem="k1a-UF-mER" secondAttribute="bottom" id="4hr-Hi-Jir"/>
+                                            <constraint firstAttribute="bottom" secondItem="04W-pW-VCj" secondAttribute="bottom" id="MUc-Za-ETQ"/>
+                                            <constraint firstItem="04W-pW-VCj" firstAttribute="leading" secondItem="HeO-oW-kB1" secondAttribute="leading" id="VsR-cq-w1J"/>
+                                            <constraint firstItem="k1a-UF-mER" firstAttribute="top" secondItem="HeO-oW-kB1" secondAttribute="top" id="qB0-YS-H2M"/>
+                                            <constraint firstAttribute="trailing" secondItem="04W-pW-VCj" secondAttribute="trailing" id="tw1-DJ-Hoz"/>
+                                            <constraint firstAttribute="trailing" secondItem="k1a-UF-mER" secondAttribute="trailing" id="x2v-oE-AN4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="HeO-oW-kB1" secondAttribute="trailing" id="Ypc-J2-ajF"/>
+                                    <constraint firstAttribute="bottom" secondItem="HeO-oW-kB1" secondAttribute="bottom" id="dzB-a8-HU6"/>
+                                    <constraint firstItem="HeO-oW-kB1" firstAttribute="top" secondItem="d4M-aL-koL" secondAttribute="top" id="s3i-Qo-dOm"/>
+                                    <constraint firstItem="HeO-oW-kB1" firstAttribute="leading" secondItem="d4M-aL-koL" secondAttribute="leading" id="umb-Nv-RY1"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="t6S-Yb-LR1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="t6S-Yb-LR1" firstAttribute="bottom" secondItem="d4M-aL-koL" secondAttribute="bottom" id="2Lc-cC-ScU"/>
+                            <constraint firstItem="d4M-aL-koL" firstAttribute="leading" secondItem="t6S-Yb-LR1" secondAttribute="leading" id="Ah0-BR-gCu"/>
+                            <constraint firstItem="t6S-Yb-LR1" firstAttribute="trailing" secondItem="d4M-aL-koL" secondAttribute="trailing" id="HjR-UJ-uzu"/>
+                            <constraint firstItem="HeO-oW-kB1" firstAttribute="height" secondItem="MYc-nY-egt" secondAttribute="height" multiplier="0.934033" priority="250" id="RUX-1U-1j0"/>
+                            <constraint firstItem="HeO-oW-kB1" firstAttribute="width" secondItem="MYc-nY-egt" secondAttribute="width" id="YhE-Y4-jmr"/>
+                            <constraint firstItem="d4M-aL-koL" firstAttribute="top" secondItem="t6S-Yb-LR1" secondAttribute="top" id="gmf-BO-ZyB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z4H-B8-YSv"/>
+                    <connections>
+                        <outlet property="contentView" destination="HeO-oW-kB1" id="YKh-8j-gKE"/>
+                        <outlet property="scrollView" destination="d4M-aL-koL" id="ea8-8H-p4F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QFv-pj-VQ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3549.5999999999999" y="36.431784107946029"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Mgs-Vh-5zq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q59-wT-hM8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="5t4-bx-OSQ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a2U-vl-izB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CQj-cx-x57"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="71a-Qc-NRb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792.79999999999995" y="37.331334332833585"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ProDjiPilotMatrice300RTKLaunchPoint" width="362" height="1831"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
