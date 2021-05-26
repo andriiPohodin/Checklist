@@ -30,22 +30,25 @@ class SelectDroneAndProgramViewController: UIViewController {
     var selectedProgram: Program?
     
     lazy var checklist =
-        Checklist(drones:
-                    [Drone(name: .mavic2pro, availablePrograms: [
-                            Program(name: .basic, software: .djiGo4, description: ([.weatherForecastCheck, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .manualTakeOff])),
-                            Program(name: .advanced, software: .djiGsPro, description: ([.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
-                            Program(name: .pro, software: .djiGsPro, description: ([.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
-                     Drone(name: .phantom4rtk, availablePrograms: [
-                            Program(name: .advanced, software: .djiGsRtk, description: ([.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
-                            Program(name: .pro, software: .djiGsRtk, description: ([.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
-                     Drone(name: .matrice300rtk, availablePrograms: [
-                            Program(name: .basic, software: .djiPilot, description: ([.weatherForecastCheck, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .manualTakeOff])),
-                            Program(name: .advanced, software: .djiPilot, description: ([.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
-                            Program(name: .pro, software: .djiPilot, description: ([.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))])])
+        Checklist(drones: [
+//                    Drone(name: .mavic2pro, availablePrograms: [
+//                            Program(name: .basic, software: .djiGo4, description: ([.registration], [.weatherForecastCheck, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .manualTakeOff])),
+//                            Program(name: .advanced, software: .djiGsPro, description: ([.registration], [.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
+//                            Program(name: .pro, software: .djiGsPro, description: ([.registration], [.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
+//                     Drone(name: .phantom4rtk, availablePrograms: [
+//                            Program(name: .advanced, software: .djiGsRtk, description: ([.registration], [.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
+//                            Program(name: .pro, software: .djiGsRtk, description: ([.registration], [.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
+//                     Drone(name: .matrice300rtk, availablePrograms: [
+//                            Program(name: .basic, software: .djiPilot, description: ([.quickStartGuide], [.weatherForecastCheck, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .manualTakeOff])),
+//                            Program(name: .advanced, software: .djiPilot, description: ([.quickStartGuide], [.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
+//                            Program(name: .pro, software: .djiPilot, description: ([.quickStartGuide], [.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
+                     Drone(name: .xagXp2020, availablePrograms: [
+                            Program(name: .xrtk4, software: .xagAgri, description: ([.quickStartGuide], [.weatherForecastCheck, .inBoxCheck], [.surveying, .locateLaunchPoint, .assemble, .autoTakeOff])),
+                            Program(name: .xmission, software: .xagAgri, description: ([.quickStartGuide], [.weatherForecastCheck, .inBoxCheck], [.surveying, .locateLaunchPoint, .assemble, .autoTakeOff]))])])
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case "ProgramPartSelection":
+        case Constants.Segues.toProgramPartSelection:
             guard let destinationVC = segue.destination as? ProgramPartSelectionViewController else { return }
             destinationVC.selectedDrone = selectedDrone
             guard let program = selectedProgram else { return }
@@ -107,7 +110,7 @@ class SelectDroneAndProgramViewController: UIViewController {
             markBorder(dropDown: programsDropDown)
         }
         else {
-            performSegue(withIdentifier: "ProgramPartSelection", sender: nil)
+            performSegue(withIdentifier: Constants.Segues.toProgramPartSelection, sender: nil)
         }
     }
     

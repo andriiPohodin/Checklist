@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nat-Tn-qOz">
-                        <rect key="frame" x="5" y="5" width="310" height="144"/>
+                        <rect key="frame" x="5" y="5" width="310" height="174"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="C2q-z8-WyR">
                                 <rect key="frame" x="0.0" y="0.0" width="310" height="60"/>
@@ -48,7 +48,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLd-Sn-VPI">
-                                <rect key="frame" x="0.0" y="65" width="310" height="79"/>
+                                <rect key="frame" x="0.0" y="65" width="310" height="109"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="nat-Tn-qOz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="GpS-Zq-DgH"/>
-                    <constraint firstAttribute="bottom" secondItem="nat-Tn-qOz" secondAttribute="bottom" constant="50" id="e8M-xF-MoT"/>
+                    <constraint firstAttribute="bottom" secondItem="nat-Tn-qOz" secondAttribute="bottom" constant="20" id="e8M-xF-MoT"/>
                     <constraint firstItem="nat-Tn-qOz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="f0u-T9-fIU"/>
                     <constraint firstAttribute="trailing" secondItem="nat-Tn-qOz" secondAttribute="trailing" constant="5" id="uuf-ci-Ddo"/>
                 </constraints>

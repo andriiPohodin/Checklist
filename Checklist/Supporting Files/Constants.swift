@@ -9,7 +9,15 @@ struct Constants {
     }
     
     struct Segues {
-        static let programPartSelection = "ProgramPartSelection"
-        static let toChecklist = "ToChecklist"
+        static let toProgramPartSelection = "toProgramPartSelection"
+        static let toStartGuide = "toStartGuide"
+        static let toPreparationsContent = "toPreparationsContent"
+        static let toStartGuideContent = "toStartGuideContent"
+        static let toFAQ = "toFAQ"
+        static let toFAQContent = "toFAQContent"
+    }
+    
+    struct Identifiers {
+        static let customCell = "MyTableViewCell"
     }
 }

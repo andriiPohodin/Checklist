@@ -3,13 +3,15 @@ import Foundation
 struct Program {
     let name: ProgramName
     let software: Software
-    let description: (indoor: [IndoorDescription], outdoor: [OutdoorDescription])
+    let description: (quickStartGuide: [QuickStartGuide], indoor: [IndoorDescription], outdoor: [OutdoorDescription])
 }
 
 enum ProgramName: String {
     case basic = "Basic"
     case advanced = "Advanced"
     case pro = "Pro"
+    case xrtk4 = "XRTK4"
+    case xmission = "XMission"
 }
 
 enum Software: String {
@@ -17,16 +19,21 @@ enum Software: String {
     case djiGsPro = "DjiGsPro"
     case djiGsRtk = "DjiGsRtk"
     case djiPilot = "DjiPilot"
+    case xagAgri = "XagAgri"
 }
 
-enum IndoorDescription: String, CaseIterable {
+enum QuickStartGuide: String {
+    case quickStartGuide = "QuickStartGuide"
+}
+
+enum IndoorDescription: String {
     case weatherForecastCheck = "ForecastCheck"
     case missionPlanning = "MissionPlanning"
     case nfzCheck = "NfzCheck"
     case inBoxCheck = "InBoxCheck"
 }
 
-enum OutdoorDescription: String, CaseIterable {
+enum OutdoorDescription: String {
     case locateLaunchPoint = "LaunchPoint"
     case assemble = "Assemble"
     case homePointCheck = "HomePointCheck"
@@ -34,4 +41,5 @@ enum OutdoorDescription: String, CaseIterable {
     case compassCalibration = "CompassCalibration"
     case autoTakeOff = "AutoTakeOff"
     case manualTakeOff = "ManualTakeOff"
+    case surveying = "Surveying"
 }

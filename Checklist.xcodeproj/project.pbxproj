@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1827CF7DC441388BCD4EFB23 /* Pods_Checklist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA730AE8023FD7EE14F9E606 /* Pods_Checklist.framework */; };
+		185D93B6264D17690031A6F8 /* StartGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D93B5264D17690031A6F8 /* StartGuideViewController.swift */; };
+		185D93B9264D40A70031A6F8 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D93B8264D40A70031A6F8 /* FAQViewController.swift */; };
 		1880BD9025D6D71B004B6BFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880BD8F25D6D71B004B6BFE /* AppDelegate.swift */; };
 		1880BD9225D6D71B004B6BFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880BD9125D6D71B004B6BFE /* SceneDelegate.swift */; };
 		1880BD9425D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880BD9325D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift */; };
@@ -20,11 +22,10 @@
 		188BBF4125F5284D0060E34E /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4025F5284D0060E34E /* Program.swift */; };
 		188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4A25F578F30060E34E /* LocalizedKeys.swift */; };
 		18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */; };
-		18A0772025EE5677005E7C20 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771F25EE5677005E7C20 /* ChecklistViewController.swift */; };
+		18A0772025EE5677005E7C20 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771F25EE5677005E7C20 /* ContentViewController.swift */; };
 		18DCB75A25EF78FD00AE1463 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB75925EF78FD00AE1463 /* CustomCell.swift */; };
 		18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */; };
 		18DCB76025EF7E1500AE1463 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */; };
-		18DCB76725EF9AB800AE1463 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB76625EF9AB800AE1463 /* Identifiers.swift */; };
 		18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB76D25F1366900AE1463 /* String+localized.swift */; };
 		18DCB77125F136BF00AE1463 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB77025F136BF00AE1463 /* Constants.swift */; };
 		18DCB77425F138E600AE1463 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB77325F138E600AE1463 /* UserDefaults.swift */; };
@@ -36,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		185D93B5264D17690031A6F8 /* StartGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGuideViewController.swift; sourceTree = "<group>"; };
+		185D93B8264D40A70031A6F8 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		1880BD8C25D6D71B004B6BFE /* Checklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1880BD8F25D6D71B004B6BFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1880BD9125D6D71B004B6BFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,11 +55,10 @@
 		188BBF4025F5284D0060E34E /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		188BBF4A25F578F30060E34E /* LocalizedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedKeys.swift; sourceTree = "<group>"; };
 		18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPartSelectionViewController.swift; sourceTree = "<group>"; };
-		18A0771F25EE5677005E7C20 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
+		18A0771F25EE5677005E7C20 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		18DCB75925EF78FD00AE1463 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
-		18DCB76625EF9AB800AE1463 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		18DCB76D25F1366900AE1463 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		18DCB77025F136BF00AE1463 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18DCB77325F138E600AE1463 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -90,7 +92,6 @@
 				1880BD9125D6D71B004B6BFE /* SceneDelegate.swift */,
 				1880BD9B25D6D727004B6BFE /* Assets.xcassets */,
 				1880BD9D25D6D727004B6BFE /* LaunchScreen.storyboard */,
-				18DCB76625EF9AB800AE1463 /* Identifiers.swift */,
 				18DCB76D25F1366900AE1463 /* String+localized.swift */,
 				18DCB77025F136BF00AE1463 /* Constants.swift */,
 				18DCB77325F138E600AE1463 /* UserDefaults.swift */,
@@ -150,7 +151,9 @@
 			children = (
 				1880BD9325D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift */,
 				18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */,
-				18A0771F25EE5677005E7C20 /* ChecklistViewController.swift */,
+				185D93B5264D17690031A6F8 /* StartGuideViewController.swift */,
+				185D93B8264D40A70031A6F8 /* FAQViewController.swift */,
+				18A0771F25EE5677005E7C20 /* ContentViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -320,16 +323,17 @@
 			files = (
 				1880BD9A25D6D71B004B6BFE /* Checklist.xcdatamodeld in Sources */,
 				188BBF3925F3FC570060E34E /* Checklist.swift in Sources */,
-				18A0772025EE5677005E7C20 /* ChecklistViewController.swift in Sources */,
+				18A0772025EE5677005E7C20 /* ContentViewController.swift in Sources */,
 				18DCB75A25EF78FD00AE1463 /* CustomCell.swift in Sources */,
 				1880BDA825D6D77E004B6BFE /* Drone.swift in Sources */,
 				1880BD9425D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift in Sources */,
 				18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */,
+				185D93B6264D17690031A6F8 /* StartGuideViewController.swift in Sources */,
 				18DCB77125F136BF00AE1463 /* Constants.swift in Sources */,
 				18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */,
 				1880BD9025D6D71B004B6BFE /* AppDelegate.swift in Sources */,
-				18DCB76725EF9AB800AE1463 /* Identifiers.swift in Sources */,
 				188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */,
+				185D93B9264D40A70031A6F8 /* FAQViewController.swift in Sources */,
 				18DCB77A25F13AF400AE1463 /* PasswordValidator.swift in Sources */,
 				18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */,
 				188BBF4125F5284D0060E34E /* Program.swift in Sources */,

@@ -1,9 +1,11 @@
 "selectDrone" = "Select a drone";
-"selectProgram" = "Select a program";
+"selectProgram" = "Mapping source";
 "nextBtnTitle" = "Next";
 "previousBtnTitle" = "Previous";
-"indoorPreparations" = "Indoor preparations";
-"outdoorPreparations" = "Outdoor preparations";
+"quickStartGuideTitle" = "Quick Start Guide";
+"quickStartGuideDescription" = "Creating new user account, activation and pairing devices";
+"indoorTitle" = "Indoor preparations";
+"outdoorTitle" = "Outdoor preparations";
 "indoorDescription" = "Preparations needed to be done before leaving. PC, power outlet and Internet connection required";
 "outdoorDescription" = "Preparations needed to be done after arriving on site. No PC, power outlet or Internet connection required";
 "Step" = "Step";
