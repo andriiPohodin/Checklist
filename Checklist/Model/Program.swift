@@ -1,45 +1,70 @@
 import Foundation
 
 struct Program {
-    let name: ProgramName
-    let software: Software
-    let description: (quickStartGuide: [QuickStartGuide], indoor: [IndoorDescription], outdoor: [OutdoorDescription])
+    let mappingSource: MappingSource
+    let sections: [Sections]
 }
 
-enum ProgramName: String {
-    case basic = "Basic"
-    case advanced = "Advanced"
-    case pro = "Pro"
+struct Sections {
+    let sectionTitle: SectionTitle
+    let sectionDescription: SectionDescription
+    let sectionContent: [SectionContent]
+}
+
+enum SectionTitle: String {
+    case quickStartGuideSectionTitle = "quickStartGuideSection"
+    case indoorSectionTitle = "indoorSection"
+    case outdoorSectionTitle = "outdoorSection"
+}
+
+enum SectionDescription: String {
+    case quickStartGuideSectionDescription = "quickStartGuideDescription"
+    case indoorSectionDescription = "indoorDescription"
+    case outdoorSectionDescription = "outdoorDescription"
+}
+
+enum MappingSource: String {
     case xrtk4 = "XRTK4"
     case xmission = "XMission"
 }
 
-enum Software: String {
-    case djiGo4 = "DjiGo4"
-    case djiGsPro = "DjiGsPro"
-    case djiGsRtk = "DjiGsRtk"
-    case djiPilot = "DjiPilot"
-    case xagAgri = "XagAgri"
-}
-
-enum QuickStartGuide: String {
-    case quickStartGuide = "QuickStartGuide"
-}
-
-enum IndoorDescription: String {
+enum SectionContent: String {
+    case inTheBox = "inTheBox"
+    case softwareInstall = "softwareInstall"
+    case hardwareActivation = "hardwareActivation"
+    case rolesDistribution = "rolesDistribution"
+    case acb1 = "acb1"
+    case pairing = "pairing"
+    case fields = "fields"
+    case operation = "operation"
+    case preflightCheck = "preflightCheck"
+    case settingMissionParams = "settingMissionParams"
+    case launch = "launch"
+    case maintenance = "maintenance"
+    case FAQ = "FAQ"
+    
     case weatherForecastCheck = "ForecastCheck"
-    case missionPlanning = "MissionPlanning"
-    case nfzCheck = "NfzCheck"
     case inBoxCheck = "InBoxCheck"
+    
+    case locateLaunchPoint = "LaunchPoint"
+    case surveyingXrtk4 = "surveyingXrtk4"
+    case surveyingXmission = "surveyingXmission"
+    case assemble = "Assemble"
+    case failsafeCheck = "FailsafeCheck"
+    case missionPlanning = "MissionPlanning"
+    case autoTakeOff = "AutoTakeOff"
 }
 
-enum OutdoorDescription: String {
-    case locateLaunchPoint = "LaunchPoint"
-    case assemble = "Assemble"
-    case homePointCheck = "HomePointCheck"
-    case failsafeCheck = "FailsafeCheck"
-    case compassCalibration = "CompassCalibration"
-    case autoTakeOff = "AutoTakeOff"
-    case manualTakeOff = "ManualTakeOff"
-    case surveying = "Surveying"
+enum Indicators: String {
+    case disclosure = "disclosureIndicator"
+}
+
+struct FAQ {
+    let steps: [FAQsteps]
+}
+
+enum FAQsteps: String {
+    case whatIf = "What if?..."
+    case canI = "Can I?..."
+    case shouldI = "Should I?..."
 }

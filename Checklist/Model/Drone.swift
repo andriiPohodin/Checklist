@@ -6,8 +6,5 @@ struct Drone {
 }
 
 enum Name: String {
-//    case matrice300rtk = "DJI Matrice 300 RTK"
-//    case phantom4rtk = "DJI Phantom 4 RTK"
-//    case mavic2pro = "DJI Mavic 2 Pro"
-    case xagXp2020 = "XAG XP2020"
+    case xagXp2020 = "XP2020"
 }

@@ -6,9 +6,9 @@ class ContentViewController: UIViewController {
     @IBOutlet weak var contentImageView: UIImageView!
     @IBOutlet weak var contentView: UIView! {
         didSet {
-            contentImageView.image = UIImage(named: content[index])
+//            contentImageView.image = UIImage(named: "\(index)")
 //            contentLabel.text = "\(content[index])"
-            contentLabel.text = "\(index)"
+            contentLabel.text = "\(index + 1)"
         }
     }
     @IBOutlet weak var scrollView: UIScrollView! {

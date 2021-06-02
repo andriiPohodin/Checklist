@@ -2,6 +2,7 @@ import Foundation
 
 struct Constants {
     static let storageRef = "gs://preflightchecklist-323e2.appspot.com/profile"
+    static let disclosureIndicator = "disclosureIndicator"
     
     struct Storyboard {
         static let main = "Main"
@@ -10,9 +11,8 @@ struct Constants {
     
     struct Segues {
         static let toProgramPartSelection = "toProgramPartSelection"
-        static let toStartGuide = "toStartGuide"
-        static let toPreparationsContent = "toPreparationsContent"
-        static let toStartGuideContent = "toStartGuideContent"
+        static let toContentsTable = "toContentsTable"
+        static let toProgramStepContent = "toProgramStepContent"
         static let toFAQ = "toFAQ"
         static let toFAQContent = "toFAQContent"
     }

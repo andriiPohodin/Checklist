@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q59-wT-hM8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q59-wT-hM8">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -124,18 +124,17 @@
                     <navigationItem key="navigationItem" id="mIA-R2-znK"/>
                     <connections>
                         <outlet property="tableView" destination="btp-GQ-PP7" id="oYB-2L-OVK"/>
-                        <segue destination="9D4-ds-Pc3" kind="show" identifier="toPreparationsContent" id="3TH-Gh-v9z"/>
-                        <segue destination="vnF-r2-CFG" kind="show" identifier="toStartGuide" id="aA8-TQ-Hna"/>
+                        <segue destination="vnF-r2-CFG" kind="show" identifier="toContentsTable" id="aA8-TQ-Hna"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Eb-Hq-LTA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2672.8000000000002" y="36.431784107946029"/>
         </scene>
-        <!--Start Guide View Controller-->
+        <!--Contents Table View Controller-->
         <scene sceneID="LRF-qV-A2E">
             <objects>
-                <viewController id="vnF-r2-CFG" customClass="StartGuideViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vnF-r2-CFG" customClass="ContentsTableViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mMt-eB-IPM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,13 +156,13 @@
                     <navigationItem key="navigationItem" id="y7Z-rD-L8D"/>
                     <connections>
                         <outlet property="tableView" destination="JBq-o9-EgF" id="bku-QQ-E6n"/>
-                        <segue destination="9D4-ds-Pc3" kind="show" identifier="toStartGuideContent" id="b9t-rl-ZKV"/>
+                        <segue destination="9D4-ds-Pc3" kind="show" identifier="toProgramStepContent" id="b9t-rl-ZKV"/>
                         <segue destination="wqb-KH-Syt" kind="show" identifier="toFAQ" id="1vd-IC-AXY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDP-i5-CQ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3524" y="-313"/>
+            <point key="canvasLocation" x="3580" y="36"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gPS-g7-Scg">
@@ -181,10 +180,10 @@
                         <viewLayoutGuide key="safeArea" id="5OI-f4-96a"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="SGd-H1-Z0T" firstAttribute="height" secondItem="ZSp-VZ-KIt" secondAttribute="height" multiplier="0.75" id="8fF-RQ-r0w"/>
-                            <constraint firstItem="SGd-H1-Z0T" firstAttribute="centerX" secondItem="5OI-f4-96a" secondAttribute="centerX" id="ReX-O6-4Bw"/>
-                            <constraint firstItem="SGd-H1-Z0T" firstAttribute="width" secondItem="ZSp-VZ-KIt" secondAttribute="width" multiplier="0.85" id="i5J-tv-OIB"/>
-                            <constraint firstItem="SGd-H1-Z0T" firstAttribute="centerY" secondItem="5OI-f4-96a" secondAttribute="centerY" id="tn4-p2-p1m"/>
+                            <constraint firstItem="SGd-H1-Z0T" firstAttribute="height" secondItem="ZSp-VZ-KIt" secondAttribute="height" multiplier="0.75" id="IQy-54-TEx"/>
+                            <constraint firstItem="SGd-H1-Z0T" firstAttribute="centerX" secondItem="5OI-f4-96a" secondAttribute="centerX" id="JOB-S1-PNd"/>
+                            <constraint firstItem="SGd-H1-Z0T" firstAttribute="centerY" secondItem="5OI-f4-96a" secondAttribute="centerY" id="NMq-cC-yxX"/>
+                            <constraint firstItem="SGd-H1-Z0T" firstAttribute="width" secondItem="ZSp-VZ-KIt" secondAttribute="width" multiplier="0.85" id="esB-ZC-3CG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LaQ-Yb-cHl"/>
@@ -195,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLM-h8-Q0d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4394" y="-313"/>
+            <point key="canvasLocation" x="4479" y="37"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="HwH-dg-apX">
@@ -266,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFv-pj-VQ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3524" y="401"/>
+            <point key="canvasLocation" x="3580" y="803"/>
         </scene>
         <!--Item-->
         <scene sceneID="Mgs-Vh-5zq">
@@ -289,7 +288,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dAk-jv-Qkw"/>
+        <segue reference="b9t-rl-ZKV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

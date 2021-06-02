@@ -12,22 +12,21 @@ class FAQViewController: UIViewController {
         }
     }
     
-    var faqSteps = [CustomCell]()
-    var content = [String]()
+    var faqSteps = [FAQsteps]()
     var index = Int()
+    var content = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Constants.Segues.toFAQContent:
             guard let destinationVC = segue.destination as? ContentViewController else { return }
-            destinationVC.content = content
             destinationVC.index = index
+            destinationVC.content = content
         default:
             break
         }
@@ -43,17 +42,20 @@ extension FAQViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.customCell, for: indexPath) as? MyTableViewCell else { return UITableViewCell() }
+        content.removeAll()
         let result = faqSteps[indexPath.row]
-        cell.titleLabel.text = result.title.rawValue.localized
-        cell.indicatorImage.image = UIImage(named: result.indicatorName.rawValue)
-        cell.descriptionLabel.text = result.description.rawValue.localized
+        cell.titleLabel.text = result.rawValue
+        cell.descriptionLabel.text = nil
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index = indexPath.row
-        let title = faqSteps.map { $0.title.rawValue }
-        content = title
+        for step in faqSteps {
+            let stepString = step.rawValue
+            content.append(stepString)
+        }
         tableView.deselectRow(at: indexPath, animated: false)
+        performSegue(withIdentifier: Constants.Segues.toFAQContent, sender: nil)
     }
 }

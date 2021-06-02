@@ -5,7 +5,7 @@ class SelectDroneAndProgramViewController: UIViewController {
     
     @IBOutlet weak var dronesDropDown: DropDown! {
         didSet {
-            defineAvailableDronesAndPrograms()
+            defineAvailableDronesAndMappingSources()
             setUp(dropDown: dronesDropDown, placeholder: LocalizedKeys.Placeholders.dronesDropDown)
         }
     }
@@ -30,21 +30,15 @@ class SelectDroneAndProgramViewController: UIViewController {
     var selectedProgram: Program?
     
     lazy var checklist =
-        Checklist(drones: [
-//                    Drone(name: .mavic2pro, availablePrograms: [
-//                            Program(name: .basic, software: .djiGo4, description: ([.registration], [.weatherForecastCheck, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .manualTakeOff])),
-//                            Program(name: .advanced, software: .djiGsPro, description: ([.registration], [.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
-//                            Program(name: .pro, software: .djiGsPro, description: ([.registration], [.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
-//                     Drone(name: .phantom4rtk, availablePrograms: [
-//                            Program(name: .advanced, software: .djiGsRtk, description: ([.registration], [.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
-//                            Program(name: .pro, software: .djiGsRtk, description: ([.registration], [.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
-//                     Drone(name: .matrice300rtk, availablePrograms: [
-//                            Program(name: .basic, software: .djiPilot, description: ([.quickStartGuide], [.weatherForecastCheck, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .manualTakeOff])),
-//                            Program(name: .advanced, software: .djiPilot, description: ([.quickStartGuide], [.weatherForecastCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff])),
-//                            Program(name: .pro, software: .djiPilot, description: ([.quickStartGuide], [.weatherForecastCheck, .nfzCheck, .missionPlanning, .inBoxCheck], [.locateLaunchPoint, .assemble, .homePointCheck, .failsafeCheck, .compassCalibration, .autoTakeOff]))]),
-                     Drone(name: .xagXp2020, availablePrograms: [
-                            Program(name: .xrtk4, software: .xagAgri, description: ([.quickStartGuide], [.weatherForecastCheck, .inBoxCheck], [.surveying, .locateLaunchPoint, .assemble, .autoTakeOff])),
-                            Program(name: .xmission, software: .xagAgri, description: ([.quickStartGuide], [.weatherForecastCheck, .inBoxCheck], [.surveying, .locateLaunchPoint, .assemble, .autoTakeOff]))])])
+        Checklist(drones: [Drone(name: .xagXp2020, availablePrograms: [
+                                    Program(mappingSource: .xrtk4, sections: [
+                                                Sections(sectionTitle: .quickStartGuideSectionTitle, sectionDescription: .quickStartGuideSectionDescription, sectionContent: [.inTheBox, .softwareInstall, .hardwareActivation, .rolesDistribution, .acb1, .pairing, .fields, .operation, .preflightCheck, .settingMissionParams, .launch, .maintenance, .FAQ]),
+                                                Sections(sectionTitle: .indoorSectionTitle, sectionDescription: .indoorSectionDescription, sectionContent: [.weatherForecastCheck, .inBoxCheck]),
+                                                Sections(sectionTitle: .outdoorSectionTitle, sectionDescription: .outdoorSectionDescription, sectionContent: [.locateLaunchPoint, .surveyingXrtk4, .assemble, .failsafeCheck, .missionPlanning, .autoTakeOff])]),
+                                    Program(mappingSource: .xmission, sections: [
+                                                Sections(sectionTitle: .quickStartGuideSectionTitle, sectionDescription: .quickStartGuideSectionDescription, sectionContent: [.inTheBox, .softwareInstall, .hardwareActivation, .rolesDistribution, .acb1, .pairing, .fields, .operation, .preflightCheck, .settingMissionParams, .launch, .maintenance, .FAQ]),
+                                                Sections(sectionTitle: .indoorSectionTitle, sectionDescription: .indoorSectionDescription, sectionContent: [.weatherForecastCheck, .inBoxCheck]),
+                                                Sections(sectionTitle: .outdoorSectionTitle, sectionDescription: .outdoorSectionDescription, sectionContent: [.locateLaunchPoint, .surveyingXmission, .assemble, .failsafeCheck, .missionPlanning, .autoTakeOff])])])])
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -53,17 +47,18 @@ class SelectDroneAndProgramViewController: UIViewController {
             destinationVC.selectedDrone = selectedDrone
             guard let program = selectedProgram else { return }
             destinationVC.selectedDrone?.availablePrograms = [program]
+            destinationVC.dataSource = program.sections
         default:
-            break
+                break
         }
     }
     
-    func defineAvailableDronesAndPrograms() {
+    func defineAvailableDronesAndMappingSources() {
         let dronesList = checklist.drones.map { $0.name.rawValue }
         dronesDropDown.optionArray = dronesList
         dronesDropDown.didSelect { [weak self] (name, index, _) in
             self?.selectedDrone = self?.checklist.defineSelectedDrone(at: index)
-            self?.programsDropDown.optionArray = self!.checklist.defineAvailablePrograms(drone: self!.selectedDrone!)
+            self?.programsDropDown.optionArray = self!.checklist.defineAvailableMappingSources(drone: self!.selectedDrone!)
             self?.mainImageView.image = UIImage(named: name)
             self?.resetBorder(dropDown: self!.dronesDropDown)
             self?.programsDropDown.text = ""

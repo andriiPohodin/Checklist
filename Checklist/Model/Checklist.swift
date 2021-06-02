@@ -14,11 +14,11 @@ class Checklist {
         return program
     }
     
-    func defineAvailablePrograms(drone: Drone) -> [String] {
+    func defineAvailableMappingSources(drone: Drone) -> [String] {
         let drone = drone
         let programs = drone.availablePrograms
-        let programNames = programs.map { $0.name.rawValue.localized }
-        return programNames
+        let mappingSources = programs.map { $0.mappingSource.rawValue.localized }
+        return mappingSources
     }
     
     init (drones: [Drone]) {
