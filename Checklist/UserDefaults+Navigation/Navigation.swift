@@ -11,13 +11,13 @@ class Navigation {
     }
     
     static func goToMainVC() {
-        guard let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: Bundle.main).instantiateInitialViewController() else { return }
+        guard let vc = UIStoryboard(name: Constants.Storyboard.main, bundle: nil).instantiateInitialViewController() else { return }
         UIApplication.shared.windows.first?.rootViewController = vc
     }
     
     static func goToFirstVC() {
         UserSettings.removeUserData()
-        guard let vc = UIStoryboard(name: Constants.Storyboard.logIn, bundle: Bundle.main).instantiateInitialViewController() else { return }
+        guard let vc = UIStoryboard(name: Constants.Storyboard.logIn, bundle: nil).instantiateInitialViewController() else { return }
         UIApplication.shared.windows.first?.rootViewController = vc
     }
 }

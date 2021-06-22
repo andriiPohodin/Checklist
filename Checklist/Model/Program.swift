@@ -12,15 +12,15 @@ struct Sections {
 }
 
 enum SectionTitle: String {
-    case quickStartGuideSectionTitle = "quickStartGuideSection"
-    case indoorSectionTitle = "indoorSection"
-    case outdoorSectionTitle = "outdoorSection"
+    case quickStartGuideSectionTitle = "quickStartGuideSectionTitle"
+    case indoorSectionTitle = "indoorSectionTitle"
+    case outdoorSectionTitle = "outdoorSectionTitle"
 }
 
 enum SectionDescription: String {
-    case quickStartGuideSectionDescription = "quickStartGuideDescription"
-    case indoorSectionDescription = "indoorDescription"
-    case outdoorSectionDescription = "outdoorDescription"
+    case quickStartGuideSectionDescription = "quickStartGuideSectionDescription"
+    case indoorSectionDescription = "indoorSectionDescription"
+    case outdoorSectionDescription = "outdoorSectionDescription"
 }
 
 enum MappingSource: String {
@@ -43,16 +43,16 @@ enum SectionContent: String {
     case maintenance = "maintenance"
     case FAQ = "FAQ"
     
-    case weatherForecastCheck = "ForecastCheck"
-    case inBoxCheck = "InBoxCheck"
+    case weatherForecastCheck = "weatherForecastCheck"
+    case inBoxCheck = "inBoxCheck"
     
-    case locateLaunchPoint = "LaunchPoint"
+    case locateLaunchPoint = "locateLaunchPoint"
     case surveyingXrtk4 = "surveyingXrtk4"
     case surveyingXmission = "surveyingXmission"
-    case assemble = "Assemble"
-    case failsafeCheck = "FailsafeCheck"
-    case missionPlanning = "MissionPlanning"
-    case autoTakeOff = "AutoTakeOff"
+    case assemble = "assemble"
+    case failsafeCheck = "failsafeCheck"
+    case missionPlanning = "missionPlanning"
+    case autoTakeOff = "autoTakeOff"
 }
 
 enum Indicators: String {

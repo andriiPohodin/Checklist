@@ -2,7 +2,7 @@ import Foundation
 
 struct Drone {
     let name: Name
-    var availablePrograms: [Program]
+    var availableMappingSources: [Program]
 }
 
 enum Name: String {

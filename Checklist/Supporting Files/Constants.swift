@@ -1,7 +1,7 @@
 import Foundation
 
 struct Constants {
-    static let storageRef = "gs://preflightchecklist-323e2.appspot.com/profile"
+    static let storageRef = "gs://xag-manual.appspot.com/profile"
     static let disclosureIndicator = "disclosureIndicator"
     
     struct Storyboard {

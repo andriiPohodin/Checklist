@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1827CF7DC441388BCD4EFB23 /* Pods_Checklist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA730AE8023FD7EE14F9E606 /* Pods_Checklist.framework */; };
+		1857A9D02670DB9600A57D7A /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9CF2670DB9600A57D7A /* FirstScreenViewController.swift */; };
+		1857A9D22670DBB600A57D7A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9D12670DBB600A57D7A /* SignUpViewController.swift */; };
+		1857A9D42670DBC100A57D7A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9D32670DBC100A57D7A /* LogInViewController.swift */; };
+		1857A9D62670DBDC00A57D7A /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9D52670DBDC00A57D7A /* ForgotPasswordViewController.swift */; };
+		1857A9D9267B7DB700A57D7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1857A9D8267B7DB700A57D7A /* GoogleService-Info.plist */; };
 		185D93B6264D17690031A6F8 /* ContentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D93B5264D17690031A6F8 /* ContentsTableViewController.swift */; };
 		185D93B9264D40A70031A6F8 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D93B8264D40A70031A6F8 /* FAQViewController.swift */; };
 		1880BD9025D6D71B004B6BFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880BD8F25D6D71B004B6BFE /* AppDelegate.swift */; };
@@ -23,6 +28,7 @@
 		188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4A25F578F30060E34E /* LocalizedKeys.swift */; };
 		18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */; };
 		18A0772025EE5677005E7C20 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771F25EE5677005E7C20 /* ContentViewController.swift */; };
+		18BFFDFE267BE6430087421C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFFDFD267BE6430087421C /* AccountViewController.swift */; };
 		18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */; };
 		18DCB76025EF7E1500AE1463 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */; };
 		18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB76D25F1366900AE1463 /* String+localized.swift */; };
@@ -36,6 +42,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1857A9CF2670DB9600A57D7A /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
+		1857A9D12670DBB600A57D7A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1857A9D32670DBC100A57D7A /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		1857A9D52670DBDC00A57D7A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		1857A9D8267B7DB700A57D7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		185D93B5264D17690031A6F8 /* ContentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsTableViewController.swift; sourceTree = "<group>"; };
 		185D93B8264D40A70031A6F8 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		1880BD8C25D6D71B004B6BFE /* Checklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +66,7 @@
 		188BBF4A25F578F30060E34E /* LocalizedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedKeys.swift; sourceTree = "<group>"; };
 		18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPartSelectionViewController.swift; sourceTree = "<group>"; };
 		18A0771F25EE5677005E7C20 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		18BFFDFD267BE6430087421C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 		18DCB76D25F1366900AE1463 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
@@ -85,19 +97,49 @@
 		183C088425EE2E980025D57F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				18DCB77C25F13B6D00AE1463 /* Media */,
 				1880BD8F25D6D71B004B6BFE /* AppDelegate.swift */,
 				1880BD9125D6D71B004B6BFE /* SceneDelegate.swift */,
 				1880BD9B25D6D727004B6BFE /* Assets.xcassets */,
 				1880BD9D25D6D727004B6BFE /* LaunchScreen.storyboard */,
 				18DCB76D25F1366900AE1463 /* String+localized.swift */,
 				18DCB77025F136BF00AE1463 /* Constants.swift */,
-				18DCB77325F138E600AE1463 /* UserDefaults.swift */,
-				18DCB77625F1395E00AE1463 /* Navigation.swift */,
 				18DCB77925F13AF400AE1463 /* PasswordValidator.swift */,
 				188BBF4A25F578F30060E34E /* LocalizedKeys.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1857A9CD2670DB3300A57D7A /* LogInSB */ = {
+			isa = PBXGroup;
+			children = (
+				1857A9CF2670DB9600A57D7A /* FirstScreenViewController.swift */,
+				1857A9D12670DBB600A57D7A /* SignUpViewController.swift */,
+				1857A9D32670DBC100A57D7A /* LogInViewController.swift */,
+				1857A9D52670DBDC00A57D7A /* ForgotPasswordViewController.swift */,
+			);
+			path = LogInSB;
+			sourceTree = "<group>";
+		};
+		1857A9CE2670DB4300A57D7A /* MainSB */ = {
+			isa = PBXGroup;
+			children = (
+				1880BD9325D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift */,
+				18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */,
+				185D93B5264D17690031A6F8 /* ContentsTableViewController.swift */,
+				185D93B8264D40A70031A6F8 /* FAQViewController.swift */,
+				18A0771F25EE5677005E7C20 /* ContentViewController.swift */,
+				18BFFDFD267BE6430087421C /* AccountViewController.swift */,
+			);
+			path = MainSB;
+			sourceTree = "<group>";
+		};
+		1857A9D7267138C500A57D7A /* UserDefaults+Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				18DCB77325F138E600AE1463 /* UserDefaults.swift */,
+				18DCB77625F1395E00AE1463 /* Navigation.swift */,
+			);
+			path = "UserDefaults+Navigation";
 			sourceTree = "<group>";
 		};
 		1880BD8325D6D71B004B6BFE = {
@@ -127,7 +169,10 @@
 				18DCB76425EF86E200AE1463 /* MyTableViewCell */,
 				18DCB78825F37D7600AE1463 /* Localizable.strings */,
 				183C088425EE2E980025D57F /* Supporting Files */,
+				1857A9D7267138C500A57D7A /* UserDefaults+Navigation */,
+				18DCB77C25F13B6D00AE1463 /* Media */,
 				1880BDA025D6D727004B6BFE /* Info.plist */,
+				1857A9D8267B7DB700A57D7A /* GoogleService-Info.plist */,
 				1880BD9825D6D71B004B6BFE /* Checklist.xcdatamodeld */,
 			);
 			path = Checklist;
@@ -146,11 +191,8 @@
 		18A0771925EE5561005E7C20 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1880BD9325D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift */,
-				18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */,
-				185D93B5264D17690031A6F8 /* ContentsTableViewController.swift */,
-				185D93B8264D40A70031A6F8 /* FAQViewController.swift */,
-				18A0771F25EE5677005E7C20 /* ContentViewController.swift */,
+				1857A9CE2670DB4300A57D7A /* MainSB */,
+				1857A9CD2670DB3300A57D7A /* LogInSB */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -266,6 +308,7 @@
 				1880BD9725D6D71B004B6BFE /* Main.storyboard in Resources */,
 				18DCB78125F13CAC00AE1463 /* LogIn.storyboard in Resources */,
 				18DCB77E25F13B9200AE1463 /* My Movie.mp4 in Resources */,
+				1857A9D9267B7DB700A57D7A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,19 +363,24 @@
 			files = (
 				1880BD9A25D6D71B004B6BFE /* Checklist.xcdatamodeld in Sources */,
 				188BBF3925F3FC570060E34E /* Checklist.swift in Sources */,
+				1857A9D62670DBDC00A57D7A /* ForgotPasswordViewController.swift in Sources */,
 				18A0772025EE5677005E7C20 /* ContentViewController.swift in Sources */,
 				1880BDA825D6D77E004B6BFE /* Drone.swift in Sources */,
 				1880BD9425D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift in Sources */,
 				18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */,
 				185D93B6264D17690031A6F8 /* ContentsTableViewController.swift in Sources */,
+				1857A9D02670DB9600A57D7A /* FirstScreenViewController.swift in Sources */,
 				18DCB77125F136BF00AE1463 /* Constants.swift in Sources */,
 				18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */,
 				1880BD9025D6D71B004B6BFE /* AppDelegate.swift in Sources */,
 				188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */,
 				185D93B9264D40A70031A6F8 /* FAQViewController.swift in Sources */,
 				18DCB77A25F13AF400AE1463 /* PasswordValidator.swift in Sources */,
+				1857A9D22670DBB600A57D7A /* SignUpViewController.swift in Sources */,
+				18BFFDFE267BE6430087421C /* AccountViewController.swift in Sources */,
 				18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */,
 				188BBF4125F5284D0060E34E /* Program.swift in Sources */,
+				1857A9D42670DBC100A57D7A /* LogInViewController.swift in Sources */,
 				18DCB77725F1395E00AE1463 /* Navigation.swift in Sources */,
 				18DCB77425F138E600AE1463 /* UserDefaults.swift in Sources */,
 				1880BD9225D6D71B004B6BFE /* SceneDelegate.swift in Sources */,

@@ -5,8 +5,13 @@ target 'Checklist' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+
   # Pods for Checklist
 
-	pod 'iOSDropDown'
+pod 'iOSDropDown'
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
+pod 'Firebase/Database'
 
 end

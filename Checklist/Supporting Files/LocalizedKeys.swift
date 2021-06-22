@@ -3,7 +3,7 @@ import Foundation
 struct LocalizedKeys {
     struct Placeholders {
         static let dronesDropDown = "selectDrone".localized
-        static let programsDropDown = "selectProgram".localized
+        static let mappingSourcesDropDown = "selectProgram".localized
     }
     struct BtnTitles {
         static let nextBtn = "nextBtnTitle".localized

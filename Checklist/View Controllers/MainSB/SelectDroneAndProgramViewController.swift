@@ -14,10 +14,10 @@ class SelectDroneAndProgramViewController: UIViewController {
             mainImageView.image = UIImage(named: LocalizedKeys.ImgNames.mainImageView)
         }
     }
-    @IBOutlet weak var programsDropDown: DropDown! {
+    @IBOutlet weak var mappingSourcesDropDown: DropDown! {
         didSet {
-            specifyProgramName()
-            setUp(dropDown: programsDropDown, placeholder: LocalizedKeys.Placeholders.programsDropDown)
+            specifyMappingSourceName()
+            setUp(dropDown: mappingSourcesDropDown, placeholder: LocalizedKeys.Placeholders.mappingSourcesDropDown)
         }
     }
     @IBOutlet weak var nextBtn: UIButton! {
@@ -27,10 +27,10 @@ class SelectDroneAndProgramViewController: UIViewController {
     }
     
     var selectedDrone: Drone?
-    var selectedProgram: Program?
+    var selectedMappingSource: Program?
     
     lazy var checklist =
-        Checklist(drones: [Drone(name: .xagXp2020, availablePrograms: [
+        Checklist(drones: [Drone(name: .xagXp2020, availableMappingSources: [
                                     Program(mappingSource: .xrtk4, sections: [
                                                 Sections(sectionTitle: .quickStartGuideSectionTitle, sectionDescription: .quickStartGuideSectionDescription, sectionContent: [.inTheBox, .softwareInstall, .hardwareActivation, .rolesDistribution, .acb1, .pairing, .fields, .operation, .preflightCheck, .settingMissionParams, .launch, .maintenance, .FAQ]),
                                                 Sections(sectionTitle: .indoorSectionTitle, sectionDescription: .indoorSectionDescription, sectionContent: [.weatherForecastCheck, .inBoxCheck]),
@@ -45,9 +45,9 @@ class SelectDroneAndProgramViewController: UIViewController {
         case Constants.Segues.toProgramPartSelection:
             guard let destinationVC = segue.destination as? ProgramPartSelectionViewController else { return }
             destinationVC.selectedDrone = selectedDrone
-            guard let program = selectedProgram else { return }
-            destinationVC.selectedDrone?.availablePrograms = [program]
-            destinationVC.dataSource = program.sections
+            guard let mappingSource = selectedMappingSource else { return }
+            destinationVC.selectedDrone?.availableMappingSources = [mappingSource]
+            destinationVC.sections = mappingSource.sections
         default:
                 break
         }
@@ -58,20 +58,20 @@ class SelectDroneAndProgramViewController: UIViewController {
         dronesDropDown.optionArray = dronesList
         dronesDropDown.didSelect { [weak self] (name, index, _) in
             self?.selectedDrone = self?.checklist.defineSelectedDrone(at: index)
-            self?.programsDropDown.optionArray = self!.checklist.defineAvailableMappingSources(drone: self!.selectedDrone!)
+            self?.mappingSourcesDropDown.optionArray = self!.checklist.defineAvailableMappingSources(drone: self!.selectedDrone!)
             self?.mainImageView.image = UIImage(named: name)
             self?.resetBorder(dropDown: self!.dronesDropDown)
-            self?.programsDropDown.text = ""
-            self?.programsDropDown.selectedRowColor = .clear
+            self?.mappingSourcesDropDown.text = ""
+            self?.mappingSourcesDropDown.selectedRowColor = .clear
         }
     }
     
-    func specifyProgramName() {
-        programsDropDown.didSelect { [weak self] (_, index, _) in
+    func specifyMappingSourceName() {
+        mappingSourcesDropDown.didSelect { [weak self] (_, index, _) in
             if self?.selectedDrone != nil {
-                self?.selectedProgram = self?.checklist.defineSelectedProgram(at: index, from: self!.selectedDrone!)
-                self?.resetBorder(dropDown: self!.programsDropDown)
-                self?.programsDropDown.selectedRowColor = .systemGray4
+                self?.selectedMappingSource = self?.checklist.defineSelectedMappingSource(at: index, from: self!.selectedDrone!)
+                self?.resetBorder(dropDown: self!.mappingSourcesDropDown)
+                self?.mappingSourcesDropDown.selectedRowColor = .systemGray4
             }
         }
     }
@@ -99,10 +99,10 @@ class SelectDroneAndProgramViewController: UIViewController {
     func validateRequiredInfoInput() {
         if dronesDropDown.text == "" {
             markBorder(dropDown: dronesDropDown)
-            markBorder(dropDown: programsDropDown)
+            markBorder(dropDown: mappingSourcesDropDown)
         }
-        if programsDropDown.text == "" {
-            markBorder(dropDown: programsDropDown)
+        if mappingSourcesDropDown.text == "" {
+            markBorder(dropDown: mappingSourcesDropDown)
         }
         else {
             performSegue(withIdentifier: Constants.Segues.toProgramPartSelection, sender: nil)

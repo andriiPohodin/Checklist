@@ -1,8 +1,7 @@
-
 import UIKit
 
-class FAQViewController: UIViewController {
-
+class ProgramPartSelectionViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             let nib = UINib(nibName: Constants.Identifiers.customCell, bundle: nil)
@@ -12,50 +11,44 @@ class FAQViewController: UIViewController {
         }
     }
     
-    var faqSteps = [FAQsteps]()
-    var index = Int()
-    var content = [String]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
+    var selectedDrone: Drone?
+    var sections = [Sections]()
+    var selectedSectionContent = [SectionContent]()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case Constants.Segues.toFAQContent:
-            guard let destinationVC = segue.destination as? ContentViewController else { return }
-            destinationVC.index = index
-            destinationVC.content = content
+        case Constants.Segues.toContentsTable:
+            guard let destinationVC = segue.destination as? ContentsTableViewController else { return }
+            destinationVC.content = selectedSectionContent
+            destinationVC.selectedDroneName = selectedDrone?.name
         default:
             break
         }
     }
-
 }
 
-extension FAQViewController: UITableViewDelegate, UITableViewDataSource {
+extension ProgramPartSelectionViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return faqSteps.count
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.customCell, for: indexPath) as? MyTableViewCell else { return UITableViewCell() }
-        content.removeAll()
-        let result = faqSteps[indexPath.row]
-        cell.titleLabel.text = result.rawValue
-        cell.descriptionLabel.text = nil
+        let section = sections[indexPath.row]
+        cell.titleLabel.text = section.sectionTitle.rawValue.localized
+        cell.indicatorImage.image = UIImage(named: Indicators.disclosure.rawValue)
+        cell.descriptionLabel.text = section.sectionDescription.rawValue.localized
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        index = indexPath.row
-        for step in faqSteps {
-            let stepString = step.rawValue
-            content.append(stepString)
-        }
+        let selectedSection = sections[indexPath.row]
+        selectedSectionContent = selectedSection.sectionContent
         tableView.deselectRow(at: indexPath, animated: false)
-        performSegue(withIdentifier: Constants.Segues.toFAQContent, sender: nil)
+        performSegue(withIdentifier: Constants.Segues.toContentsTable, sender: nil)
+
     }
 }
+
+

@@ -12,15 +12,15 @@ class ContentsTableViewController: UIViewController {
     }
     
     var selectedDroneName: Name?
-    var dataSource = [SectionContent]()
-    var content = [String]()
+    var content = [SectionContent]()
+    var contentString = [String]()
     var index = Int()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Constants.Segues.toProgramStepContent:
             guard let destinationVC = segue.destination as? ContentViewController else { return }
-            destinationVC.content = content
+            destinationVC.content = contentString
             destinationVC.index = index
         case Constants.Segues.toFAQ:
             guard let destinationVC = segue.destination as? FAQViewController else { return }
@@ -37,29 +37,29 @@ class ContentsTableViewController: UIViewController {
 extension ContentsTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return content.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.customCell, for: indexPath) as? MyTableViewCell else { return UITableViewCell() }
-        let result = dataSource[indexPath.row]
-        cell.titleLabel.text = result.rawValue
+        let content = content[indexPath.row]
+        cell.titleLabel.text = content.rawValue.localized
         cell.descriptionLabel.text = nil
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        content.removeAll()
+        contentString.removeAll()
         index = indexPath.row
-        let selectedRow = dataSource[index]
+        let selectedRow = content[index]
         switch selectedRow {
         case .FAQ:
             performSegue(withIdentifier: Constants.Segues.toFAQ, sender: nil)
         default:
             guard let selectedDroneNameString = selectedDroneName?.rawValue else { return }
-            for step in dataSource {
+            for step in content {
                 let stepString = step.rawValue
-                content.append(selectedDroneNameString + stepString)
+                contentString.append(selectedDroneNameString + stepString)
             }
             performSegue(withIdentifier: Constants.Segues.toProgramStepContent, sender: nil)
         }

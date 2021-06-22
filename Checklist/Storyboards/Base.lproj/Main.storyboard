@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Select Drone And Program View Controller-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SelectDroneAndProgramViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectDroneAndProgramViewController" id="BYZ-38-t0r" customClass="SelectDroneAndProgramViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3N-9b-J9b">
-                                <rect key="frame" x="255" y="597" width="100" height="50"/>
+                                <rect key="frame" x="255" y="548" width="100" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="OdC-x7-Q8C"/>
@@ -85,23 +85,75 @@
                             <constraint firstItem="OIZ-f2-n5f" firstAttribute="bottom" secondItem="l3N-9b-J9b" secondAttribute="bottom" constant="20" id="mYO-YT-dJg"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="cRt-tG-6ws"/>
                     <navigationItem key="navigationItem" id="vqE-aV-IJg"/>
                     <connections>
                         <outlet property="dronesDropDown" destination="ejl-4R-OP7" id="lfg-J0-6ny"/>
                         <outlet property="mainImageView" destination="Gbq-Oc-Hgo" id="jha-Va-ghf"/>
+                        <outlet property="mappingSourcesDropDown" destination="FLK-ut-2OS" id="rhc-UP-MNB"/>
                         <outlet property="nextBtn" destination="l3N-9b-J9b" id="1sF-HA-mdq"/>
-                        <outlet property="programsDropDown" destination="FLK-ut-2OS" id="rhc-UP-MNB"/>
                         <segue destination="x7j-8H-xGd" kind="show" identifier="toProgramPartSelection" id="bId-cr-XqP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1732" y="37.331334332833585"/>
+            <point key="canvasLocation" x="2671.1999999999998" y="37.331334332833585"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="BQF-2a-U15">
+            <objects>
+                <viewController storyboardIdentifier="AccountViewController" id="zD4-VZ-ImC" customClass="AccountViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TI6-Dg-oX6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhs-l6-ous">
+                                <rect key="frame" x="137.5" y="281" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="dYk-iU-dq7"/>
+                                    <constraint firstAttribute="height" constant="100" id="hXR-0d-Zer"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logOutBtnAction:" destination="zD4-VZ-ImC" eventType="touchUpInside" id="WeJ-Lh-48C"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XeV-pK-7HV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hhs-l6-ous" firstAttribute="centerX" secondItem="XeV-pK-7HV" secondAttribute="centerX" id="4Jz-Jh-i3O"/>
+                            <constraint firstItem="hhs-l6-ous" firstAttribute="centerY" secondItem="XeV-pK-7HV" secondAttribute="centerY" id="Y2A-z0-Vsf"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" id="f2s-d5-520"/>
+                    <connections>
+                        <outlet property="logOutBtn" destination="hhs-l6-ous" id="YpL-Tn-wYu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="APD-EQ-RYd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2671" y="806"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="w6d-Mj-eg0">
+            <objects>
+                <viewController id="2D5-vD-S9U" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iGF-fi-tUW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="SqO-6J-CFv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sa-Em-lYD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3612" y="806"/>
         </scene>
         <!--Program Part Selection View Controller-->
         <scene sceneID="3M8-Ss-iGR">
             <objects>
-                <viewController id="x7j-8H-xGd" customClass="ProgramPartSelectionViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProgramPartSelectionViewController" id="x7j-8H-xGd" customClass="ProgramPartSelectionViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Doe-AR-Cmj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,12 +181,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Eb-Hq-LTA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2672.8000000000002" y="36.431784107946029"/>
+            <point key="canvasLocation" x="3612" y="36.431784107946029"/>
         </scene>
         <!--Contents Table View Controller-->
         <scene sceneID="LRF-qV-A2E">
             <objects>
-                <viewController id="vnF-r2-CFG" customClass="ContentsTableViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContentsTableViewController" id="vnF-r2-CFG" customClass="ContentsTableViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mMt-eB-IPM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,12 +214,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HDP-i5-CQ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3580" y="36"/>
+            <point key="canvasLocation" x="4519.1999999999998" y="35.532233883058474"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gPS-g7-Scg">
             <objects>
-                <viewController id="wqb-KH-Syt" customClass="FAQViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FAQViewController" id="wqb-KH-Syt" customClass="FAQViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZSp-VZ-KIt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,12 +246,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLM-h8-Q0d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4479" y="37"/>
+            <point key="canvasLocation" x="5416.8000000000002" y="36.431784107946029"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="HwH-dg-apX">
             <objects>
-                <viewController id="9D4-ds-Pc3" customClass="ContentViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContentViewController" id="9D4-ds-Pc3" customClass="ContentViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MYc-nY-egt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -265,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFv-pj-VQ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3580" y="803"/>
+            <point key="canvasLocation" x="5417" y="807"/>
         </scene>
         <!--Item-->
         <scene sceneID="Mgs-Vh-5zq">
@@ -279,18 +331,40 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CQj-cx-x57"/>
+                        <segue destination="JVP-t9-tcH" kind="relationship" relationship="rootViewController" id="CQj-cx-x57"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71a-Qc-NRb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="792.79999999999995" y="37.331334332833585"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="0ki-8n-slQ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JVP-t9-tcH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="3EB-Kt-j69"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BZm-24-udw">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="nY9-Ph-Ft4"/>
+                        <segue destination="zD4-VZ-ImC" kind="relationship" relationship="viewControllers" id="ArB-QO-ZhX"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RDj-fm-eCS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1732" y="37.331334332833585"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="b9t-rl-ZKV"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
