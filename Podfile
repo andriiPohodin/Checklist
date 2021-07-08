@@ -13,5 +13,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
+pod 'SPPermissions/Camera'
+pod 'SPPermissions/PhotoLibrary'
 
 end

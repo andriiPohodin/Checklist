@@ -27,10 +27,6 @@ class FirstScreenViewController: UIViewController {
     }
     var playerLooper: AVPlayerLooper?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     func setUpVideo() {
         guard let bundlePath = Bundle.main.path(forResource: "My Movie", ofType: "mp4") else { return }
         let url = URL(fileURLWithPath: bundlePath)

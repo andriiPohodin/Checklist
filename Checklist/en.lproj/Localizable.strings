@@ -3,18 +3,22 @@
 "confirm" = "Confirm";
 "name" = "Name";
 "phone" = "Phone number";
+"corporation" = "Corporation";
 "email" = "Email";
 "password" = "Password";
 "confirmPassword" = "Confirm password";
 "forgotPassword" = "Forgot password?";
 "resetPassword" = "Reset password";
 "resetTitle" = "Check your email";
-"resetMessage" = "We've sent you a new password";
+"resetMessage" = "We've sent you further instructions";
 "error" = "Error";
 "fillInAllFields" = "Please, fill in all fields";
 "passwordsDoNotMatch" = "Passwords don't match";
 "passwordShouldContain" = "Password should contain...";
 "wrongPassword" = "Wrong password";
+"signOut" = "Sign out";
+"changeName" = "Change name";
+"changePassword" = "Change password";
 
 "selectDrone" = "Select a drone";
 "selectProgram" = "Mapping source";

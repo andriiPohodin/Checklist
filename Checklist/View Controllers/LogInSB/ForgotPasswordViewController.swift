@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 class ForgotPasswordViewController: UIViewController {
     
@@ -40,6 +41,12 @@ class ForgotPasswordViewController: UIViewController {
             }
         }
         else {
+            guard let email = emailTF.text else { return }
+            Auth.auth().sendPasswordReset(withEmail: email) { err in
+                if err != nil {
+                    print(err!.localizedDescription)
+                }
+            }
             let alert = UIAlertController(title: "resetTitle".localized, message: "resetMessage".localized, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
                 DispatchQueue.main.async {

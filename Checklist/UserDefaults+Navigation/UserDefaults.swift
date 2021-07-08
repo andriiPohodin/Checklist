@@ -1,7 +1,6 @@
 import Foundation
 
 class UserSettings {
-    
     static let defaults = UserDefaults.standard
     static let userName = "user"
     static let currentUserUid = "currentUserUid"
@@ -14,5 +13,9 @@ class UserSettings {
     static func removeUserData() {
         defaults.removeObject(forKey: userName)
         defaults.removeObject(forKey: currentUserUid)
+    }
+    
+    static func changeUserName(newName: String) {
+        defaults.setValue(newName, forKey: userName)
     }
 }

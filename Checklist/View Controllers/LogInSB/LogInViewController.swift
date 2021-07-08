@@ -121,23 +121,6 @@ class LogInViewController: UIViewController {
                     self?.getUserData()
                     Navigation.goToMainVC()
                 }
-                //            if passwordTF.text == "1" {
-                //                Navigation.goToMainVC()
-                //            }
-                //            else {
-                //                let alert = UIAlertController(title: "error".localized, message: "wrongPassword".localized, preferredStyle: .alert)
-                //                let okAction = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
-                //                    DispatchQueue.main.async {
-                //                        self?.passwordTF.becomeFirstResponder()
-                //                    }
-                //                }
-                //                alert.addAction(okAction)
-                //                present(alert, animated: true) { [weak self] in
-                //                    DispatchQueue.main.async {
-                //                        self?.passwordTF.text = ""
-                //                        self?.changeTextFieldBorderWidth()
-                //                    }
-                //                }
             }
         }
     }

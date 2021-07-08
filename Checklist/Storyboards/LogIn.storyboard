@@ -94,12 +94,12 @@
                                             <constraint firstAttribute="height" constant="60" id="qjv-P5-QKq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PE7-0C-c2a">
                                         <rect key="frame" x="0.0" y="68" width="295" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AiY-Ug-Fas">
                                         <rect key="frame" x="50" y="136" width="195" height="60"/>
@@ -171,7 +171,7 @@
                                             <constraint firstAttribute="height" constant="60" id="u8R-5Q-QM8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtV-QV-rBA">
                                         <rect key="frame" x="50" y="68" width="195" height="60"/>
@@ -220,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="E3l-dC-ENc">
-                                <rect key="frame" x="40" y="84" width="295" height="400"/>
+                                <rect key="frame" x="40" y="84" width="295" height="468"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eFu-Mk-9h5">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="60"/>
@@ -228,30 +228,35 @@
                                             <constraint firstAttribute="height" constant="60" id="d8E-tZ-Pre"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" textContentType="name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ech-E3-9Vu">
                                         <rect key="frame" x="0.0" y="68" width="295" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CDo-5V-1SH">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Corporation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oto-yc-Z4L">
                                         <rect key="frame" x="0.0" y="136" width="295" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1aE-7N-zlm">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CDo-5V-1SH">
                                         <rect key="frame" x="0.0" y="204" width="295" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WfC-rz-Mxk">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1aE-7N-zlm">
                                         <rect key="frame" x="0.0" y="272" width="295" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WfC-rz-Mxk">
+                                        <rect key="frame" x="0.0" y="340" width="295" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHG-2F-yke">
-                                        <rect key="frame" x="50" y="340" width="195" height="60"/>
+                                        <rect key="frame" x="50" y="408" width="195" height="60"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Confirm">
@@ -263,9 +268,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="oto-yc-Z4L" firstAttribute="width" secondItem="eFu-Mk-9h5" secondAttribute="width" id="1RB-lH-tGE"/>
                                     <constraint firstItem="ech-E3-9Vu" firstAttribute="height" secondItem="eFu-Mk-9h5" secondAttribute="height" id="510-Jz-yha"/>
                                     <constraint firstAttribute="trailing" secondItem="eFu-Mk-9h5" secondAttribute="trailing" id="8vA-WX-3MM"/>
                                     <constraint firstItem="WfC-rz-Mxk" firstAttribute="height" secondItem="eFu-Mk-9h5" secondAttribute="height" id="989-2x-w64"/>
+                                    <constraint firstItem="oto-yc-Z4L" firstAttribute="height" secondItem="eFu-Mk-9h5" secondAttribute="height" id="9n7-ta-FO2"/>
                                     <constraint firstItem="1aE-7N-zlm" firstAttribute="width" secondItem="eFu-Mk-9h5" secondAttribute="width" id="GUp-Dh-Riz"/>
                                     <constraint firstItem="LHG-2F-yke" firstAttribute="width" secondItem="eFu-Mk-9h5" secondAttribute="width" multiplier="0.66" id="Ggu-vb-dPW"/>
                                     <constraint firstItem="CDo-5V-1SH" firstAttribute="height" secondItem="eFu-Mk-9h5" secondAttribute="height" id="JEA-Ve-xpQ"/>
@@ -290,6 +297,7 @@
                     <connections>
                         <outlet property="confirmBtn" destination="LHG-2F-yke" id="Rej-MP-Ill"/>
                         <outlet property="confirmPasswordTF" destination="WfC-rz-Mxk" id="eID-IX-bUS"/>
+                        <outlet property="corporationTF" destination="oto-yc-Z4L" id="rQZ-W3-Qvm"/>
                         <outlet property="emailTF" destination="CDo-5V-1SH" id="YwV-p8-MnZ"/>
                         <outlet property="nameTF" destination="eFu-Mk-9h5" id="NtO-3u-NjG"/>
                         <outlet property="passwordTF" destination="1aE-7N-zlm" id="GMK-O2-vI6"/>

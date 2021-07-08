@@ -314,6 +314,11 @@ PODS:
   - nanopb/decode (1.30905.0)
   - nanopb/encode (1.30905.0)
   - PromisesObjC (1.2.9)
+  - SPPermissions/Camera (6.5.4):
+    - SPPermissions/Core
+  - SPPermissions/Core (6.5.4)
+  - SPPermissions/PhotoLibrary (6.5.4):
+    - SPPermissions/Core
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -321,6 +326,8 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - iOSDropDown
+  - SPPermissions/Camera
+  - SPPermissions/PhotoLibrary
 
 SPEC REPOS:
   trunk:
@@ -342,6 +349,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SPPermissions
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -362,7 +370,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  SPPermissions: 34a6716d83eb0b41a0ec280ff42f1133dd7ab5ec
 
-PODFILE CHECKSUM: 3563d5e69c7c151ee41d0a45171d42d23b95ef26
+PODFILE CHECKSUM: 4e4c7aab7bd05615cd61d77b736ad7ab9850de73
 
 COCOAPODS: 1.9.3

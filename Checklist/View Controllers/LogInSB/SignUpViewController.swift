@@ -15,6 +15,11 @@ class SignUpViewController: UIViewController {
             phoneNumberTF.placeholder = "phone".localized
         }
     }
+    @IBOutlet weak var corporationTF: UITextField! {
+        didSet {
+            corporationTF.placeholder = "corporation".localized
+        }
+    }
     @IBOutlet weak var emailTF: UITextField! {
         didSet {
             emailTF.placeholder = "email".localized
@@ -43,7 +48,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFields = [nameTF, phoneNumberTF, emailTF, passwordTF, confirmPasswordTF]
+        textFields = [nameTF, phoneNumberTF, corporationTF, emailTF, passwordTF, confirmPasswordTF]
         for textField in textFields {
             textField.delegate = self
             textField.layer.borderColor = UIColor.red.cgColor
@@ -70,14 +75,17 @@ class SignUpViewController: UIViewController {
             else if phoneNumberTF.isFirstResponder {
                 view.frame.origin.y = 0
             }
+            else if corporationTF.isFirstResponder {
+                view.frame.origin.y = -corporationTF.frame.height
+            }
             else if emailTF.isFirstResponder {
                 view.frame.origin.y = -emailTF.frame.height
             }
             else if passwordTF.isFirstResponder {
-                view.frame.origin.y = -passwordTF.frame.height
+                view.frame.origin.y = -passwordTF.frame.height*2
             }
             else if confirmPasswordTF.isFirstResponder {
-                view.frame.origin.y = -confirmPasswordTF.frame.height
+                view.frame.origin.y = -confirmPasswordTF.frame.height*2
             }
             else { return }
         case UIResponder.keyboardWillHideNotification:
@@ -106,7 +114,7 @@ class SignUpViewController: UIViewController {
     
     func validateFields() {
         view.endEditing(true)
-        if nameTF.text == "" || phoneNumberTF.text == "" || emailTF.text == "" || passwordTF.text == "" || confirmPasswordTF.text == "" {
+        if nameTF.text == "" || phoneNumberTF.text == "" || corporationTF.text == "" || emailTF.text == "" || passwordTF.text == "" || confirmPasswordTF.text == "" {
             let alert = UIAlertController(title: "error".localized, message: "fillInAllFields".localized, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
                 DispatchQueue.main.async {
@@ -125,6 +133,7 @@ class SignUpViewController: UIViewController {
                 if passwordTF.text == confirmPasswordTF.text {
                     let name = nameTF.text!
                     let phoneNumber = phoneNumberTF.text!
+                    let corporation = corporationTF.text!
                     let email = emailTF.text!
                     let password = passwordTF.text!
                     Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, err) in
@@ -136,7 +145,7 @@ class SignUpViewController: UIViewController {
                         }
                         else {
                             let db = Firestore.firestore()
-                            db.collection("users").document("\(result!.user.uid)").setData(["name":name, "phoneNumber":phoneNumber, "uid":result!.user.uid]) { [weak self] err in
+                            db.collection("users").document("\(result!.user.uid)").setData(["name":name, "corporation":corporation, "email":email, "phoneNumber":phoneNumber, "uid":result!.user.uid]) { [weak self] err in
                                 if err != nil {
                                     let alertVC = UIAlertController(title: "error".localized, message: err?.localizedDescription, preferredStyle: .alert)
                                     let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -216,6 +225,8 @@ extension SignUpViewController: UITextFieldDelegate {
         case nameTF:
             phoneNumberTF.becomeFirstResponder()
         case phoneNumberTF:
+            corporationTF.becomeFirstResponder()
+        case corporationTF:
             emailTF.becomeFirstResponder()
         case emailTF:
             passwordTF.becomeFirstResponder()
