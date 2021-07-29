@@ -5,7 +5,7 @@ class UserSettings {
     static let userName = "user"
     static let currentUserUid = "currentUserUid"
     
-    static func setUserData(_ name:String, _ uid:String) {
+    static func setUserData(_ name: String, _ uid: String) {
         defaults.setValue(name, forKey: userName)
         defaults.setValue(uid, forKey: currentUserUid)
     }

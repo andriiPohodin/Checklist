@@ -1,11 +1,13 @@
 "logIn" = "Log In";
 "signUp" = "Don't have an account?";
 "confirm" = "Confirm";
+"cancel" = "Cancel";
 "name" = "Name";
 "phone" = "Phone number";
 "corporation" = "Corporation";
 "email" = "Email";
 "password" = "Password";
+"newPassword" = "New Password";
 "confirmPassword" = "Confirm password";
 "forgotPassword" = "Forgot password?";
 "resetPassword" = "Reset password";

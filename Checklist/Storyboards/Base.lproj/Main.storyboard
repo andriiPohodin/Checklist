@@ -188,17 +188,62 @@
             </objects>
             <point key="canvasLocation" x="2669.5999999999999" y="805.54722638680664"/>
         </scene>
-        <!--View Controller-->
+        <!--Change Password View Controller-->
         <scene sceneID="w6d-Mj-eg0">
             <objects>
-                <viewController id="2D5-vD-S9U" sceneMemberID="viewController">
+                <viewController id="2D5-vD-S9U" customClass="ChangePasswordViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iGF-fi-tUW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6ja-jy-1lU">
+                                <rect key="frame" x="40" y="84" width="295" height="196"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h9H-4b-zdC">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="i2m-Jc-cyK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZJG-P3-oiz">
+                                        <rect key="frame" x="0.0" y="68" width="295" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaC-Is-EpU">
+                                        <rect key="frame" x="59" y="136" width="177" height="60"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="confirmBtnAction:" destination="2D5-vD-S9U" eventType="touchUpInside" id="s2W-u6-3xv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ZJG-P3-oiz" firstAttribute="width" secondItem="h9H-4b-zdC" secondAttribute="width" id="AqI-jv-Ren"/>
+                                    <constraint firstItem="h9H-4b-zdC" firstAttribute="leading" secondItem="6ja-jy-1lU" secondAttribute="leading" id="Dfj-gJ-6eI"/>
+                                    <constraint firstItem="ZJG-P3-oiz" firstAttribute="height" secondItem="h9H-4b-zdC" secondAttribute="height" id="IGD-b4-tdV"/>
+                                    <constraint firstItem="qaC-Is-EpU" firstAttribute="height" secondItem="h9H-4b-zdC" secondAttribute="height" id="OL9-QO-dSv"/>
+                                    <constraint firstAttribute="trailing" secondItem="h9H-4b-zdC" secondAttribute="trailing" id="POE-AR-XOp"/>
+                                    <constraint firstItem="qaC-Is-EpU" firstAttribute="width" secondItem="h9H-4b-zdC" secondAttribute="width" multiplier="0.6" id="ZNK-Ao-orC"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="SqO-6J-CFv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6ja-jy-1lU" firstAttribute="leading" secondItem="SqO-6J-CFv" secondAttribute="leading" constant="40" id="ERw-pu-oLb"/>
+                            <constraint firstItem="6ja-jy-1lU" firstAttribute="top" secondItem="SqO-6J-CFv" secondAttribute="top" constant="40" id="le4-qt-70O"/>
+                            <constraint firstItem="SqO-6J-CFv" firstAttribute="trailing" secondItem="6ja-jy-1lU" secondAttribute="trailing" constant="40" id="wbZ-p0-H4T"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="axI-Gh-lqO"/>
+                    <connections>
+                        <outlet property="confirmBtn" destination="qaC-Is-EpU" id="gvZ-x6-xRl"/>
+                        <outlet property="confirmNewPasswordTf" destination="ZJG-P3-oiz" id="gKs-hc-qua"/>
+                        <outlet property="newPasswordTf" destination="h9H-4b-zdC" id="JjN-VT-elN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0sa-Em-lYD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,6 +8,7 @@ class ForgotPasswordViewController: UIViewController {
             emailTF.layer.borderColor = UIColor.red.cgColor
             emailTF.placeholder = "email".localized
             emailTF.delegate = self
+            emailTF.becomeFirstResponder()
         }
     }
     @IBOutlet weak var resetPasswordBtn: UIButton! {

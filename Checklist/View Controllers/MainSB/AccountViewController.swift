@@ -18,6 +18,7 @@ class AccountViewController: UIViewController {
         didSet {
             profileImage.isUserInteractionEnabled = true
             profileImage.layer.cornerRadius = profileImage.frame.width/2
+            
             guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(UserSettings.defaults.string(forKey: UserSettings.currentUserUid)!) else { return }
             do {
                 let imageData = try Data(contentsOf: localUrl)
@@ -126,9 +127,60 @@ class AccountViewController: UIViewController {
         alertVC.addAction(cancelAction)
         present(alertVC, animated: true, completion: nil)
     }
-
+    
     @IBAction func changePasswordBtnAction(_ sender: UIButton) {
-        
+        let alertVC = UIAlertController(title: "Are you sure?", message: "You need to re-login first", preferredStyle: .alert)
+        alertVC.addTextField { emailTf in
+            emailTf.placeholder = "email".localized
+        }
+        alertVC.addTextField { passwordTf in
+            passwordTf.placeholder = "password".localized
+        }
+        let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] action in
+            self?.view.isUserInteractionEnabled = false
+            let email = alertVC.textFields?.first?.text
+            let password = alertVC.textFields?.last?.text
+            if email != "", password != "" {
+                let credential: AuthCredential = EmailAuthProvider.credential(withEmail: email!, password: password!)
+                Auth.auth().currentUser?.reauthenticate(with: credential, completion: { [weak self] result, error in
+                    if error != nil {
+                        let alertVc = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                        let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] action in
+                            self?.view.isUserInteractionEnabled = false
+                            alertVC.textFields?.first?.text = ""
+                            alertVC.textFields?.last?.text = ""
+                            self?.present(alertVC, animated: true, completion: nil)
+                            self?.view.isUserInteractionEnabled = true
+                        }
+                        alertVc.addAction(confirmAction)
+                        self?.present(alertVc, animated: true, completion: nil)
+                        self?.view.isUserInteractionEnabled = true
+                    }
+                    else {
+                        self?.view.isUserInteractionEnabled = true
+                        self?.performSegue(withIdentifier: "toChangePassword", sender: nil)
+                    }
+                })
+            }
+            else {
+                let alertVc = UIAlertController(title: "Error", message: "fillInAllFields".localized, preferredStyle: .alert)
+                let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] action in
+                    self?.view.isUserInteractionEnabled = false
+                    alertVC.textFields?.first?.text = ""
+                    alertVC.textFields?.last?.text = ""
+                    self?.present(alertVC, animated: true, completion: nil)
+                    self?.view.isUserInteractionEnabled = true
+                }
+                alertVc.addAction(confirmAction)
+                self?.present(alertVc, animated: true, completion: nil)
+                self?.view.isUserInteractionEnabled = true
+            }
+        }
+        let cancelAction = UIAlertAction(title: "cancel".localized, style: .destructive, handler: nil)
+        alertVC.addAction(confirmAction)
+        alertVC.addAction(cancelAction)
+        present(alertVC, animated: true, completion: nil)
+        view.isUserInteractionEnabled = true
     }
     
     @IBAction func signOutBtnAction(_ sender: UIButton) {

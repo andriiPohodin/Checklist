@@ -26,10 +26,10 @@
 		188BBF3925F3FC570060E34E /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF3825F3FC570060E34E /* Checklist.swift */; };
 		188BBF4125F5284D0060E34E /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4025F5284D0060E34E /* Program.swift */; };
 		188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4A25F578F30060E34E /* LocalizedKeys.swift */; };
-		18977A552686018A006EBF9D /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18977A542686018A006EBF9D /* ChangePasswordViewController.swift */; };
 		18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */; };
 		18A0772025EE5677005E7C20 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771F25EE5677005E7C20 /* ContentViewController.swift */; };
 		18BFFDFE267BE6430087421C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFFDFD267BE6430087421C /* AccountViewController.swift */; };
+		18CBAC0D2698882100D5A2DF /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */; };
 		18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */; };
 		18DCB76025EF7E1500AE1463 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */; };
 		18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB76D25F1366900AE1463 /* String+localized.swift */; };
@@ -65,10 +65,10 @@
 		188BBF3825F3FC570060E34E /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		188BBF4025F5284D0060E34E /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		188BBF4A25F578F30060E34E /* LocalizedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedKeys.swift; sourceTree = "<group>"; };
-		18977A542686018A006EBF9D /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPartSelectionViewController.swift; sourceTree = "<group>"; };
 		18A0771F25EE5677005E7C20 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		18BFFDFD267BE6430087421C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 		18DCB76D25F1366900AE1463 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
@@ -127,11 +127,11 @@
 			children = (
 				1880BD9325D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift */,
 				18BFFDFD267BE6430087421C /* AccountViewController.swift */,
-				18977A542686018A006EBF9D /* ChangePasswordViewController.swift */,
 				18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */,
 				185D93B5264D17690031A6F8 /* ContentsTableViewController.swift */,
 				185D93B8264D40A70031A6F8 /* FAQViewController.swift */,
 				18A0771F25EE5677005E7C20 /* ContentViewController.swift */,
+				18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */,
 			);
 			path = MainSB;
 			sourceTree = "<group>";
@@ -373,7 +373,7 @@
 				18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */,
 				185D93B6264D17690031A6F8 /* ContentsTableViewController.swift in Sources */,
 				1857A9D02670DB9600A57D7A /* FirstScreenViewController.swift in Sources */,
-				18977A552686018A006EBF9D /* ChangePasswordViewController.swift in Sources */,
+				18CBAC0D2698882100D5A2DF /* ChangePasswordViewController.swift in Sources */,
 				18DCB77125F136BF00AE1463 /* Constants.swift in Sources */,
 				18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */,
 				1880BD9025D6D71B004B6BFE /* AppDelegate.swift in Sources */,

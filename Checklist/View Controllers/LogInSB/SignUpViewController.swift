@@ -8,6 +8,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nameTF: UITextField! {
         didSet {
             nameTF.placeholder = "name".localized
+            nameTF.becomeFirstResponder()
         }
     }
     @IBOutlet weak var phoneNumberTF: UITextField! {
@@ -116,17 +117,14 @@ class SignUpViewController: UIViewController {
         view.endEditing(true)
         if nameTF.text == "" || phoneNumberTF.text == "" || corporationTF.text == "" || emailTF.text == "" || passwordTF.text == "" || confirmPasswordTF.text == "" {
             let alert = UIAlertController(title: "error".localized, message: "fillInAllFields".localized, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
+            let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
                 DispatchQueue.main.async {
+                    self?.changeTextFieldBorderWidth()
                     self?.properTextFieldShouldBecomeFirstResponder()
                 }
             }
-            alert.addAction(okAction)
-            present(alert, animated: true) { [weak self] in
-                DispatchQueue.main.async {
-                    self?.changeTextFieldBorderWidth()
-                }
-            }
+            alert.addAction(confirmAction)
+            present(alert, animated: true, completion: nil)
         }
         else {
             if PasswordValidator.isPasswordValid(passwordTF.text!) == true {
@@ -139,8 +137,8 @@ class SignUpViewController: UIViewController {
                     Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, err) in
                         if err != nil {
                             let alertVC = UIAlertController(title: "error".localized, message: err?.localizedDescription, preferredStyle: .alert)
-                            let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                            alertVC.addAction(okAction)
+                            let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel, handler: nil)
+                            alertVC.addAction(confirmAction)
                             self?.present(alertVC, animated: true, completion: nil)
                         }
                         else {
@@ -171,44 +169,38 @@ class SignUpViewController: UIViewController {
                                             return
                                         }
                                     }
+                                    Navigation.goToMainVC()
                                 }
                             }
-                            Navigation.goToMainVC()
                         }
                     }
                 }
                 else {
                     let alert = UIAlertController(title: "error".localized, message: "passwordsDoNotMatch".localized, preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
-                        DispatchQueue.main.async {
-                            self?.passwordTF.becomeFirstResponder()
-                        }
-                    }
-                    alert.addAction(okAction)
-                    present(alert, animated: true) { [weak self] in
+                    let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
                         DispatchQueue.main.async {
                             self?.passwordTF.text = ""
                             self?.confirmPasswordTF.text = ""
                             self?.changeTextFieldBorderWidth()
+                            self?.passwordTF.becomeFirstResponder()
                         }
                     }
+                    alert.addAction(confirmAction)
+                    present(alert, animated: true, completion: nil)
                 }
             }
             else {
                 let alert = UIAlertController(title: "error".localized, message: "passwordShouldContain".localized, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
-                    DispatchQueue.main.async {
-                        self?.passwordTF.becomeFirstResponder()
-                    }
-                }
-                alert.addAction(okAction)
-                present(alert, animated: true) { [weak self] in
+                let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
                     DispatchQueue.main.async {
                         self?.passwordTF.text = ""
                         self?.confirmPasswordTF.text = ""
                         self?.changeTextFieldBorderWidth()
+                        self?.passwordTF.becomeFirstResponder()
                     }
                 }
+                alert.addAction(confirmAction)
+                present(alert, animated: true, completion: nil)
             }
         }
     }

@@ -8,6 +8,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var emailTF: UITextField! {
         didSet {
             emailTF.placeholder = "email".localized
+            emailTF.becomeFirstResponder()
         }
     }
     @IBOutlet weak var passwordTF: UITextField! {
@@ -95,17 +96,14 @@ class LogInViewController: UIViewController {
         view.endEditing(true)
         if emailTF.text == "" || passwordTF.text == "" {
             let alert = UIAlertController(title: "error".localized, message: "fillInAllFields".localized, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
+            let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
                 DispatchQueue.main.async {
+                    self?.changeTextFieldBorderWidth()
                     self?.properTextFieldShouldBecomeFirstResponder()
                 }
             }
-            alert.addAction(okAction)
-            present(alert, animated: true) { [weak self] in
-                DispatchQueue.main.async {
-                    self?.changeTextFieldBorderWidth()
-                }
-            }
+            alert.addAction(confirmAction)
+            present(alert, animated: true, completion: nil)
         }
         else {
             let email = emailTF.text!
@@ -113,8 +111,17 @@ class LogInViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, err) in
                 if err != nil {
                     let alertVC = UIAlertController(title: "error".localized, message: err?.localizedDescription, preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                    alertVC.addAction(okAction)
+                    let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
+                        DispatchQueue.main.async {
+                            self?.changeTextFieldBorderWidth()
+                            guard let textFields = self?.textFields else { return }
+                            for textField in textFields {
+                                textField.text = ""
+                            }
+                            textFields.first?.becomeFirstResponder()
+                        }
+                    }
+                    alertVC.addAction(confirmAction)
                     self?.present(alertVC, animated: true, completion: nil)
                 }
                 else {
