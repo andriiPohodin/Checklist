@@ -2,9 +2,9 @@ import Foundation
 
 struct Drone {
     let name: Name
-    var availableMappingSources: [Program]
+    var availableWorkingScenarious: [Scenario]
 }
 
 enum Name: String {
-    case xagXp2020 = "XP2020"
+    case xagXp2020 = "xp2020"
 }

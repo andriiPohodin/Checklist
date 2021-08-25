@@ -10,7 +10,7 @@ class AccountViewController: UIViewController {
     
     @IBOutlet weak var helloLabel: UILabel! {
         didSet {
-            guard let userName = UserSettings.defaults.string(forKey: UserSettings.userName) else { return }
+            guard let userName = UserSettings.userDefaults.string(forKey: UserSettings.userName) else { return }
             helloLabel.text = "Hello, ".localized + userName
         }
     }
@@ -19,7 +19,7 @@ class AccountViewController: UIViewController {
             profileImage.isUserInteractionEnabled = true
             profileImage.layer.cornerRadius = profileImage.frame.width/2
             
-            guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(UserSettings.defaults.string(forKey: UserSettings.currentUserUid)!) else { return }
+            guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(UserSettings.userDefaults.string(forKey: UserSettings.currentUserUid)!) else { return }
             do {
                 let imageData = try Data(contentsOf: localUrl)
                 profileImage.image = UIImage(data: imageData)
@@ -56,7 +56,7 @@ class AccountViewController: UIViewController {
     
     @objc func didTapImage() {
         let alert = UIAlertController(title: "Image Selection", message: "From where you want to pick this image?", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [ weak self ] (action: UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] (action: UIAlertAction) in
             let permission = SPPermissions.Permission.camera
             if permission.authorized {
                 self?.presentImagePicker(sourceType: .camera)
@@ -67,7 +67,7 @@ class AccountViewController: UIViewController {
                 controller.present(on: self!)
             }
         }))
-        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { [ weak self ] (action: UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { [weak self] (action: UIAlertAction) in
             let permission = SPPermissions.Permission.photoLibrary
             if permission.authorized {
                 self?.presentImagePicker(sourceType: .photoLibrary)
@@ -84,13 +84,13 @@ class AccountViewController: UIViewController {
     
     func saveNewProfileImage() {
         guard let imageData = profileImage.image?.jpegData(compressionQuality: 0.4) else { return }
-        guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(UserSettings.defaults.string(forKey: UserSettings.currentUserUid)!) else { return }
+        guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(UserSettings.userDefaults.string(forKey: UserSettings.currentUserUid)!) else { return }
         do {
             try imageData.write(to: localUrl)
         } catch {
             print(error.localizedDescription)
         }
-        let storageRef = Storage.storage().reference(forURL: Constants.storageRef).child(UserSettings.defaults.string(forKey: UserSettings.currentUserUid)!)
+        let storageRef = Storage.storage().reference(forURL: Constants.storageRef).child(UserSettings.userDefaults.string(forKey: UserSettings.currentUserUid)!)
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         storageRef.putData(imageData, metadata: metadata) { (storageMetaData, err) in
@@ -103,16 +103,16 @@ class AccountViewController: UIViewController {
     @IBAction func changeNameBtnAction(_ sender: UIButton) {
         let alertVC = UIAlertController(title: "Enter your name", message: nil, preferredStyle: .alert)
         alertVC.addTextField { [weak self] textField in
-            textField.text = UserSettings.defaults.string(forKey: UserSettings.userName)
+            textField.text = UserSettings.userDefaults.string(forKey: UserSettings.userName)
             self?.textField = textField
         }
-        let confirmAction = UIAlertAction(title: "Confirm", style: .cancel) { [weak self] _ in
+        let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
             if self?.textField.text != "" {
                 guard let newName = self?.textField.text else { return }
                 let text = "Hello, ".localized + newName
                 self?.helloLabel.text = text
                 let db = Firestore.firestore()
-                db.collection("users").document(UserSettings.defaults.string(forKey: UserSettings.currentUserUid)!).updateData(["name" : newName]) { err in
+                db.collection("users").document(UserSettings.userDefaults.string(forKey: UserSettings.currentUserUid)!).updateData(["name" : newName]) { err in
                     if err != nil {
                         print(err!.localizedDescription)
                     }
@@ -122,7 +122,7 @@ class AccountViewController: UIViewController {
                 }
             }
         }
-        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .destructive)
+        let cancelAction = UIAlertAction(title: "cancel".localized, style: .destructive)
         alertVC.addAction(confirmAction)
         alertVC.addAction(cancelAction)
         present(alertVC, animated: true, completion: nil)
@@ -135,6 +135,7 @@ class AccountViewController: UIViewController {
         }
         alertVC.addTextField { passwordTf in
             passwordTf.placeholder = "password".localized
+            passwordTf.isSecureTextEntry = true
         }
         let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] action in
             self?.view.isUserInteractionEnabled = false
@@ -186,7 +187,7 @@ class AccountViewController: UIViewController {
     @IBAction func signOutBtnAction(_ sender: UIButton) {
         let alertVC = UIAlertController(title: "Sign out", message: "Are you sure?", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes", style: .destructive) { _ in
-            Navigation.goToFirstVC()
+            UserSettings.removeUserDataAndGoToFirstVC()
         }
         let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alertVC.addAction(yesAction)

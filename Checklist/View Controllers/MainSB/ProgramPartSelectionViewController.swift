@@ -36,6 +36,7 @@ extension ProgramPartSelectionViewController: UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.customCell, for: indexPath) as? MyTableViewCell else { return UITableViewCell() }
         let section = sections[indexPath.row]
+        cell.itemLabel.text = "\(indexPath.row+1)."
         cell.titleLabel.text = section.sectionTitle.rawValue.localized
         cell.indicatorImage.image = UIImage(named: Indicators.disclosure.rawValue)
         cell.descriptionLabel.text = section.sectionDescription.rawValue.localized

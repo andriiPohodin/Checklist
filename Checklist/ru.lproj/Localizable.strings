@@ -5,8 +5,8 @@
 "selectProgram" = "Способ картирования";
 "nextBtnTitle" = "Вперёд";
 "previousBtnTitle" = "Назад";
-"quickStartGuideSectionTitle" = "Быстрый старт";
-"quickStartGuideSectionDescription" = "Создание новой учётной записи пользователя, активация и подготовка устройств";
+"inTheBoxTitle" = "Знакомство с оборудованием";
+"inTheBoxDescription" = "Создание новой учётной записи пользователя, активация и подготовка устройств";
 "indoorSectionTitle" = "Офисная подготовка";
 "outdoorSectionTitle" = "Полевая подготовка";
 "indoorSectionDescription" = "Подготовка, которую необходимо выполнить перед выездом из офиса. Наличие комп'ютера и стабильного интернета обязательно";

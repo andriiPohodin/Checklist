@@ -3,6 +3,7 @@ import AVKit
 
 class FirstScreenViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var contentView: UIView! {
         didSet {
             setUpVideo()
@@ -27,6 +28,10 @@ class FirstScreenViewController: UIViewController {
     }
     var playerLooper: AVPlayerLooper?
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        activityIndicator.stopAnimating()
+    }
+    
     func setUpVideo() {
         guard let bundlePath = Bundle.main.path(forResource: "My Movie", ofType: "mp4") else { return }
         let url = URL(fileURLWithPath: bundlePath)
@@ -41,10 +46,12 @@ class FirstScreenViewController: UIViewController {
     }
     
     @IBAction func logInBtnAction(_ sender: UIButton) {
+        activityIndicator.startAnimating()
         performSegue(withIdentifier: "toLogIn", sender: nil)
     }
     
     @IBAction func signUpBtnAction(_ sender: UIButton) {
+        activityIndicator.startAnimating()
         performSegue(withIdentifier: "toSignUp", sender: nil)
     }
 }

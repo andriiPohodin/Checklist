@@ -5,15 +5,16 @@ import FirebaseStorage
 
 class LogInViewController: UIViewController {
     
-    @IBOutlet weak var emailTF: UITextField! {
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var emailTf: UITextField! {
         didSet {
-            emailTF.placeholder = "email".localized
-            emailTF.becomeFirstResponder()
+            emailTf.placeholder = "email".localized
+            emailTf.becomeFirstResponder()
         }
     }
-    @IBOutlet weak var passwordTF: UITextField! {
+    @IBOutlet weak var passwordTf: UITextField! {
         didSet {
-            passwordTF.placeholder = "password".localized
+            passwordTf.placeholder = "password".localized
         }
     }
     @IBOutlet weak var confirmBtn: UIButton! {
@@ -33,12 +34,11 @@ class LogInViewController: UIViewController {
             forgotPasswordBtn.layer.backgroundColor = UIColor.white.cgColor
         }
     }
-    
     var textFields = [UITextField]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFields = [emailTF, passwordTF]
+        textFields = [emailTf, passwordTf]
         for textField in textFields {
             textField.delegate = self
             textField.layer.borderColor = UIColor.red.cgColor
@@ -49,84 +49,44 @@ class LogInViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func changeTextFieldBorderWidth() {
-        for textField in textFields {
-            switch textField.text {
-            case "":
-                textField.layer.borderWidth = 2
-            default:
-                textField.layer.borderWidth = 0
-            }
-        }
-    }
-    
-    func properTextFieldShouldBecomeFirstResponder() {
-        let textField = textFields.first(where: {
-            $0.text == ""
-        })
-        textField?.becomeFirstResponder()
-    }
-    
-    private func getUserData() {
-        let docRef = Firestore.firestore().collection("users").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid ?? "")
-        docRef.getDocuments { (snapshot, err) in
-            if err != nil {
-                print(err!.localizedDescription)
-            }
-            else {
-                let document = snapshot!.documents.first
-                let data = document?.data()
-                guard let name = data?["name"] else { return }
-                guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(Auth.auth().currentUser!.uid) else { return }
-                let storageRef = Storage.storage().reference(forURL: Constants.storageRef).child(Auth.auth().currentUser!.uid)
-                UserSettings.setUserData(name as! String, Auth.auth().currentUser!.uid)
-                let downloadTask = storageRef.write(toFile: localUrl) { (url, err) in
-                    if err != nil {
-                        print(err!.localizedDescription)
-                    }
-                }
-                downloadTask.observe(.success) { (snapshot) in
-                    print("Image successfuly downloaded")
-                }
-            }
-        }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        activityIndicator.stopAnimating()
     }
     
     func validateFields() {
+        activityIndicator.startAnimating()
         view.endEditing(true)
-        if emailTF.text == "" || passwordTF.text == "" {
-            let alert = UIAlertController(title: "error".localized, message: "fillInAllFields".localized, preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
-                DispatchQueue.main.async {
-                    self?.changeTextFieldBorderWidth()
-                    self?.properTextFieldShouldBecomeFirstResponder()
-                }
+        var emptyTextFields = [UITextField]()
+        for emptyField in textFields {
+            if emptyField.text == "" {
+                emptyTextFields.append(emptyField)
             }
-            alert.addAction(confirmAction)
-            present(alert, animated: true, completion: nil)
+            else {
+                emptyField.layer.borderWidth = 0
+            }
+        }
+        if !emptyTextFields.isEmpty {
+            Alerts.fillInAllFieldsAlert(emptyTextFields: emptyTextFields, presentAlertOn: self)
+            emptyTextFields.removeAll()
+            activityIndicator.stopAnimating()
         }
         else {
-            let email = emailTF.text!
-            let password = passwordTF.text!
-            Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, err) in
-                if err != nil {
-                    let alertVC = UIAlertController(title: "error".localized, message: err?.localizedDescription, preferredStyle: .alert)
-                    let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
-                        DispatchQueue.main.async {
-                            self?.changeTextFieldBorderWidth()
-                            guard let textFields = self?.textFields else { return }
-                            for textField in textFields {
-                                textField.text = ""
-                            }
-                            textFields.first?.becomeFirstResponder()
-                        }
+            guard let email = emailTf.text else { return }
+            guard let password = passwordTf.text else { return }
+            Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
+                if error != nil {
+                    switch error!.localizedDescription {
+                    case "The password is invalid or the user does not have a password.":
+                        guard let passwordTf = self?.passwordTf else { return }
+                        Alerts.errorAlert(fieldsToRemoveTextIn: [passwordTf], errorText: error!.localizedDescription, presentAlertOn: self)
+                        self?.activityIndicator.stopAnimating()
+                    default:
+                        Alerts.errorAlert(fieldsToRemoveTextIn: self?.textFields, errorText: error!.localizedDescription, presentAlertOn: self)
+                        self?.activityIndicator.stopAnimating()
                     }
-                    alertVC.addAction(confirmAction)
-                    self?.present(alertVC, animated: true, completion: nil)
                 }
                 else {
-                    self?.getUserData()
-                    Navigation.goToMainVC()
+                    UserSettings.getUserDataAndGoToMainVC(parentVC: self)
                 }
             }
         }
@@ -139,13 +99,7 @@ class LogInViewController: UIViewController {
     @IBAction func forgotPasswordBtnAction(_ sender: UIButton) {
         for textField in textFields {
             textField.layer.borderWidth = 0
-        }
-        if emailTF.text == "" {
-            emailTF.becomeFirstResponder()
-        }
-        else {
-            passwordTF.text = ""
-            passwordTF.becomeFirstResponder()
+            textField.text = ""
         }
         performSegue(withIdentifier: "toForgotPassword", sender: nil)
     }
@@ -154,10 +108,10 @@ class LogInViewController: UIViewController {
 extension LogInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-        case emailTF:
-            passwordTF.becomeFirstResponder()
-        case passwordTF:
-            passwordTF.resignFirstResponder()
+        case emailTf:
+            passwordTf.becomeFirstResponder()
+        case passwordTf:
+            passwordTf.resignFirstResponder()
             validateFields()
         default:
             break

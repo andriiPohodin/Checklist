@@ -9,15 +9,15 @@ class Checklist {
         return index
     }
     
-    func defineSelectedMappingSource (at index: Int, from drone: Drone) -> Program {
-        let program = drone.availableMappingSources[index]
-        return program
+    func defineSelectedMappingSource (at index: Int, from drone: Drone) -> Scenario {
+        let scenario = drone.availableWorkingScenarious[index]
+        return scenario
     }
     
     func defineAvailableMappingSources(drone: Drone) -> [String] {
         let drone = drone
-        let mappingSources = drone.availableMappingSources
-        let mappingSourcesString = mappingSources.map { $0.mappingSource.rawValue.localized }
+        let scenarious = drone.availableWorkingScenarious
+        let mappingSourcesString = scenarious.map { $0.mappingSource.rawValue.localized }
         return mappingSourcesString
     }
     

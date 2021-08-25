@@ -3,6 +3,7 @@ import FirebaseAuth
 
 class ForgotPasswordViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailTF: UITextField! {
         didSet {
             emailTF.layer.borderColor = UIColor.red.cgColor
@@ -26,37 +27,24 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     func validateFields() {
+        activityIndicator.startAnimating()
         view.endEditing(true)
         if emailTF.text == "" {
-            let alert = UIAlertController(title: "error".localized, message: "fillInAllFields".localized, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
-                DispatchQueue.main.async {
-                    self?.emailTF.becomeFirstResponder()
-                }
-            }
-            alert.addAction(okAction)
-            present(alert, animated: true) { [weak self] in
-                DispatchQueue.main.async {
-                    self?.emailTF.layer.borderWidth = 2
-                }
-            }
+            Alerts.fillInAllFieldsAlert(emptyTextFields: [emailTF], presentAlertOn: self)
+            activityIndicator.stopAnimating()
         }
         else {
+            emailTF.layer.borderWidth = 0
             guard let email = emailTF.text else { return }
-            Auth.auth().sendPasswordReset(withEmail: email) { err in
+            Auth.auth().sendPasswordReset(withEmail: email) { [weak self] err in
                 if err != nil {
-                    print(err!.localizedDescription)
+                    Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
+                    self?.activityIndicator.stopAnimating()
                 }
-            }
-            let alert = UIAlertController(title: "resetTitle".localized, message: "resetMessage".localized, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .cancel) { [weak self] _ in
-                DispatchQueue.main.async {
-                    self?.navigationController?.popViewController(animated: true)
+                else {
+                    Alerts.successfulPasswordResetAlert(navigationController: self?.navigationController, presentAlertOn: self)
+                    self?.activityIndicator.stopAnimating()
                 }
-            }
-            alert.addAction(okAction)
-            present(alert, animated: true) { [weak self] in
-                self?.emailTF.layer.borderWidth = 0
             }
         }
     }

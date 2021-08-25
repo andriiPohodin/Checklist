@@ -24,17 +24,18 @@
 		1880BD9F25D6D727004B6BFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1880BD9D25D6D727004B6BFE /* LaunchScreen.storyboard */; };
 		1880BDA825D6D77E004B6BFE /* Drone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880BDA725D6D77E004B6BFE /* Drone.swift */; };
 		188BBF3925F3FC570060E34E /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF3825F3FC570060E34E /* Checklist.swift */; };
-		188BBF4125F5284D0060E34E /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4025F5284D0060E34E /* Program.swift */; };
+		188BBF4125F5284D0060E34E /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4025F5284D0060E34E /* Scenario.swift */; };
 		188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4A25F578F30060E34E /* LocalizedKeys.swift */; };
 		18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */; };
 		18A0772025EE5677005E7C20 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771F25EE5677005E7C20 /* ContentViewController.swift */; };
 		18BFFDFE267BE6430087421C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFFDFD267BE6430087421C /* AccountViewController.swift */; };
 		18CBAC0D2698882100D5A2DF /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */; };
+		18CBAC1326B5611700D5A2DF /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBAC1226B5611700D5A2DF /* Alerts.swift */; };
 		18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */; };
 		18DCB76025EF7E1500AE1463 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */; };
 		18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB76D25F1366900AE1463 /* String+localized.swift */; };
 		18DCB77125F136BF00AE1463 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB77025F136BF00AE1463 /* Constants.swift */; };
-		18DCB77425F138E600AE1463 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB77325F138E600AE1463 /* UserDefaults.swift */; };
+		18DCB77425F138E600AE1463 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB77325F138E600AE1463 /* UserSettings.swift */; };
 		18DCB77725F1395E00AE1463 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB77625F1395E00AE1463 /* Navigation.swift */; };
 		18DCB77A25F13AF400AE1463 /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB77925F13AF400AE1463 /* PasswordValidator.swift */; };
 		18DCB77E25F13B9200AE1463 /* My Movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 18DCB77D25F13B9200AE1463 /* My Movie.mp4 */; };
@@ -63,17 +64,18 @@
 		188BBF3125F37F4F0060E34E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		188BBF3225F37F610060E34E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		188BBF3825F3FC570060E34E /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
-		188BBF4025F5284D0060E34E /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
+		188BBF4025F5284D0060E34E /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		188BBF4A25F578F30060E34E /* LocalizedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedKeys.swift; sourceTree = "<group>"; };
 		18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPartSelectionViewController.swift; sourceTree = "<group>"; };
 		18A0771F25EE5677005E7C20 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		18BFFDFD267BE6430087421C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		18CBAC1226B5611700D5A2DF /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 		18DCB76D25F1366900AE1463 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		18DCB77025F136BF00AE1463 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		18DCB77325F138E600AE1463 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		18DCB77325F138E600AE1463 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		18DCB77625F1395E00AE1463 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		18DCB77925F13AF400AE1463 /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
 		18DCB77D25F13B9200AE1463 /* My Movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "My Movie.mp4"; sourceTree = "<group>"; };
@@ -103,10 +105,6 @@
 				1880BD9125D6D71B004B6BFE /* SceneDelegate.swift */,
 				1880BD9B25D6D727004B6BFE /* Assets.xcassets */,
 				1880BD9D25D6D727004B6BFE /* LaunchScreen.storyboard */,
-				18DCB76D25F1366900AE1463 /* String+localized.swift */,
-				18DCB77025F136BF00AE1463 /* Constants.swift */,
-				18DCB77925F13AF400AE1463 /* PasswordValidator.swift */,
-				188BBF4A25F578F30060E34E /* LocalizedKeys.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -125,8 +123,8 @@
 		1857A9CE2670DB4300A57D7A /* MainSB */ = {
 			isa = PBXGroup;
 			children = (
-				1880BD9325D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift */,
 				18BFFDFD267BE6430087421C /* AccountViewController.swift */,
+				1880BD9325D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift */,
 				18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */,
 				185D93B5264D17690031A6F8 /* ContentsTableViewController.swift */,
 				185D93B8264D40A70031A6F8 /* FAQViewController.swift */,
@@ -136,13 +134,18 @@
 			path = MainSB;
 			sourceTree = "<group>";
 		};
-		1857A9D7267138C500A57D7A /* UserDefaults+Navigation */ = {
+		1857A9D7267138C500A57D7A /* Supporting Classes */ = {
 			isa = PBXGroup;
 			children = (
-				18DCB77325F138E600AE1463 /* UserDefaults.swift */,
 				18DCB77625F1395E00AE1463 /* Navigation.swift */,
+				18DCB77325F138E600AE1463 /* UserSettings.swift */,
+				18CBAC1226B5611700D5A2DF /* Alerts.swift */,
+				18DCB76D25F1366900AE1463 /* String+localized.swift */,
+				18DCB77025F136BF00AE1463 /* Constants.swift */,
+				18DCB77925F13AF400AE1463 /* PasswordValidator.swift */,
+				188BBF4A25F578F30060E34E /* LocalizedKeys.swift */,
 			);
-			path = "UserDefaults+Navigation";
+			path = "Supporting Classes";
 			sourceTree = "<group>";
 		};
 		1880BD8325D6D71B004B6BFE = {
@@ -172,7 +175,7 @@
 				18DCB76425EF86E200AE1463 /* MyTableViewCell */,
 				18DCB78825F37D7600AE1463 /* Localizable.strings */,
 				183C088425EE2E980025D57F /* Supporting Files */,
-				1857A9D7267138C500A57D7A /* UserDefaults+Navigation */,
+				1857A9D7267138C500A57D7A /* Supporting Classes */,
 				18DCB77C25F13B6D00AE1463 /* Media */,
 				1880BDA025D6D727004B6BFE /* Info.plist */,
 				1857A9D8267B7DB700A57D7A /* GoogleService-Info.plist */,
@@ -186,7 +189,7 @@
 			children = (
 				188BBF3825F3FC570060E34E /* Checklist.swift */,
 				1880BDA725D6D77E004B6BFE /* Drone.swift */,
-				188BBF4025F5284D0060E34E /* Program.swift */,
+				188BBF4025F5284D0060E34E /* Scenario.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				1857A9D02670DB9600A57D7A /* FirstScreenViewController.swift in Sources */,
 				18CBAC0D2698882100D5A2DF /* ChangePasswordViewController.swift in Sources */,
 				18DCB77125F136BF00AE1463 /* Constants.swift in Sources */,
+				18CBAC1326B5611700D5A2DF /* Alerts.swift in Sources */,
 				18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */,
 				1880BD9025D6D71B004B6BFE /* AppDelegate.swift in Sources */,
 				188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */,
@@ -383,10 +387,10 @@
 				1857A9D22670DBB600A57D7A /* SignUpViewController.swift in Sources */,
 				18BFFDFE267BE6430087421C /* AccountViewController.swift in Sources */,
 				18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */,
-				188BBF4125F5284D0060E34E /* Program.swift in Sources */,
+				188BBF4125F5284D0060E34E /* Scenario.swift in Sources */,
 				1857A9D42670DBC100A57D7A /* LogInViewController.swift in Sources */,
 				18DCB77725F1395E00AE1463 /* Navigation.swift in Sources */,
-				18DCB77425F138E600AE1463 /* UserDefaults.swift in Sources */,
+				18DCB77425F138E600AE1463 /* UserSettings.swift in Sources */,
 				1880BD9225D6D71B004B6BFE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

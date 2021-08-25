@@ -5,35 +5,36 @@ import FirebaseStorage
 
 class SignUpViewController: UIViewController {
     
-    @IBOutlet weak var nameTF: UITextField! {
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var nameTf: UITextField! {
         didSet {
-            nameTF.placeholder = "name".localized
-            nameTF.becomeFirstResponder()
+            nameTf.placeholder = "name".localized
+            nameTf.becomeFirstResponder()
         }
     }
-    @IBOutlet weak var phoneNumberTF: UITextField! {
+    @IBOutlet weak var phoneNumberTf: UITextField! {
         didSet {
-            phoneNumberTF.placeholder = "phone".localized
+            phoneNumberTf.placeholder = "phone".localized
         }
     }
-    @IBOutlet weak var corporationTF: UITextField! {
+    @IBOutlet weak var corporationTf: UITextField! {
         didSet {
-            corporationTF.placeholder = "corporation".localized
+            corporationTf.placeholder = "corporation".localized
         }
     }
-    @IBOutlet weak var emailTF: UITextField! {
+    @IBOutlet weak var emailTf: UITextField! {
         didSet {
-            emailTF.placeholder = "email".localized
+            emailTf.placeholder = "email".localized
         }
     }
-    @IBOutlet weak var passwordTF: UITextField! {
+    @IBOutlet weak var passwordTf: UITextField! {
         didSet {
-            passwordTF.placeholder = "password".localized
+            passwordTf.placeholder = "password".localized
         }
     }
-    @IBOutlet weak var confirmPasswordTF: UITextField! {
+    @IBOutlet weak var confirmPasswordTf: UITextField! {
         didSet {
-            confirmPasswordTF.placeholder = "confirmPassword".localized
+            confirmPasswordTf.placeholder = "confirmPassword".localized
         }
     }
     @IBOutlet weak var confirmBtn: UIButton! {
@@ -49,7 +50,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFields = [nameTF, phoneNumberTF, corporationTF, emailTF, passwordTF, confirmPasswordTF]
+        textFields = [nameTf, phoneNumberTf, corporationTf, emailTf, passwordTf, confirmPasswordTf]
         for textField in textFields {
             textField.delegate = self
             textField.layer.borderColor = UIColor.red.cgColor
@@ -67,26 +68,30 @@ class SignUpViewController: UIViewController {
         view.endEditing(true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        activityIndicator.stopAnimating()
+    }
+    
     @objc func keyboardWillChange(notification: Notification) {
         switch notification.name {
         case UIResponder.keyboardDidShowNotification:
-            if nameTF.isFirstResponder {
+            if nameTf.isFirstResponder {
                 view.frame.origin.y = 0
             }
-            else if phoneNumberTF.isFirstResponder {
+            else if phoneNumberTf.isFirstResponder {
                 view.frame.origin.y = 0
             }
-            else if corporationTF.isFirstResponder {
-                view.frame.origin.y = -corporationTF.frame.height
+            else if corporationTf.isFirstResponder {
+                view.frame.origin.y = -corporationTf.frame.height
             }
-            else if emailTF.isFirstResponder {
-                view.frame.origin.y = -emailTF.frame.height
+            else if emailTf.isFirstResponder {
+                view.frame.origin.y = -emailTf.frame.height
             }
-            else if passwordTF.isFirstResponder {
-                view.frame.origin.y = -passwordTF.frame.height*2
+            else if passwordTf.isFirstResponder {
+                view.frame.origin.y = -passwordTf.frame.height*2
             }
-            else if confirmPasswordTF.isFirstResponder {
-                view.frame.origin.y = -confirmPasswordTF.frame.height*2
+            else if confirmPasswordTf.isFirstResponder {
+                view.frame.origin.y = -confirmPasswordTf.frame.height*2
             }
             else { return }
         case UIResponder.keyboardWillHideNotification:
@@ -95,77 +100,62 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func changeTextFieldBorderWidth() {
-        for textField in textFields {
-            switch textField.text {
-            case "":
-                textField.layer.borderWidth = 2
-            default:
-                textField.layer.borderWidth = 0
+    func validateFields() {
+        activityIndicator.startAnimating()
+        view.endEditing(true)
+        var emptyTextFields = [UITextField]()
+        for emptyField in textFields {
+            if emptyField.text == "" {
+                emptyTextFields.append(emptyField)
+            }
+            else {
+                emptyField.layer.borderWidth = 0
             }
         }
-    }
-    
-    func properTextFieldShouldBecomeFirstResponder() {
-        let textField = textFields.first(where: {
-            $0.text == ""
-        })
-        textField?.becomeFirstResponder()
-    }
-    
-    func validateFields() {
-        view.endEditing(true)
-        if nameTF.text == "" || phoneNumberTF.text == "" || corporationTF.text == "" || emailTF.text == "" || passwordTF.text == "" || confirmPasswordTF.text == "" {
-            let alert = UIAlertController(title: "error".localized, message: "fillInAllFields".localized, preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
-                DispatchQueue.main.async {
-                    self?.changeTextFieldBorderWidth()
-                    self?.properTextFieldShouldBecomeFirstResponder()
-                }
-            }
-            alert.addAction(confirmAction)
-            present(alert, animated: true, completion: nil)
+        if !emptyTextFields.isEmpty {
+            Alerts.fillInAllFieldsAlert(emptyTextFields: emptyTextFields, presentAlertOn: self)
+            emptyTextFields.removeAll()
+            activityIndicator.stopAnimating()
         }
         else {
-            if PasswordValidator.isPasswordValid(passwordTF.text!) == true {
-                if passwordTF.text == confirmPasswordTF.text {
-                    let name = nameTF.text!
-                    let phoneNumber = phoneNumberTF.text!
-                    let corporation = corporationTF.text!
-                    let email = emailTF.text!
-                    let password = passwordTF.text!
+            if PasswordValidator.isPasswordValid(passwordTf.text!) == true {
+                if passwordTf.text == confirmPasswordTf.text {
+                    guard let name = nameTf.text else { return }
+                    guard let phoneNumber = phoneNumberTf.text else { return }
+                    guard let corporation = corporationTf.text else { return }
+                    guard let email = emailTf.text else { return }
+                    guard let password = passwordTf.text else { return }
                     Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, err) in
                         if err != nil {
-                            let alertVC = UIAlertController(title: "error".localized, message: err?.localizedDescription, preferredStyle: .alert)
-                            let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel, handler: nil)
-                            alertVC.addAction(confirmAction)
-                            self?.present(alertVC, animated: true, completion: nil)
+                            Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
+                            self?.activityIndicator.stopAnimating()
                         }
                         else {
                             let db = Firestore.firestore()
                             db.collection("users").document("\(result!.user.uid)").setData(["name":name, "corporation":corporation, "email":email, "phoneNumber":phoneNumber, "uid":result!.user.uid]) { [weak self] err in
                                 if err != nil {
-                                    let alertVC = UIAlertController(title: "error".localized, message: err?.localizedDescription, preferredStyle: .alert)
-                                    let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                                    alertVC.addAction(okAction)
-                                    self?.present(alertVC, animated: true, completion: nil)
+                                    Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
+                                    self?.activityIndicator.stopAnimating()
                                 }
                                 else {
-                                    UserSettings.setUserData(name, Auth.auth().currentUser!.uid)
-                                    guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(Auth.auth().currentUser!.uid) else { return }
-                                    let storageRef = Storage.storage().reference(forURL: Constants.storageRef).child(Auth.auth().currentUser!.uid)
+                                    UserSettings.setUserData(name, result!.user.uid)
+                                    guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(result!.user.uid) else { return }
+                                    let storageRef = Storage.storage().reference(forURL: Constants.storageRef).child(result!.user.uid)
                                     let img = UIImage(named: "defaultProfileImage")
                                     guard let imageData = img?.jpegData(compressionQuality: 0.4) else { return }
                                     do {
                                         try imageData.write(to: localUrl)
                                     } catch {
-                                        print(error.localizedDescription)
+                                        Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: error.localizedDescription, presentAlertOn: self)
+                                        self?.activityIndicator.stopAnimating()
+                                        return
                                     }
                                     let metadata = StorageMetadata()
                                     metadata.contentType = "image/jpeg"
                                     storageRef.putData(imageData, metadata: metadata) { (storageMetaData, err) in
                                         if err != nil {
-                                            print(err!.localizedDescription)
+                                            Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
+                                            self?.activityIndicator.stopAnimating()
                                             return
                                         }
                                     }
@@ -176,31 +166,13 @@ class SignUpViewController: UIViewController {
                     }
                 }
                 else {
-                    let alert = UIAlertController(title: "error".localized, message: "passwordsDoNotMatch".localized, preferredStyle: .alert)
-                    let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
-                        DispatchQueue.main.async {
-                            self?.passwordTF.text = ""
-                            self?.confirmPasswordTF.text = ""
-                            self?.changeTextFieldBorderWidth()
-                            self?.passwordTF.becomeFirstResponder()
-                        }
-                    }
-                    alert.addAction(confirmAction)
-                    present(alert, animated: true, completion: nil)
+                    Alerts.errorAlert(fieldsToRemoveTextIn: [passwordTf, confirmPasswordTf], errorText: "passwordsDoNotMatch", presentAlertOn: self)
+                    activityIndicator.stopAnimating()
                 }
             }
             else {
-                let alert = UIAlertController(title: "error".localized, message: "passwordShouldContain".localized, preferredStyle: .alert)
-                let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
-                    DispatchQueue.main.async {
-                        self?.passwordTF.text = ""
-                        self?.confirmPasswordTF.text = ""
-                        self?.changeTextFieldBorderWidth()
-                        self?.passwordTF.becomeFirstResponder()
-                    }
-                }
-                alert.addAction(confirmAction)
-                present(alert, animated: true, completion: nil)
+                Alerts.errorAlert(fieldsToRemoveTextIn: [passwordTf, confirmPasswordTf], errorText: "passwordShouldContain", presentAlertOn: self)
+                activityIndicator.stopAnimating()
             }
         }
     }
@@ -214,18 +186,18 @@ extension SignUpViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-        case nameTF:
-            phoneNumberTF.becomeFirstResponder()
-        case phoneNumberTF:
-            corporationTF.becomeFirstResponder()
-        case corporationTF:
-            emailTF.becomeFirstResponder()
-        case emailTF:
-            passwordTF.becomeFirstResponder()
-        case passwordTF:
-            confirmPasswordTF.becomeFirstResponder()
-        case confirmPasswordTF:
-            confirmPasswordTF.resignFirstResponder()
+        case nameTf:
+            phoneNumberTf.becomeFirstResponder()
+        case phoneNumberTf:
+            corporationTf.becomeFirstResponder()
+        case corporationTf:
+            emailTf.becomeFirstResponder()
+        case emailTf:
+            passwordTf.becomeFirstResponder()
+        case passwordTf:
+            confirmPasswordTf.becomeFirstResponder()
+        case confirmPasswordTf:
+            confirmPasswordTf.resignFirstResponder()
             validateFields()
         default: break
         }

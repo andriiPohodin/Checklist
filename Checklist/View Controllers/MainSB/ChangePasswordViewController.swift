@@ -7,6 +7,7 @@ class ChangePasswordViewController: UIViewController {
         didSet {
             newPasswordTf.placeholder = "newPassword".localized
             newPasswordTf.layer.borderColor = UIColor.systemRed.cgColor
+            newPasswordTf.isSecureTextEntry = true
             newPasswordTf.becomeFirstResponder()
         }
     }
@@ -14,6 +15,7 @@ class ChangePasswordViewController: UIViewController {
         didSet {
             confirmNewPasswordTf.placeholder = "confirmPassword".localized
             confirmNewPasswordTf.layer.borderColor = UIColor.systemRed.cgColor
+            confirmNewPasswordTf.isSecureTextEntry = true
         }
     }
     @IBOutlet weak var confirmBtn: UIButton! {
@@ -41,57 +43,47 @@ class ChangePasswordViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func confirmBtnAction(_ sender: UIButton) {
-        if newPasswordTf.text != "", confirmNewPasswordTf.text != "" {
-            if newPasswordTf.text == confirmNewPasswordTf.text {
-                Auth.auth().currentUser?.updatePassword(to: newPasswordTf.text!, completion: { [weak self] err in
-                    if err != nil {
-                        let alert = UIAlertController(title: "error".localized, message: err?.localizedDescription, preferredStyle: .alert)
-                        let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel, handler: nil)
-                        alert.addAction(confirmAction)
-                        self?.present(alert, animated: true, completion: nil)
-                    }
-                    else {
-                        self?.newPasswordTf.layer.borderWidth = 0
-                        self?.confirmNewPasswordTf.layer.borderWidth = 0
-                        self?.navigationController?.popViewController(animated: true)
-                    }
-                })
+    func validateFields() {
+        view.endEditing(true)
+        var emptyTextFields = [UITextField]()
+        for emptyField in textFields {
+            if emptyField.text == "" {
+                emptyTextFields.append(emptyField)
             }
             else {
-                let alert = UIAlertController(title: "error".localized, message: "passwordsDoNotMatch".localized, preferredStyle: .alert)
-                let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
-                    DispatchQueue.main.async {
-                        guard let textFields = self?.textFields else { return }
-                        for textField in textFields {
-                            textField.text = ""
-                            textField.layer.borderWidth = 0
-                        }
-                        self?.newPasswordTf.becomeFirstResponder()
-                    }
-                }
-                alert.addAction(confirmAction)
-                present(alert, animated: true, completion: nil)
+                emptyField.layer.borderWidth = 0
             }
+        }
+        if !emptyTextFields.isEmpty {
+            Alerts.fillInAllFieldsAlert(emptyTextFields: emptyTextFields, presentAlertOn: self)
+            emptyTextFields.removeAll()
         }
         else {
-            let alert = UIAlertController(title: "error".localized, message: "fillInAllFields".localized, preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "confirm".localized, style: .cancel) { [weak self] _ in
-                guard let textFields = self?.textFields else { return }
-                for textField in textFields {
-                    if textField.text == "" {
-                        textField.layer.borderWidth = 2
-                    }
-                    else {
-                        textField.layer.borderWidth = 0
-                    }
+            if newPasswordTf.text == confirmNewPasswordTf.text {
+                if PasswordValidator.isPasswordValid(newPasswordTf.text!) == true {
+                    Auth.auth().currentUser?.updatePassword(to: newPasswordTf.text!, completion: { [weak self] err in
+                        if err != nil {
+                            Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription.localized, presentAlertOn: self)
+                        }
+                        else {
+                            self?.newPasswordTf.layer.borderWidth = 0
+                            self?.confirmNewPasswordTf.layer.borderWidth = 0
+                            self?.navigationController?.popViewController(animated: true)
+                        }
+                    })
                 }
-                let emptyTf = self?.textFields.first(where: { $0.text == ""})
-                emptyTf?.becomeFirstResponder()
+                else {
+                    Alerts.errorAlert(fieldsToRemoveTextIn: textFields, errorText: "passwordShouldContain".localized, presentAlertOn: self)
+                }
             }
-            alert.addAction(confirmAction)
-            present(alert, animated: true, completion: nil)
+            else {
+                Alerts.errorAlert(fieldsToRemoveTextIn: textFields, errorText: "passwordsDoNotMatch".localized, presentAlertOn: self)
+            }
         }
+    }
+    
+    @IBAction func confirmBtnAction(_ sender: UIButton) {
+        validateFields()
     }
 }
 

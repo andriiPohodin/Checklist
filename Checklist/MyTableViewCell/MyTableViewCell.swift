@@ -1,6 +1,7 @@
 import UIKit
 
 class MyTableViewCell: UITableViewCell {
+    @IBOutlet weak var itemLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var indicatorImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
