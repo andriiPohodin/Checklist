@@ -23,15 +23,15 @@ class LogInViewController: UIViewController {
             confirmBtn.titleLabel?.font = .systemFont(ofSize: 25)
             confirmBtn.setTitle("confirm".localized, for: .normal)
             confirmBtn.setTitleColor(.white, for: .normal)
-            confirmBtn.layer.backgroundColor = UIColor.systemBlue.cgColor
+            confirmBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
         }
     }
     @IBOutlet weak var forgotPasswordBtn: UIButton! {
         didSet {
+            forgotPasswordBtn.layer.cornerRadius = confirmBtn.frame.height/2
             forgotPasswordBtn.setTitle("forgotPassword".localized, for: .normal)
             forgotPasswordBtn.titleLabel?.font = .systemFont(ofSize: 22)
-            forgotPasswordBtn.setTitleColor(.systemBlue, for: .normal)
-            forgotPasswordBtn.layer.backgroundColor = UIColor.white.cgColor
+            forgotPasswordBtn.setTitleColor(.systemRed, for: .normal)
         }
     }
     var textFields = [UITextField]()

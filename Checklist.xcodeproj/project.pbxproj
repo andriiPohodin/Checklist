@@ -7,6 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18218C1727021182007C46A4 /* xp2020xrtk.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BF02702114A007C46A4 /* xp2020xrtk.pdf */; };
+		18218C1827021182007C46A4 /* xp2020battery.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BF12702114B007C46A4 /* xp2020battery.pdf */; };
+		18218C1927021182007C46A4 /* xp2020height.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BF22702114C007C46A4 /* xp2020height.pdf */; };
+		18218C1A27021182007C46A4 /* xp2020sprayingSystemCalibration.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BF32702114D007C46A4 /* xp2020sprayingSystemCalibration.pdf */; };
+		18218C1B27021182007C46A4 /* xp2020scissors.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BF42702114E007C46A4 /* xp2020scissors.pdf */; };
+		18218C1C27021182007C46A4 /* xp2020cm12500.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BF52702114F007C46A4 /* xp2020cm12500.pdf */; };
+		18218C1D27021182007C46A4 /* xp2020b13860s.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BF627021151007C46A4 /* xp2020b13860s.pdf */; };
+		18218C1E27021183007C46A4 /* xp2020miniProgram.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BF727021152007C46A4 /* xp2020miniProgram.pdf */; };
+		18218C1F27021183007C46A4 /* xp2020acb1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BF827021153007C46A4 /* xp2020acb1.pdf */; };
+		18218C2027021183007C46A4 /* xp2020xagAgri.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BF927021154007C46A4 /* xp2020xagAgri.pdf */; };
+		18218C2127021183007C46A4 /* xp2020flightParameters.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BFA27021155007C46A4 /* xp2020flightParameters.pdf */; };
+		18218C2227021183007C46A4 /* XAG MANUAL v2.1-166-173.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BFB27021157007C46A4 /* XAG MANUAL v2.1-166-173.pdf */; };
+		18218C2327021183007C46A4 /* xp2020dosage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BFC27021159007C46A4 /* xp2020dosage.pdf */; };
+		18218C2427021183007C46A4 /* xp2020uploadField.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BFD2702115A007C46A4 /* xp2020uploadField.pdf */; };
+		18218C2527021183007C46A4 /* xp2020pairingMobileStation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BFE2702115B007C46A4 /* xp2020pairingMobileStation.pdf */; };
+		18218C2627021183007C46A4 /* xp2020field.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218BFF2702115D007C46A4 /* xp2020field.pdf */; };
+		18218C2727021183007C46A4 /* xp2020endShiftMaintenance.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C002702115E007C46A4 /* xp2020endShiftMaintenance.pdf */; };
+		18218C2827021183007C46A4 /* xp2020operation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0127021160007C46A4 /* xp2020operation.pdf */; };
+		18218C2927021183007C46A4 /* xp2020rth.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0227021161007C46A4 /* xp2020rth.pdf */; };
+		18218C2A27021183007C46A4 /* xp2020takeOff.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0327021162007C46A4 /* xp2020takeOff.pdf */; };
+		18218C2B27021183007C46A4 /* xp2020visualCheck.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0427021163007C46A4 /* xp2020visualCheck.pdf */; };
+		18218C2C27021183007C46A4 /* xp2020roleDistribution.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0527021165007C46A4 /* xp2020roleDistribution.pdf */; };
+		18218C2D27021183007C46A4 /* xp2020speed.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0627021166007C46A4 /* xp2020speed.pdf */; };
+		18218C2E27021183007C46A4 /* XAG MANUAL v2.1-163-164.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0727021167007C46A4 /* XAG MANUAL v2.1-163-164.pdf */; };
+		18218C2F27021183007C46A4 /* xp2020sprayingSystem.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0827021169007C46A4 /* xp2020sprayingSystem.pdf */; };
+		18218C3027021183007C46A4 /* xp2020pairingXP2020.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C092702116B007C46A4 /* xp2020pairingXP2020.pdf */; };
+		18218C3127021183007C46A4 /* xp2020surveyingRover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0A2702116D007C46A4 /* xp2020surveyingRover.pdf */; };
+		18218C3227021183007C46A4 /* xp2020wechat.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0B2702116F007C46A4 /* xp2020wechat.pdf */; };
+		18218C3327021183007C46A4 /* xp2020pairingRover.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0C27021170007C46A4 /* xp2020pairingRover.pdf */; };
+		18218C3427021183007C46A4 /* xp2020alr6.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0D27021172007C46A4 /* xp2020alr6.pdf */; };
+		18218C3627021183007C46A4 /* xp2020propulsionSystem.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C0F27021176007C46A4 /* xp2020propulsionSystem.pdf */; };
+		18218C3727021183007C46A4 /* xp2020xp2020.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C1027021177007C46A4 /* xp2020xp2020.pdf */; };
+		18218C3827021183007C46A4 /* xp2020start.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C1127021179007C46A4 /* xp2020start.pdf */; };
+		18218C3927021183007C46A4 /* xp2020scheduledMaintenance.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C122702117B007C46A4 /* xp2020scheduledMaintenance.pdf */; };
+		18218C3A27021183007C46A4 /* xp2020sprayWidthAndSafeDistances.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C132702117D007C46A4 /* xp2020sprayWidthAndSafeDistances.pdf */; };
+		18218C3B27021183007C46A4 /* xp2020pairingACB1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C142702117F007C46A4 /* xp2020pairingACB1.pdf */; };
+		18218C3C27021183007C46A4 /* xp2020work.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C1527021180007C46A4 /* xp2020work.pdf */; };
+		18218C3D27021183007C46A4 /* xp2020activation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C1627021182007C46A4 /* xp2020activation.pdf */; };
 		1827CF7DC441388BCD4EFB23 /* Pods_Checklist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA730AE8023FD7EE14F9E606 /* Pods_Checklist.framework */; };
 		1857A9D02670DB9600A57D7A /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9CF2670DB9600A57D7A /* FirstScreenViewController.swift */; };
 		1857A9D22670DBB600A57D7A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9D12670DBB600A57D7A /* SignUpViewController.swift */; };
@@ -41,9 +79,48 @@
 		18DCB77E25F13B9200AE1463 /* My Movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 18DCB77D25F13B9200AE1463 /* My Movie.mp4 */; };
 		18DCB78125F13CAC00AE1463 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18DCB78025F13CAC00AE1463 /* LogIn.storyboard */; };
 		18DCB78625F37D7600AE1463 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 18DCB78825F37D7600AE1463 /* Localizable.strings */; };
+		18F621DB26FCB3DC00E83C93 /* FeedbackFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F621DA26FCB3DC00E83C93 /* FeedbackFormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18218BF02702114A007C46A4 /* xp2020xrtk.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020xrtk.pdf; sourceTree = "<group>"; };
+		18218BF12702114B007C46A4 /* xp2020battery.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020battery.pdf; sourceTree = "<group>"; };
+		18218BF22702114C007C46A4 /* xp2020height.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020height.pdf; sourceTree = "<group>"; };
+		18218BF32702114D007C46A4 /* xp2020sprayingSystemCalibration.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020sprayingSystemCalibration.pdf; sourceTree = "<group>"; };
+		18218BF42702114E007C46A4 /* xp2020scissors.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020scissors.pdf; sourceTree = "<group>"; };
+		18218BF52702114F007C46A4 /* xp2020cm12500.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020cm12500.pdf; sourceTree = "<group>"; };
+		18218BF627021151007C46A4 /* xp2020b13860s.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020b13860s.pdf; sourceTree = "<group>"; };
+		18218BF727021152007C46A4 /* xp2020miniProgram.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020miniProgram.pdf; sourceTree = "<group>"; };
+		18218BF827021153007C46A4 /* xp2020acb1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020acb1.pdf; sourceTree = "<group>"; };
+		18218BF927021154007C46A4 /* xp2020xagAgri.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020xagAgri.pdf; sourceTree = "<group>"; };
+		18218BFA27021155007C46A4 /* xp2020flightParameters.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020flightParameters.pdf; sourceTree = "<group>"; };
+		18218BFB27021157007C46A4 /* XAG MANUAL v2.1-166-173.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "XAG MANUAL v2.1-166-173.pdf"; sourceTree = "<group>"; };
+		18218BFC27021159007C46A4 /* xp2020dosage.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020dosage.pdf; sourceTree = "<group>"; };
+		18218BFD2702115A007C46A4 /* xp2020uploadField.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020uploadField.pdf; sourceTree = "<group>"; };
+		18218BFE2702115B007C46A4 /* xp2020pairingMobileStation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020pairingMobileStation.pdf; sourceTree = "<group>"; };
+		18218BFF2702115D007C46A4 /* xp2020field.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020field.pdf; sourceTree = "<group>"; };
+		18218C002702115E007C46A4 /* xp2020endShiftMaintenance.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020endShiftMaintenance.pdf; sourceTree = "<group>"; };
+		18218C0127021160007C46A4 /* xp2020operation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020operation.pdf; sourceTree = "<group>"; };
+		18218C0227021161007C46A4 /* xp2020rth.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020rth.pdf; sourceTree = "<group>"; };
+		18218C0327021162007C46A4 /* xp2020takeOff.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020takeOff.pdf; sourceTree = "<group>"; };
+		18218C0427021163007C46A4 /* xp2020visualCheck.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020visualCheck.pdf; sourceTree = "<group>"; };
+		18218C0527021165007C46A4 /* xp2020roleDistribution.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020roleDistribution.pdf; sourceTree = "<group>"; };
+		18218C0627021166007C46A4 /* xp2020speed.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020speed.pdf; sourceTree = "<group>"; };
+		18218C0727021167007C46A4 /* XAG MANUAL v2.1-163-164.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "XAG MANUAL v2.1-163-164.pdf"; sourceTree = "<group>"; };
+		18218C0827021169007C46A4 /* xp2020sprayingSystem.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020sprayingSystem.pdf; sourceTree = "<group>"; };
+		18218C092702116B007C46A4 /* xp2020pairingXP2020.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020pairingXP2020.pdf; sourceTree = "<group>"; };
+		18218C0A2702116D007C46A4 /* xp2020surveyingRover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020surveyingRover.pdf; sourceTree = "<group>"; };
+		18218C0B2702116F007C46A4 /* xp2020wechat.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020wechat.pdf; sourceTree = "<group>"; };
+		18218C0C27021170007C46A4 /* xp2020pairingRover.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020pairingRover.pdf; sourceTree = "<group>"; };
+		18218C0D27021172007C46A4 /* xp2020alr6.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020alr6.pdf; sourceTree = "<group>"; };
+		18218C0F27021176007C46A4 /* xp2020propulsionSystem.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020propulsionSystem.pdf; sourceTree = "<group>"; };
+		18218C1027021177007C46A4 /* xp2020xp2020.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020xp2020.pdf; sourceTree = "<group>"; };
+		18218C1127021179007C46A4 /* xp2020start.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020start.pdf; sourceTree = "<group>"; };
+		18218C122702117B007C46A4 /* xp2020scheduledMaintenance.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020scheduledMaintenance.pdf; sourceTree = "<group>"; };
+		18218C132702117D007C46A4 /* xp2020sprayWidthAndSafeDistances.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020sprayWidthAndSafeDistances.pdf; sourceTree = "<group>"; };
+		18218C142702117F007C46A4 /* xp2020pairingACB1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020pairingACB1.pdf; sourceTree = "<group>"; };
+		18218C1527021180007C46A4 /* xp2020work.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020work.pdf; sourceTree = "<group>"; };
+		18218C1627021182007C46A4 /* xp2020activation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020activation.pdf; sourceTree = "<group>"; };
 		1857A9CF2670DB9600A57D7A /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		1857A9D12670DBB600A57D7A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1857A9D32670DBC100A57D7A /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +158,7 @@
 		18DCB77D25F13B9200AE1463 /* My Movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "My Movie.mp4"; sourceTree = "<group>"; };
 		18DCB78025F13CAC00AE1463 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		18DCB78725F37D7600AE1463 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		18F621DA26FCB3DC00E83C93 /* FeedbackFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackFormViewController.swift; sourceTree = "<group>"; };
 		7BBE49CAA531B57E667F4C49 /* Pods-Checklist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checklist.release.xcconfig"; path = "Target Support Files/Pods-Checklist/Pods-Checklist.release.xcconfig"; sourceTree = "<group>"; };
 		B5C757A1DC0D5CD8AB363325 /* Pods-Checklist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checklist.debug.xcconfig"; path = "Target Support Files/Pods-Checklist/Pods-Checklist.debug.xcconfig"; sourceTree = "<group>"; };
 		CA730AE8023FD7EE14F9E606 /* Pods_Checklist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Checklist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +176,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18218BEF270210F5007C46A4 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				18218C1027021177007C46A4 /* xp2020xp2020.pdf */,
+				18218BF627021151007C46A4 /* xp2020b13860s.pdf */,
+				18218BF52702114F007C46A4 /* xp2020cm12500.pdf */,
+				18218BF02702114A007C46A4 /* xp2020xrtk.pdf */,
+				18218BF827021153007C46A4 /* xp2020acb1.pdf */,
+				18218C0D27021172007C46A4 /* xp2020alr6.pdf */,
+				18218C0B2702116F007C46A4 /* xp2020wechat.pdf */,
+				18218BF727021152007C46A4 /* xp2020miniProgram.pdf */,
+				18218BF927021154007C46A4 /* xp2020xagAgri.pdf */,
+				18218C1627021182007C46A4 /* xp2020activation.pdf */,
+				18218C0527021165007C46A4 /* xp2020roleDistribution.pdf */,
+				18218C142702117F007C46A4 /* xp2020pairingACB1.pdf */,
+				18218BFE2702115B007C46A4 /* xp2020pairingMobileStation.pdf */,
+				18218C0C27021170007C46A4 /* xp2020pairingRover.pdf */,
+				18218C092702116B007C46A4 /* xp2020pairingXP2020.pdf */,
+				18218BFF2702115D007C46A4 /* xp2020field.pdf */,
+				18218C0A2702116D007C46A4 /* xp2020surveyingRover.pdf */,
+				18218C132702117D007C46A4 /* xp2020sprayWidthAndSafeDistances.pdf */,
+				18218BF42702114E007C46A4 /* xp2020scissors.pdf */,
+				18218BFD2702115A007C46A4 /* xp2020uploadField.pdf */,
+				18218C0127021160007C46A4 /* xp2020operation.pdf */,
+				18218C0427021163007C46A4 /* xp2020visualCheck.pdf */,
+				18218BF12702114B007C46A4 /* xp2020battery.pdf */,
+				18218C0F27021176007C46A4 /* xp2020propulsionSystem.pdf */,
+				18218C0827021169007C46A4 /* xp2020sprayingSystem.pdf */,
+				18218BF32702114D007C46A4 /* xp2020sprayingSystemCalibration.pdf */,
+				18218BFA27021155007C46A4 /* xp2020flightParameters.pdf */,
+				18218C1127021179007C46A4 /* xp2020start.pdf */,
+				18218C0227021161007C46A4 /* xp2020rth.pdf */,
+				18218C0627021166007C46A4 /* xp2020speed.pdf */,
+				18218BF22702114C007C46A4 /* xp2020height.pdf */,
+				18218BFC27021159007C46A4 /* xp2020dosage.pdf */,
+				18218C1527021180007C46A4 /* xp2020work.pdf */,
+				18218C0327021162007C46A4 /* xp2020takeOff.pdf */,
+				18218C002702115E007C46A4 /* xp2020endShiftMaintenance.pdf */,
+				18218C122702117B007C46A4 /* xp2020scheduledMaintenance.pdf */,
+				18218C0727021167007C46A4 /* XAG MANUAL v2.1-163-164.pdf */,
+				18218BFB27021157007C46A4 /* XAG MANUAL v2.1-166-173.pdf */,
+			);
+			path = PDF;
+			sourceTree = "<group>";
+		};
 		183C088425EE2E980025D57F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +253,7 @@
 				185D93B8264D40A70031A6F8 /* FAQViewController.swift */,
 				18A0771F25EE5677005E7C20 /* ContentViewController.swift */,
 				18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */,
+				18F621DA26FCB3DC00E83C93 /* FeedbackFormViewController.swift */,
 			);
 			path = MainSB;
 			sourceTree = "<group>";
@@ -177,6 +301,7 @@
 				183C088425EE2E980025D57F /* Supporting Files */,
 				1857A9D7267138C500A57D7A /* Supporting Classes */,
 				18DCB77C25F13B6D00AE1463 /* Media */,
+				18218BEF270210F5007C46A4 /* PDF */,
 				1880BDA025D6D727004B6BFE /* Info.plist */,
 				1857A9D8267B7DB700A57D7A /* GoogleService-Info.plist */,
 				1880BD9825D6D71B004B6BFE /* Checklist.xcdatamodeld */,
@@ -307,13 +432,51 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18218C1C27021182007C46A4 /* xp2020cm12500.pdf in Resources */,
+				18218C1B27021182007C46A4 /* xp2020scissors.pdf in Resources */,
+				18218C3027021183007C46A4 /* xp2020pairingXP2020.pdf in Resources */,
+				18218C2827021183007C46A4 /* xp2020operation.pdf in Resources */,
+				18218C3B27021183007C46A4 /* xp2020pairingACB1.pdf in Resources */,
+				18218C3127021183007C46A4 /* xp2020surveyingRover.pdf in Resources */,
+				18218C1E27021183007C46A4 /* xp2020miniProgram.pdf in Resources */,
+				18218C3827021183007C46A4 /* xp2020start.pdf in Resources */,
 				1880BD9F25D6D727004B6BFE /* LaunchScreen.storyboard in Resources */,
+				18218C3727021183007C46A4 /* xp2020xp2020.pdf in Resources */,
+				18218C2727021183007C46A4 /* xp2020endShiftMaintenance.pdf in Resources */,
+				18218C3D27021183007C46A4 /* xp2020activation.pdf in Resources */,
+				18218C2A27021183007C46A4 /* xp2020takeOff.pdf in Resources */,
+				18218C3627021183007C46A4 /* xp2020propulsionSystem.pdf in Resources */,
+				18218C1D27021182007C46A4 /* xp2020b13860s.pdf in Resources */,
+				18218C1827021182007C46A4 /* xp2020battery.pdf in Resources */,
+				18218C1F27021183007C46A4 /* xp2020acb1.pdf in Resources */,
 				18DCB76025EF7E1500AE1463 /* MyTableViewCell.xib in Resources */,
+				18218C2D27021183007C46A4 /* xp2020speed.pdf in Resources */,
+				18218C2127021183007C46A4 /* xp2020flightParameters.pdf in Resources */,
+				18218C3C27021183007C46A4 /* xp2020work.pdf in Resources */,
+				18218C3427021183007C46A4 /* xp2020alr6.pdf in Resources */,
 				1880BD9C25D6D727004B6BFE /* Assets.xcassets in Resources */,
+				18218C2327021183007C46A4 /* xp2020dosage.pdf in Resources */,
+				18218C2B27021183007C46A4 /* xp2020visualCheck.pdf in Resources */,
 				18DCB78625F37D7600AE1463 /* Localizable.strings in Resources */,
+				18218C1927021182007C46A4 /* xp2020height.pdf in Resources */,
+				18218C2627021183007C46A4 /* xp2020field.pdf in Resources */,
 				1880BD9725D6D71B004B6BFE /* Main.storyboard in Resources */,
+				18218C2927021183007C46A4 /* xp2020rth.pdf in Resources */,
+				18218C2527021183007C46A4 /* xp2020pairingMobileStation.pdf in Resources */,
 				18DCB78125F13CAC00AE1463 /* LogIn.storyboard in Resources */,
+				18218C2E27021183007C46A4 /* XAG MANUAL v2.1-163-164.pdf in Resources */,
+				18218C2227021183007C46A4 /* XAG MANUAL v2.1-166-173.pdf in Resources */,
+				18218C3A27021183007C46A4 /* xp2020sprayWidthAndSafeDistances.pdf in Resources */,
+				18218C2C27021183007C46A4 /* xp2020roleDistribution.pdf in Resources */,
+				18218C3927021183007C46A4 /* xp2020scheduledMaintenance.pdf in Resources */,
+				18218C2427021183007C46A4 /* xp2020uploadField.pdf in Resources */,
 				18DCB77E25F13B9200AE1463 /* My Movie.mp4 in Resources */,
+				18218C2027021183007C46A4 /* xp2020xagAgri.pdf in Resources */,
+				18218C1A27021182007C46A4 /* xp2020sprayingSystemCalibration.pdf in Resources */,
+				18218C3327021183007C46A4 /* xp2020pairingRover.pdf in Resources */,
+				18218C3227021183007C46A4 /* xp2020wechat.pdf in Resources */,
+				18218C2F27021183007C46A4 /* xp2020sprayingSystem.pdf in Resources */,
+				18218C1727021182007C46A4 /* xp2020xrtk.pdf in Resources */,
 				1857A9D9267B7DB700A57D7A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +550,7 @@
 				1857A9D22670DBB600A57D7A /* SignUpViewController.swift in Sources */,
 				18BFFDFE267BE6430087421C /* AccountViewController.swift in Sources */,
 				18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */,
+				18F621DB26FCB3DC00E83C93 /* FeedbackFormViewController.swift in Sources */,
 				188BBF4125F5284D0060E34E /* Scenario.swift in Sources */,
 				1857A9D42670DBC100A57D7A /* LogInViewController.swift in Sources */,
 				18DCB77725F1395E00AE1463 /* Navigation.swift in Sources */,

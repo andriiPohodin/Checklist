@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirmBtn: UIButton! {
         didSet {
             confirmBtn.layer.cornerRadius = CGFloat(confirmBtn.frame.height/2)
-            confirmBtn.layer.backgroundColor = UIColor.systemBlue.cgColor
+            confirmBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
             confirmBtn.setTitle("confirm".localized, for: .normal)
             confirmBtn.setTitleColor(.white, for: .normal)
             confirmBtn.titleLabel?.font = .systemFont(ofSize: 25)

@@ -34,7 +34,7 @@ class AccountViewController: UIViewController {
         didSet {
             changeNameBtn.setTitle("changeName".localized, for: .normal)
             changeNameBtn.layer.cornerRadius = changeNameBtn.frame.height/2
-            changeNameBtn.layer.backgroundColor = UIColor.systemBlue.cgColor
+            changeNameBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
             changeNameBtn.setTitleColor(.white, for: .normal)
         }
     }
@@ -42,13 +42,15 @@ class AccountViewController: UIViewController {
         didSet {
             changePasswordBtn.setTitle("changePassword".localized, for: .normal)
             changePasswordBtn.layer.cornerRadius = changePasswordBtn.frame.height/2
-            changePasswordBtn.layer.backgroundColor = UIColor.systemBlue.cgColor
+            changePasswordBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
             changePasswordBtn.setTitleColor(.white, for: .normal)
         }
     }
     @IBOutlet weak var signOutBtn: UIButton! {
         didSet {
             signOutBtn.setTitle("signOut".localized, for: .normal)
+            signOutBtn.layer.borderWidth = 2
+            signOutBtn.layer.borderColor = UIColor.systemGray5.cgColor
             signOutBtn.layer.cornerRadius = signOutBtn.frame.height/2
             signOutBtn.setTitleColor(.red, for: .normal)
         }

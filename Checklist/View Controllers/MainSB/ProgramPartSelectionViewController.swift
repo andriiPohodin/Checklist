@@ -38,7 +38,6 @@ extension ProgramPartSelectionViewController: UITableViewDelegate, UITableViewDa
         let section = sections[indexPath.row]
         cell.itemLabel.text = "\(indexPath.row+1)."
         cell.titleLabel.text = section.sectionTitle.rawValue.localized
-        cell.indicatorImage.image = UIImage(named: Indicators.disclosure.rawValue)
         cell.descriptionLabel.text = section.sectionDescription.rawValue.localized
         return cell
     }

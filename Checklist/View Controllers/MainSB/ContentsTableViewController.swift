@@ -13,15 +13,15 @@ class ContentsTableViewController: UIViewController {
     
     var selectedDroneName: Name?
     var content = [SectionContent]()
-    var contentString = [String]()
+    var contentStrings = [String]()
     var index = Int()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Constants.Segues.toProgramStepContent:
             guard let destinationVC = segue.destination as? ContentViewController else { return }
-            destinationVC.content = contentString
-            destinationVC.index = index
+            destinationVC.contentImageNames = contentStrings
+            destinationVC.currentSlideIndex = index
         case Constants.Segues.toFAQ:
             guard let destinationVC = segue.destination as? FAQViewController else { return }
             let faq = FAQ(steps: [.whatIf, .canI, .shouldI])
@@ -43,13 +43,14 @@ extension ContentsTableViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.customCell, for: indexPath) as? MyTableViewCell else { return UITableViewCell() }
         let content = content[indexPath.row]
+        cell.itemLabel.text = "\(indexPath.row+1)."
         cell.titleLabel.text = content.rawValue.localized
         cell.descriptionLabel.text = nil
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        contentString.removeAll()
+        contentStrings.removeAll()
         index = indexPath.row
         let selectedRow = content[index]
         switch selectedRow {
@@ -59,7 +60,7 @@ extension ContentsTableViewController: UITableViewDelegate, UITableViewDataSourc
             guard let selectedDroneNameString = selectedDroneName?.rawValue else { return }
             for step in content {
                 let stepString = step.rawValue
-                contentString.append(selectedDroneNameString + stepString)
+                contentStrings.append(selectedDroneNameString + stepString)
             }
             performSegue(withIdentifier: Constants.Segues.toProgramStepContent, sender: nil)
         }

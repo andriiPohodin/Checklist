@@ -24,7 +24,7 @@ class ChangePasswordViewController: UIViewController {
             confirmBtn.titleLabel?.font = .systemFont(ofSize: 25)
             confirmBtn.setTitle("confirm".localized, for: .normal)
             confirmBtn.setTitleColor(.white, for: .normal)
-            confirmBtn.layer.backgroundColor = UIColor.systemBlue.cgColor
+            confirmBtn.layer.backgroundColor = UIColor.systemRed.cgColor
         }
     }
     var textFields = [UITextField]()

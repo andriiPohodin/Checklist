@@ -21,11 +21,17 @@
 "signOut" = "Sign out";
 "changeName" = "Change name";
 "changePassword" = "Change password";
+"xp2020xp2020" = "XP2020";
 "b13860s" = "Intelligent battery B13860S";
+"xp2020b13860s" = "B13860S";
 "cm12500" = "CM12500 Supercharger";
+"xp2020cm12500" = "CM12500";
 "xrtk" = "XRTK4 Mobile Station/Rover";
+"xp2020xrtk" = "XRTK4";
 "acb1" = "ACB1 CommBack";
+"xp2020acb1" = "ACB1";
 "alr6" = "ALR6 Liquid Refiller";
+"xp2020alr6" = "ALR6";
 "wechat" = "Signing up in WeChat";
 "miniProgram" = "Signing up in XAG mini-program";
 "xagAgri" = "Downloading XAG Agri app";

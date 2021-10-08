@@ -12,7 +12,7 @@ class FirstScreenViewController: UIViewController {
     @IBOutlet weak var logInBtn: UIButton! {
         didSet {
             logInBtn.layer.cornerRadius = CGFloat(logInBtn.frame.height/2)
-            logInBtn.layer.backgroundColor = UIColor.systemBlue.cgColor
+            logInBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
             logInBtn.setTitleColor(.white, for: .normal)
             logInBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25)
             logInBtn.setTitle("logIn".localized, for: .normal)
@@ -23,7 +23,7 @@ class FirstScreenViewController: UIViewController {
             signUpBtn.layer.cornerRadius = CGFloat(signUpBtn.frame.height/2)
             signUpBtn.titleLabel?.font = UIFont.systemFont(ofSize: 22)
             signUpBtn.setTitle("signUp".localized, for: .normal)
-            signUpBtn.setTitleColor(.systemBlue, for: .normal)
+            signUpBtn.setTitleColor(.systemRed, for: .normal)
         }
     }
     var playerLooper: AVPlayerLooper?

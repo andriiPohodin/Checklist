@@ -23,6 +23,8 @@ class SelectDroneAndProgramViewController: UIViewController {
     }
     @IBOutlet weak var nextBtn: UIButton! {
         didSet {
+            nextBtn.layer.cornerRadius = nextBtn.frame.height/2
+            nextBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
             nextBtn.setTitle(LocalizedKeys.BtnTitles.nextBtn, for: .normal)
         }
     }
@@ -36,13 +38,13 @@ class SelectDroneAndProgramViewController: UIViewController {
                             Scenario(mappingSource: .xrtk4, sections: [
                                         Sections(sectionTitle: .inTheBoxSectionTitle, sectionDescription: .inTheBoxSectionDescription, sectionContent: [.xp2020, .b13860s, .cm12500, .xrtk, .acb1, .alr6]),
                                         Sections(sectionTitle: .quickStartGuideSectionTitle, sectionDescription: .quickStartGuideSectionDescription, sectionContent: [.wechat, .miniProgram, .xagAgri, .activation, .roleDistribution, .pairingACB1, .pairingMobileStation, .pairingRover, .pairingXP2020, .FAQ]),
-                                        Sections(sectionTitle: .indoorSectionTitle, sectionDescription: .indoorSectionDescription, sectionContent: [.weatherForecastCheck, .equipmentSetupCheck, .firmwareCheck]),
+                                        Sections(sectionTitle: .indoorSectionTitle, sectionDescription: .indoorSectionDescription, sectionContent: [.weatherForecastCheck, .equipmentSetupCheck]),
                                         Sections(sectionTitle: .outdoorSectionTitle, sectionDescription: .outdoorSectionDescription, sectionContent: [.setUpMobileStation, .field, .surveyingRover, .sprayWidthAndSafeDistances, .scissors, .uploadField, .operation, .visualCheck, .battery, .propulsionSystem, .sprayingSystem, .sprayingSystemCalibration, .flightParameters, .start, .rth, .speed, .height, .dosage, .work, .fillTank, .takeOff]),
                                         Sections(sectionTitle: .maintenanceSectionTitle, sectionDescription: .maintenanceSectionDescription, sectionContent: [.endShiftMaintenance, .scheduledMaintenance])]),
                             Scenario(mappingSource: .xmission, sections: [
                                         Sections(sectionTitle: .inTheBoxSectionTitle, sectionDescription: .inTheBoxSectionDescription, sectionContent: [.xp2020, .b13860s, .cm12500, .xrtk, .acb1, .alr6]),
                                         Sections(sectionTitle: .quickStartGuideSectionTitle, sectionDescription: .quickStartGuideSectionDescription, sectionContent: [.wechat, .miniProgram, .xagAgri, .xGeomatics, .activation, .roleDistribution, .pairingACB1, .pairingMobileStation, .pairingXP2020, .FAQ]),
-                                        Sections(sectionTitle: .indoorSectionTitle, sectionDescription: .indoorSectionDescription, sectionContent: [.weatherForecastCheck, .equipmentSetupCheck, .firmwareCheck]),
+                                        Sections(sectionTitle: .indoorSectionTitle, sectionDescription: .indoorSectionDescription, sectionContent: [.weatherForecastCheck, .equipmentSetupCheck]),
                                         Sections(sectionTitle: .outdoorSectionTitle, sectionDescription: .outdoorSectionDescription, sectionContent: [.setUpMobileStation, .xMissionFlight, .field, .surveyingXmission, .sprayWidthAndSafeDistances, .scissors, .uploadField, .operation, .visualCheck, .battery, .propulsionSystem, .sprayingSystem, .sprayingSystemCalibration, .flightParameters, .start, .rth, .speed, .height, .dosage, .work, .fillTank, .takeOff]),
                                         Sections(sectionTitle: .maintenanceSectionTitle, sectionDescription: .maintenanceSectionDescription, sectionContent: [.endShiftMaintenance, .scheduledMaintenance])])])])
     

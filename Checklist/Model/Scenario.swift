@@ -57,7 +57,7 @@ enum SectionContent: String {
     //MARK: Indoor preparations
     case weatherForecastCheck = "weatherForecastCheck"
     case equipmentSetupCheck = "equipmentSetupCheck"
-    case firmwareCheck = "firmwareCheck"
+//    case firmwareCheck = "firmwareCheck"
     
     //MARK: Outdoor preparations
     case setUpMobileStation = "setUpMobileStation"
