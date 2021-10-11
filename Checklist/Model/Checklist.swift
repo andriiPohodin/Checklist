@@ -9,9 +9,10 @@ class Checklist {
         return index
     }
     
-    func defineSelectedScenario (at index: Int, from drone: Drone) -> Scenario {
+    func defineSelectedScenarioSections (scenarioAt index: Int, from drone: Drone) -> [Section] {
         let scenario = drone.availableScenarious[index]
-        return scenario
+        let sections = scenario.sections
+        return sections
     }
     
     func defineAvailableMappingSources(drone: Drone) -> [String] {

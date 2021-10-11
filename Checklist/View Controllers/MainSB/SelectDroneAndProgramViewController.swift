@@ -29,7 +29,7 @@ class SelectDroneAndProgramViewController: UIViewController {
     }
     
     var selectedDrone: Drone?
-    var selectedScenario: Scenario?
+    var selectedScenarioSections: [Section]?
     
     lazy var checklist =
         Checklist(drones: [
@@ -51,9 +51,9 @@ class SelectDroneAndProgramViewController: UIViewController {
         switch segue.identifier {
         case Constants.Segues.toProgramPartSelection:
             guard let destinationVC = segue.destination as? ProgramPartSelectionViewController else { return }
-            if selectedDrone != nil, selectedScenario != nil {
+            if selectedDrone != nil, selectedScenarioSections != nil {
                 destinationVC.selectedDrone = selectedDrone
-                destinationVC.sections = selectedScenario!.sections
+                destinationVC.sections = selectedScenarioSections!
             }
         default:
                 break
@@ -76,7 +76,7 @@ class SelectDroneAndProgramViewController: UIViewController {
     func specifyMappingSourceName() {
         mappingSourcesDropDown.didSelect { [weak self] (_, index, _) in
             if self?.selectedDrone != nil {
-                self?.selectedScenario = self?.checklist.defineSelectedScenario(at: index, from: self!.selectedDrone!)
+                self?.selectedScenarioSections = self?.checklist.defineSelectedScenarioSections(scenarioAt: index, from: self!.selectedDrone!)
                 self?.resetBorder(dropDown: self!.mappingSourcesDropDown)
                 self?.mappingSourcesDropDown.selectedRowColor = .systemGray4
             }
