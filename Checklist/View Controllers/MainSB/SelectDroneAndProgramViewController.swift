@@ -5,7 +5,7 @@ class SelectDroneAndProgramViewController: UIViewController {
     
     @IBOutlet weak var dronesDropDown: DropDown! {
         didSet {
-            defineAvailableDronesAndMappingSources()
+            defineAvailableDronesAndScenarious()
             setUp(dropDown: dronesDropDown, placeholder: LocalizedKeys.Placeholders.dronesDropDown)
         }
     }
@@ -16,7 +16,6 @@ class SelectDroneAndProgramViewController: UIViewController {
     }
     @IBOutlet weak var mappingSourcesDropDown: DropDown! {
         didSet {
-//            mappingSourcesDropDown.isUserInteractionEnabled = false
             specifyMappingSourceName()
             setUp(dropDown: mappingSourcesDropDown, placeholder: LocalizedKeys.Placeholders.mappingSourcesDropDown)
         }
@@ -30,43 +29,42 @@ class SelectDroneAndProgramViewController: UIViewController {
     }
     
     var selectedDrone: Drone?
-    var selectedMappingSource: Scenario?
+    var selectedScenario: Scenario?
     
     lazy var checklist =
         Checklist(drones: [
-                    Drone(name: .xagXp2020, availableWorkingScenarious: [
+                    Drone(name: .xagXp2020, availableScenarious: [
                             Scenario(mappingSource: .xrtk4, sections: [
-                                        Sections(sectionTitle: .inTheBoxSectionTitle, sectionDescription: .inTheBoxSectionDescription, sectionContent: [.xp2020, .b13860s, .cm12500, .xrtk, .acb1, .alr6]),
-                                        Sections(sectionTitle: .quickStartGuideSectionTitle, sectionDescription: .quickStartGuideSectionDescription, sectionContent: [.wechat, .miniProgram, .xagAgri, .activation, .roleDistribution, .pairingACB1, .pairingMobileStation, .pairingRover, .pairingXP2020, .FAQ]),
-                                        Sections(sectionTitle: .indoorSectionTitle, sectionDescription: .indoorSectionDescription, sectionContent: [.weatherForecastCheck, .equipmentSetupCheck]),
-                                        Sections(sectionTitle: .outdoorSectionTitle, sectionDescription: .outdoorSectionDescription, sectionContent: [.setUpMobileStation, .field, .surveyingRover, .sprayWidthAndSafeDistances, .scissors, .uploadField, .operation, .visualCheck, .battery, .propulsionSystem, .sprayingSystem, .sprayingSystemCalibration, .flightParameters, .start, .rth, .speed, .height, .dosage, .work, .fillTank, .takeOff]),
-                                        Sections(sectionTitle: .maintenanceSectionTitle, sectionDescription: .maintenanceSectionDescription, sectionContent: [.endShiftMaintenance, .scheduledMaintenance])]),
+                                        Section(sectionTitle: .inTheBoxSectionTitle, sectionDescription: .inTheBoxSectionDescription, sectionContent: [InTheBoxSectionContent.xp2020, .b13860s, .cm12500, .xrtk, .acb1, .alr6]),
+                                        Section(sectionTitle: .quickStartGuideSectionTitle, sectionDescription: .quickStartGuideSectionDescription, sectionContent: [QuickStartGuideSectionContent.wechat, .miniProgram, .xagAgri, .activation, .roleDistribution, .pairingACB1, .pairingMobileStation, .pairingRover, .pairingXP2020, .FAQ]),
+                                        Section(sectionTitle: .indoorSectionTitle, sectionDescription: .indoorSectionDescription, sectionContent: [IndoorSectionContent.weatherForecastCheck, .equipmentSetupCheck]),
+                                        Section(sectionTitle: .outdoorSectionTitle, sectionDescription: .outdoorSectionDescription, sectionContent: [OutdoorSectionContent.setUpMobileStation, .field, .surveyingRover, .sprayWidthAndSafeDistances, .scissors, .uploadField, .operation, .visualCheck, .battery, .propulsionSystem, .sprayingSystem, .sprayingSystemCalibration, .flightParameters, .start, .rth, .speed, .height, .dosage, .work, .fillTank, .takeOff]),
+                                        Section(sectionTitle: .maintenanceSectionTitle, sectionDescription: .maintenanceSectionDescription, sectionContent: [MaintenanceSectionContent.endShiftMaintenance, .scheduledMaintenance])]),
                             Scenario(mappingSource: .xmission, sections: [
-                                        Sections(sectionTitle: .inTheBoxSectionTitle, sectionDescription: .inTheBoxSectionDescription, sectionContent: [.xp2020, .b13860s, .cm12500, .xrtk, .acb1, .alr6]),
-                                        Sections(sectionTitle: .quickStartGuideSectionTitle, sectionDescription: .quickStartGuideSectionDescription, sectionContent: [.wechat, .miniProgram, .xagAgri, .xGeomatics, .activation, .roleDistribution, .pairingACB1, .pairingMobileStation, .pairingXP2020, .FAQ]),
-                                        Sections(sectionTitle: .indoorSectionTitle, sectionDescription: .indoorSectionDescription, sectionContent: [.weatherForecastCheck, .equipmentSetupCheck]),
-                                        Sections(sectionTitle: .outdoorSectionTitle, sectionDescription: .outdoorSectionDescription, sectionContent: [.setUpMobileStation, .xMissionFlight, .field, .surveyingXmission, .sprayWidthAndSafeDistances, .scissors, .uploadField, .operation, .visualCheck, .battery, .propulsionSystem, .sprayingSystem, .sprayingSystemCalibration, .flightParameters, .start, .rth, .speed, .height, .dosage, .work, .fillTank, .takeOff]),
-                                        Sections(sectionTitle: .maintenanceSectionTitle, sectionDescription: .maintenanceSectionDescription, sectionContent: [.endShiftMaintenance, .scheduledMaintenance])])])])
+                                        Section(sectionTitle: .inTheBoxSectionTitle, sectionDescription: .inTheBoxSectionDescription, sectionContent: [InTheBoxSectionContent.xp2020, .b13860s, .cm12500, .xrtk, .acb1, .alr6]),
+                                        Section(sectionTitle: .quickStartGuideSectionTitle, sectionDescription: .quickStartGuideSectionDescription, sectionContent: [QuickStartGuideSectionContent.wechat, .miniProgram, .xagAgri, .xGeomatics, .activation, .roleDistribution, .pairingACB1, .pairingMobileStation, .pairingXP2020, .FAQ]),
+                                        Section(sectionTitle: .indoorSectionTitle, sectionDescription: .indoorSectionDescription, sectionContent: [IndoorSectionContent.weatherForecastCheck, .equipmentSetupCheck]),
+                                        Section(sectionTitle: .outdoorSectionTitle, sectionDescription: .outdoorSectionDescription, sectionContent: [OutdoorSectionContent.setUpMobileStation, .xMissionFlight, .field, .surveyingXmission, .sprayWidthAndSafeDistances, .scissors, .uploadField, .operation, .visualCheck, .battery, .propulsionSystem, .sprayingSystem, .sprayingSystemCalibration, .flightParameters, .start, .rth, .speed, .height, .dosage, .work, .fillTank, .takeOff]),
+                                        Section(sectionTitle: .maintenanceSectionTitle, sectionDescription: .maintenanceSectionDescription, sectionContent: [MaintenanceSectionContent.endShiftMaintenance, .scheduledMaintenance])])])])
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Constants.Segues.toProgramPartSelection:
             guard let destinationVC = segue.destination as? ProgramPartSelectionViewController else { return }
-            destinationVC.selectedDrone = selectedDrone
-            guard let mappingSource = selectedMappingSource else { return }
-            destinationVC.selectedDrone?.availableWorkingScenarious = [mappingSource]
-            destinationVC.sections = mappingSource.sections
+            if selectedDrone != nil, selectedScenario != nil {
+                destinationVC.selectedDrone = selectedDrone
+                destinationVC.sections = selectedScenario!.sections
+            }
         default:
                 break
         }
     }
     
-    func defineAvailableDronesAndMappingSources() {
+    func defineAvailableDronesAndScenarious() {
         let dronesList = checklist.drones.map { $0.name.rawValue.localized }
         dronesDropDown.optionArray = dronesList
         dronesDropDown.didSelect { [weak self] (name, index, _) in
             self?.selectedDrone = self?.checklist.defineSelectedDrone(at: index)
-//            self?.mappingSourcesDropDown.isUserInteractionEnabled = true
             self?.mappingSourcesDropDown.optionArray = self!.checklist.defineAvailableMappingSources(drone: self!.selectedDrone!)
             self?.mainImageView.image = UIImage(named: name)
             self?.resetBorder(dropDown: self!.dronesDropDown)
@@ -78,7 +76,7 @@ class SelectDroneAndProgramViewController: UIViewController {
     func specifyMappingSourceName() {
         mappingSourcesDropDown.didSelect { [weak self] (_, index, _) in
             if self?.selectedDrone != nil {
-                self?.selectedMappingSource = self?.checklist.defineSelectedMappingSource(at: index, from: self!.selectedDrone!)
+                self?.selectedScenario = self?.checklist.defineSelectedScenario(at: index, from: self!.selectedDrone!)
                 self?.resetBorder(dropDown: self!.mappingSourcesDropDown)
                 self?.mappingSourcesDropDown.selectedRowColor = .systemGray4
             }

@@ -12,7 +12,7 @@ class ContentsTableViewController: UIViewController {
     }
     
     var selectedDroneName: Name?
-    var content = [SectionContent]()
+    var sectionsContent = [SectionsContent]()
     var contentStrings = [String]()
     var index = Int()
     
@@ -32,19 +32,27 @@ class ContentsTableViewController: UIViewController {
         }
     }
     
+    func moveToSlides() {
+        guard let selectedDroneNameString = selectedDroneName?.rawValue else { return }
+        for step in sectionsContent {
+            let stepString = "\(step)"
+            contentStrings.append(selectedDroneNameString + stepString)
+        }
+        performSegue(withIdentifier: Constants.Segues.toProgramStepContent, sender: nil)
+    }
 }
 
 extension ContentsTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return content.count
+        return sectionsContent.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.customCell, for: indexPath) as? MyTableViewCell else { return UITableViewCell() }
-        let content = content[indexPath.row]
+        let content = sectionsContent[indexPath.row]
         cell.itemLabel.text = "\(indexPath.row+1)."
-        cell.titleLabel.text = content.rawValue.localized
+        cell.titleLabel.text = "\(content)".localized
         cell.descriptionLabel.text = nil
         return cell
     }
@@ -52,17 +60,16 @@ extension ContentsTableViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         contentStrings.removeAll()
         index = indexPath.row
-        let selectedRow = content[index]
-        switch selectedRow {
-        case .FAQ:
-            performSegue(withIdentifier: Constants.Segues.toFAQ, sender: nil)
-        default:
-            guard let selectedDroneNameString = selectedDroneName?.rawValue else { return }
-            for step in content {
-                let stepString = step.rawValue
-                contentStrings.append(selectedDroneNameString + stepString)
+        if let selectedRow = sectionsContent[index] as? QuickStartGuideSectionContent {
+            switch selectedRow {
+            case .FAQ:
+                performSegue(withIdentifier: Constants.Segues.toFAQ, sender: nil)
+            default:
+                moveToSlides()
             }
-            performSegue(withIdentifier: Constants.Segues.toProgramStepContent, sender: nil)
+        }
+        else {
+            moveToSlides()
         }
         tableView.deselectRow(at: indexPath, animated: false)
     }

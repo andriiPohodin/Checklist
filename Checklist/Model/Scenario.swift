@@ -2,103 +2,116 @@ import Foundation
 
 struct Scenario {
     let mappingSource: MappingSource
-    let sections: [Sections]
+    let sections: [Section]
 }
 
-struct Sections {
+enum MappingSource {
+    case xrtk4
+    case xmission
+}
+
+struct Section {
+//    let inTheBoxSection: (inTheBoxSectionTitle: SectionTitle, inTheBoxSectionDescription: SectionDescription, inTheBoxSectionContent: [InTheBoxSectionContent])
+//    let quickStartGuideSection: (quickStartGuideSectionTitle: SectionTitle, quickStartGuideSectionDescription: SectionDescription, quickStartGuideSectionContent: [QuickStartGuideSectionContent])
+//    let indoorPreparationsSection: (indoorSectionTitle: SectionTitle, indoorSectionDescription: SectionDescription, indoorPreparationsSectionContent: [IndoorPreparationsSectionContent])
+//    let outdoorPreparationsSection: (outdoorSectionTitle: SectionTitle, outdoorSectionDescription: SectionDescription, outdoorPreparationsSectionContent: [OutdoorPreparationsSectionContent])
+//    let maintenanceSection: (maintenanceSectionTitle: SectionTitle, maintenanceSectionDescription: SectionDescription, maintenanceSectionContent: [MaintenanceSectionContent])
     let sectionTitle: SectionTitle
     let sectionDescription: SectionDescription
-    let sectionContent: [SectionContent]
+    let sectionContent: [SectionsContent]
 }
 
-enum SectionTitle: String {
-    case inTheBoxSectionTitle = "inTheBoxSectionTitle"
-    case quickStartGuideSectionTitle = "quickStartGuideSectionTitle"
-    case indoorSectionTitle = "indoorSectionTitle"
-    case outdoorSectionTitle = "outdoorSectionTitle"
-    case maintenanceSectionTitle = "maintenanceSectionTitle"
+enum SectionTitle {
+    case inTheBoxSectionTitle
+    case quickStartGuideSectionTitle
+    case indoorSectionTitle
+    case outdoorSectionTitle
+    case maintenanceSectionTitle
 }
 
-enum SectionDescription: String {
-    case inTheBoxSectionDescription = "inTheBoxSectionDescription"
-    case quickStartGuideSectionDescription = "quickStartGuideSectionDescription"
-    case indoorSectionDescription = "indoorSectionDescription"
-    case outdoorSectionDescription = "outdoorSectionDescription"
-    case maintenanceSectionDescription = "maintenanceSectionDescription"
+enum SectionDescription {
+    case inTheBoxSectionDescription
+    case quickStartGuideSectionDescription
+    case indoorSectionDescription
+    case outdoorSectionDescription
+    case maintenanceSectionDescription
 }
 
-enum MappingSource: String {
-    case xrtk4 = "xrtk4"
-    case xmission = "xmission"
+//MARK: In The Box
+enum InTheBoxSectionContent: SectionsContent {
+    case xp2020
+    case b13860s
+    case cm12500
+    case xrtk
+    case acb1
+    case alr6
 }
 
-enum SectionContent: String {
-    //MARK: In The Box
-    case xp2020 = "xp2020"
-    case b13860s = "b13860s"
-    case cm12500 = "cm12500"
-    case xrtk = "xrtk"
-    case acb1 = "acb1"
-    case alr6 = "alr6"
-    
-    //MARK: Quick Start Guide
-    case wechat = "wechat"
-    case miniProgram = "miniProgram"
-    case xagAgri = "xagAgri"
-    case xGeomatics = "xGeomatics"
-    case activation = "activation"
-    case roleDistribution = "roleDistribution"
-    case pairingACB1 = "pairingACB1"
-    case pairingMobileStation = "pairingMobileStation"
-    case pairingRover = "pairingRover"
-    case pairingXP2020 = "pairingXP2020"
-    case FAQ = "FAQ"
-    
-    //MARK: Indoor preparations
-    case weatherForecastCheck = "weatherForecastCheck"
-    case equipmentSetupCheck = "equipmentSetupCheck"
-//    case firmwareCheck = "firmwareCheck"
-    
-    //MARK: Outdoor preparations
-    case setUpMobileStation = "setUpMobileStation"
-    case xMissionFlight = "xMissionFlight"
-    case field = "field"
-    case surveyingRover = "surveyingRover"
-    case surveyingXmission = "surveyingXmission"
-    case sprayWidthAndSafeDistances = "sprayWidthAndSafeDistances"
-    case scissors = "scissors"
-    case uploadField = "uploadField"
-    case operation = "operation"
-    case visualCheck = "visualCheck"
-    case battery = "battery"
-    case propulsionSystem = "propulsionSystem"
-    case sprayingSystem = "sprayingSystem"
-    case sprayingSystemCalibration = "sprayingSystemCalibration"
-    case flightParameters = "flightParameters"
-    case start = "start"
-    case rth = "rth"
-    case speed = "speed"
-    case height = "height"
-    case dosage = "dosage"
-    case work = "work"
-    case fillTank = "fillTank"
-    case takeOff = "takeOff"
-    
-    //MARK: Maintenance
-    case endShiftMaintenance = "endShiftMaintenance"
-    case scheduledMaintenance = "scheduledMaintenance"
+//MARK: Quick Start Guide
+enum QuickStartGuideSectionContent: SectionsContent {
+    case wechat
+    case miniProgram
+    case xagAgri
+    case xGeomatics
+    case activation
+    case roleDistribution
+    case pairingACB1
+    case pairingMobileStation
+    case pairingRover
+    case pairingXP2020
+    case FAQ
 }
 
-enum Indicators: String {
-    case disclosure = "disclosureIndicator"
+//MARK: Indoor preparations
+enum IndoorSectionContent: SectionsContent {
+    case weatherForecastCheck
+    case equipmentSetupCheck
+    case firmwareCheck
+}
+
+//MARK: Outdoor preparations
+enum OutdoorSectionContent: SectionsContent {
+    case setUpMobileStation
+    case xMissionFlight
+    case field
+    case surveyingRover
+    case surveyingXmission
+    case sprayWidthAndSafeDistances
+    case scissors
+    case uploadField
+    case operation
+    case visualCheck
+    case battery
+    case propulsionSystem
+    case sprayingSystem
+    case sprayingSystemCalibration
+    case flightParameters
+    case start
+    case rth
+    case speed
+    case height
+    case dosage
+    case work
+    case fillTank
+    case takeOff
+}
+
+//MARK: Maintenance
+enum MaintenanceSectionContent: String, SectionsContent {
+    case endShiftMaintenance
+    case scheduledMaintenance
 }
 
 struct FAQ {
     let steps: [FAQsteps]
 }
 
-enum FAQsteps: String {
+enum FAQsteps: String, SectionsContent {
     case whatIf = "What if?..."
     case canI = "Can I?..."
     case shouldI = "Should I?..."
+}
+
+protocol SectionsContent {
+    
 }
