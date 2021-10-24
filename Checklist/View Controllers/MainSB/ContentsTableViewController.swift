@@ -20,12 +20,11 @@ class ContentsTableViewController: UIViewController {
         switch segue.identifier {
         case Constants.Segues.toProgramStepContent:
             guard let destinationVC = segue.destination as? ContentViewController else { return }
-            destinationVC.contentImageNames = contentStrings
+            destinationVC.contentSlideNames = contentStrings
             destinationVC.currentSlideIndex = index
         case Constants.Segues.toFAQ:
             guard let destinationVC = segue.destination as? FAQViewController else { return }
-            let faq = FAQ(steps: [.whatIf, .canI, .shouldI])
-            destinationVC.faqSteps = faq.steps
+//            destinationVC.faqSteps = faq.steps
             destinationVC.index = index
         default:
             break

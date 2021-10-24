@@ -11,11 +11,6 @@ enum MappingSource {
 }
 
 struct Section {
-//    let inTheBoxSection: (inTheBoxSectionTitle: SectionTitle, inTheBoxSectionDescription: SectionDescription, inTheBoxSectionContent: [InTheBoxSectionContent])
-//    let quickStartGuideSection: (quickStartGuideSectionTitle: SectionTitle, quickStartGuideSectionDescription: SectionDescription, quickStartGuideSectionContent: [QuickStartGuideSectionContent])
-//    let indoorPreparationsSection: (indoorSectionTitle: SectionTitle, indoorSectionDescription: SectionDescription, indoorPreparationsSectionContent: [IndoorPreparationsSectionContent])
-//    let outdoorPreparationsSection: (outdoorSectionTitle: SectionTitle, outdoorSectionDescription: SectionDescription, outdoorPreparationsSectionContent: [OutdoorPreparationsSectionContent])
-//    let maintenanceSection: (maintenanceSectionTitle: SectionTitle, maintenanceSectionDescription: SectionDescription, maintenanceSectionContent: [MaintenanceSectionContent])
     let sectionTitle: SectionTitle
     let sectionDescription: SectionDescription
     let sectionContent: [SectionsContent]
@@ -106,10 +101,10 @@ struct FAQ {
     let steps: [FAQsteps]
 }
 
-enum FAQsteps: String, SectionsContent {
-    case whatIf = "What if?..."
-    case canI = "Can I?..."
-    case shouldI = "Should I?..."
+enum FAQsteps: SectionsContent {
+    case whatIf
+    case canI
+    case shouldI
 }
 
 protocol SectionsContent {

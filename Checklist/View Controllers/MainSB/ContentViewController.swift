@@ -8,7 +8,7 @@ class ContentViewController: UIViewController {
             previousSlideBtn.setTitleColor(.systemRed, for: .normal)
             previousSlideIndex = currentSlideIndex-1
             switch currentSlideIndex {
-            case contentImageNames.startIndex:
+            case contentSlideNames.startIndex:
                 previousSlideBtn.isUserInteractionEnabled = false
                 previousSlideBtn.setTitle("", for: .normal)
             default:
@@ -22,7 +22,7 @@ class ContentViewController: UIViewController {
             nextSlideBtn.setTitleColor(.systemRed, for: .normal)
             nextSlideIndex = currentSlideIndex+1
             switch currentSlideIndex {
-            case contentImageNames.endIndex-1:
+            case contentSlideNames.endIndex-1:
                 nextSlideBtn.isUserInteractionEnabled = false
                 nextSlideBtn.setTitle("", for: .normal)
             default:
@@ -33,7 +33,7 @@ class ContentViewController: UIViewController {
     }
     @IBOutlet weak var contentLabel: UILabel! {
         didSet {
-            contentLabel.text = contentImageNames[currentSlideIndex].localized
+            contentLabel.text = contentSlideNames[currentSlideIndex].localized
         }
     }
     @IBOutlet weak var contentView: UIView! {
@@ -47,11 +47,11 @@ class ContentViewController: UIViewController {
     var currentSlideIndex = Int()
     var previousSlideIndex = Int()
     var nextSlideIndex = Int()
-    var contentImageNames = [String]()
+    var contentSlideNames = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(contentImageNames)
+        print(contentSlideNames)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,9 +77,9 @@ class ContentViewController: UIViewController {
     
     private func toNextSlide() {
         
-        if nextSlideIndex == contentImageNames.endIndex-1 {
+        if nextSlideIndex == contentSlideNames.endIndex-1 {
             currentSlideIndex+=1
-            contentLabel.text = contentImageNames[currentSlideIndex].localized
+            contentLabel.text = contentSlideNames[currentSlideIndex].localized
             getPdfDocument()
             
             previousSlideIndex+=1
@@ -90,9 +90,9 @@ class ContentViewController: UIViewController {
             nextSlideBtn.isUserInteractionEnabled = false
             nextSlideBtn.setTitle("", for: .normal)
         }
-        else if nextSlideIndex < contentImageNames.endIndex {
+        else if nextSlideIndex < contentSlideNames.endIndex {
             currentSlideIndex+=1
-            contentLabel.text = contentImageNames[currentSlideIndex].localized
+            contentLabel.text = contentSlideNames[currentSlideIndex].localized
             getPdfDocument()
             
             previousSlideIndex+=1
@@ -107,9 +107,9 @@ class ContentViewController: UIViewController {
     
     private func toPreviousSlide() {
         
-        if previousSlideIndex == contentImageNames.startIndex {
+        if previousSlideIndex == contentSlideNames.startIndex {
             currentSlideIndex-=1
-            contentLabel.text = contentImageNames[currentSlideIndex].localized
+            contentLabel.text = contentSlideNames[currentSlideIndex].localized
             getPdfDocument()
             
             nextSlideIndex-=1
@@ -120,9 +120,9 @@ class ContentViewController: UIViewController {
             previousSlideBtn.isUserInteractionEnabled = false
             previousSlideBtn.setTitle("", for: .normal)
         }
-        else if previousSlideIndex > contentImageNames.startIndex {
+        else if previousSlideIndex > contentSlideNames.startIndex {
             currentSlideIndex-=1
-            contentLabel.text = contentImageNames[currentSlideIndex].localized
+            contentLabel.text = contentSlideNames[currentSlideIndex].localized
             getPdfDocument()
             
             nextSlideIndex-=1
@@ -136,7 +136,7 @@ class ContentViewController: UIViewController {
     }
     
     private func getPdfDocument() {
-        guard let url = Bundle.main.url(forResource: contentImageNames[currentSlideIndex], withExtension: "pdf") else { return }
+        guard let url = Bundle.main.url(forResource: contentSlideNames[currentSlideIndex], withExtension: "pdf") else { return }
         guard let pdfDocument = PDFDocument(url: url) else { return }
         pdfView.autoScales = true
         pdfView.goToFirstPage(nil)
