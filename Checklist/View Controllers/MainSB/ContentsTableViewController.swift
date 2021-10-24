@@ -24,8 +24,7 @@ class ContentsTableViewController: UIViewController {
             destinationVC.currentSlideIndex = index
         case Constants.Segues.toFAQ:
             guard let destinationVC = segue.destination as? FAQViewController else { return }
-//            destinationVC.faqSteps = faq.steps
-            destinationVC.index = index
+            destinationVC.selectedFaqStepIndex = index
         default:
             break
         }

@@ -105,6 +105,7 @@ enum FAQsteps: SectionsContent {
     case whatIf
     case canI
     case shouldI
+    case contactUs
 }
 
 protocol SectionsContent {

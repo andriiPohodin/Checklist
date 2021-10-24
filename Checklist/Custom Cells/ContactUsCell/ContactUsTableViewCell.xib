@@ -17,45 +17,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3db-Ko-T6D">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Og8-zh-c90">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="66"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="tLx-CT-bu3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpx-JS-R5O">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="GtN-Cw-Nov"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vI-lN-VYm">
-                                        <rect key="frame" x="0.0" y="24.5" width="320" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="qFY-OW-agU"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpx-JS-R5O">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MrQ-UM-wrQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vI-lN-VYm">
+                                <rect key="frame" x="0.0" y="35" width="0.0" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="tLx-CT-bu3" firstAttribute="top" secondItem="3db-Ko-T6D" secondAttribute="top" id="D08-Oe-qq9"/>
-                            <constraint firstAttribute="bottom" secondItem="tLx-CT-bu3" secondAttribute="bottom" id="UyV-58-2aW"/>
-                            <constraint firstAttribute="trailing" secondItem="tLx-CT-bu3" secondAttribute="trailing" id="mO0-Xy-Mkv"/>
-                            <constraint firstItem="tLx-CT-bu3" firstAttribute="leading" secondItem="3db-Ko-T6D" secondAttribute="leading" id="zrO-ru-tQF"/>
+                            <constraint firstItem="2vI-lN-VYm" firstAttribute="width" secondItem="Og8-zh-c90" secondAttribute="width" multiplier="0.66" id="W6k-Z6-elR"/>
+                            <constraint firstItem="2vI-lN-VYm" firstAttribute="width" secondItem="tpx-JS-R5O" secondAttribute="width" id="fBr-wa-8LG"/>
+                            <constraint firstItem="2vI-lN-VYm" firstAttribute="height" secondItem="tpx-JS-R5O" secondAttribute="height" id="ftf-Gv-SPY"/>
                         </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="3db-Ko-T6D" secondAttribute="trailing" id="ctw-Sm-w12"/>
-                    <constraint firstItem="3db-Ko-T6D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dDR-Nd-mfz"/>
-                    <constraint firstAttribute="bottom" secondItem="3db-Ko-T6D" secondAttribute="bottom" id="fyD-d8-f3q"/>
-                    <constraint firstItem="3db-Ko-T6D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rEY-EB-eVQ"/>
+                    <constraint firstItem="Og8-zh-c90" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9iz-Os-j4P"/>
+                    <constraint firstItem="2vI-lN-VYm" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="OaP-US-cuL"/>
+                    <constraint firstAttribute="bottom" secondItem="Og8-zh-c90" secondAttribute="bottom" id="Oja-QO-8Al"/>
+                    <constraint firstItem="tpx-JS-R5O" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="PMF-5n-EQ9"/>
+                    <constraint firstItem="Og8-zh-c90" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bLV-s1-isq"/>
+                    <constraint firstAttribute="trailing" secondItem="Og8-zh-c90" secondAttribute="trailing" id="fGs-DS-pG7"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

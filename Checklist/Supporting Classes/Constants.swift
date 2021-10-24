@@ -19,5 +19,6 @@ struct Constants {
     
     struct Identifiers {
         static let customCell = "MyTableViewCell"
+        static let contactUsCell = "ContactUsTableViewCell"
     }
 }

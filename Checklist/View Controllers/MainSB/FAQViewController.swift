@@ -6,57 +6,27 @@ class FAQViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            let nib = UINib(nibName: Constants.Identifiers.customCell, bundle: nil)
-            tableView.register(nib, forCellReuseIdentifier: Constants.Identifiers.customCell)
+            let customNib = UINib(nibName: Constants.Identifiers.customCell, bundle: nil)
+            tableView.register(customNib, forCellReuseIdentifier: Constants.Identifiers.customCell)
+            let contactUsNib = UINib(nibName: Constants.Identifiers.contactUsCell, bundle: nil)
+            tableView.register(contactUsNib, forCellReuseIdentifier: Constants.Identifiers.contactUsCell)
             tableView.delegate = self
             tableView.dataSource = self
         }
     }
-    @IBOutlet weak var contacUsLabel: UILabel! {
-        didSet {
-            contacUsLabel.text = "Didn't find the answer?"
-//            contacUsLabel.isHidden = true
-        }
-    }
-    @IBOutlet weak var contactUsBtn: UIButton! {
-        didSet {
-
-            contactUsBtn.layer.cornerRadius = contactUsBtn.frame.height/2
-            contactUsBtn.setTitle("Contact us!", for: .normal)
-//            contactUsBtn.isHidden = true
-        }
-    }
-//    @IBOutlet weak var contactUsLabelHeightConstraint: NSLayoutConstraint!
-//    @IBOutlet weak var contactUsBtnHeightConstraint: NSLayoutConstraint!
-    let faq = FAQ(steps: [.whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI])
-    var index = Int()
+    let faq = FAQ(steps: [.whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .contactUs])
+    var selectedFaqStepIndex = Int()
     var faqStepStringsArray = [String]()
     
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Constants.Segues.toFAQContent:
             guard let destinationVC = segue.destination as? ContentViewController else { return }
-            destinationVC.currentSlideIndex = index
+            destinationVC.currentSlideIndex = selectedFaqStepIndex
             destinationVC.contentSlideNames = faqStepStringsArray
         default:
             break
         }
-    }
-    
-    func makeUIViewVisible() {
-        contactUsBtn.isUserInteractionEnabled = true
-        contactUsBtn.setTitleColor(.white, for: .normal)
-        contactUsBtn.backgroundColor = .red
-        contacUsLabel.textColor = .black
-    }
-
-    
-    func makeUIViewInvisible() {
-        contactUsBtn.isUserInteractionEnabled = false
-        contactUsBtn.setTitleColor(.clear, for: .normal)
-        contactUsBtn.backgroundColor = .clear
-        contacUsLabel.textColor = .clear
     }
     
     func showMailComposer() {
@@ -74,7 +44,7 @@ class FAQViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
     
-    @IBAction func contactUsBtnAction(_ sender: UIButton) {
+    @objc func didTapContactUsBtn() {
         showMailComposer()
     }
 }
@@ -86,40 +56,40 @@ extension FAQViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.customCell, for: indexPath) as? MyTableViewCell else { return UITableViewCell() }
         faqStepStringsArray.removeAll()
         let faqStep = faq.steps[indexPath.row]
-        cell.itemLabel.text = "\(indexPath.row+1)."
-        cell.titleLabel.text = "\(faqStep)".localized
-        cell.descriptionLabel.text = nil
-        return cell
+        switch faqStep {
+        case .contactUs:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.contactUsCell, for: indexPath) as? ContactUsTableViewCell else { return UITableViewCell() }
+            cell.selectionStyle = .none
+            cell.contactUsLabel.text = "Didn't find an answer?"
+            cell.contactUsBtn.setTitle("Contact Us", for: .normal)
+            cell.contactUsBtn.backgroundColor = .systemRed
+            cell.contactUsBtn.setTitleColor(.black, for: .normal)
+            cell.contactUsBtn.layer.cornerRadius = cell.contactUsBtn.frame.height/2
+            cell.contactUsBtn.addTarget(self, action: #selector(didTapContactUsBtn), for: .touchUpInside)
+            return cell
+        default:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.customCell, for: indexPath) as? MyTableViewCell else { return UITableViewCell() }
+            cell.itemLabel.text = "\(indexPath.row+1)."
+            cell.titleLabel.text = "\(faqStep)".localized
+            cell.descriptionLabel.text = nil
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        index = indexPath.row
-        for step in faq.steps {
-            let stepString = "\(step)".localized
-            faqStepStringsArray.append(stepString)
-        }
-        tableView.deselectRow(at: indexPath, animated: false)
-        performSegue(withIdentifier: Constants.Segues.toFAQContent, sender: nil)
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == faq.steps.count-1 {
-            makeUIViewVisible()
-//            contacUsLabel.isHidden = false
-//            contactUsBtn.isHidden = false
-            print("Will display")
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == faq.steps.count-1 {
-            makeUIViewInvisible()
-//            contacUsLabel.isHidden = true
-//            contactUsBtn.isHidden = true
-            print("Did end displaying")
+        let selectedFaqStep = faq.steps[indexPath.row]
+        if selectedFaqStep != .contactUs {
+            selectedFaqStepIndex = indexPath.row
+            for step in faq.steps {
+                if step != .contactUs {
+                    let stepString = "\(step)".localized
+                    faqStepStringsArray.append(stepString)
+                }
+            }
+            tableView.deselectRow(at: indexPath, animated: false)
+            performSegue(withIdentifier: Constants.Segues.toFAQContent, sender: nil)
         }
     }
 }
