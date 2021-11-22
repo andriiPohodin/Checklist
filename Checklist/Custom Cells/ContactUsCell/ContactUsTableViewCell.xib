@@ -45,7 +45,7 @@
                 <constraints>
                     <constraint firstItem="Og8-zh-c90" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9iz-Os-j4P"/>
                     <constraint firstItem="2vI-lN-VYm" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="OaP-US-cuL"/>
-                    <constraint firstAttribute="bottom" secondItem="Og8-zh-c90" secondAttribute="bottom" id="Oja-QO-8Al"/>
+                    <constraint firstAttribute="bottom" secondItem="Og8-zh-c90" secondAttribute="bottom" constant="4" id="Oja-QO-8Al"/>
                     <constraint firstItem="tpx-JS-R5O" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="PMF-5n-EQ9"/>
                     <constraint firstItem="Og8-zh-c90" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bLV-s1-isq"/>
                     <constraint firstAttribute="trailing" secondItem="Og8-zh-c90" secondAttribute="trailing" id="fGs-DS-pG7"/>

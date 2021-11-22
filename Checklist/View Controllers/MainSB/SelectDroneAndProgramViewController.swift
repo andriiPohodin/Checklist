@@ -14,10 +14,10 @@ class SelectDroneAndProgramViewController: UIViewController {
             mainImageView.image = UIImage(named: LocalizedKeys.ImgNames.mainImageView)
         }
     }
-    @IBOutlet weak var mappingSourcesDropDown: DropDown! {
+    @IBOutlet weak var scenariousDropDown: DropDown! {
         didSet {
-            specifyMappingSourceName()
-            setUp(dropDown: mappingSourcesDropDown, placeholder: LocalizedKeys.Placeholders.mappingSourcesDropDown)
+            defineScenarioSections()
+            setUp(dropDown: scenariousDropDown, placeholder: LocalizedKeys.Placeholders.mappingSourcesDropDown)
         }
     }
     @IBOutlet weak var nextBtn: UIButton! {
@@ -31,7 +31,7 @@ class SelectDroneAndProgramViewController: UIViewController {
     var selectedDrone: Drone?
     var selectedScenarioSections: [Section]?
     
-    lazy var checklist =
+    let checklist =
         Checklist(drones: [
                     Drone(name: .xagXp2020, availableScenarious: [
                             Scenario(mappingSource: .xrtk4, sections: [
@@ -65,20 +65,20 @@ class SelectDroneAndProgramViewController: UIViewController {
         dronesDropDown.optionArray = dronesList
         dronesDropDown.didSelect { [weak self] (name, index, _) in
             self?.selectedDrone = self?.checklist.defineSelectedDrone(at: index)
-            self?.mappingSourcesDropDown.optionArray = self!.checklist.defineAvailableMappingSources(drone: self!.selectedDrone!)
+            self?.scenariousDropDown.optionArray = self!.checklist.defineAvailableScenarioNames(drone: self!.selectedDrone!)
             self?.mainImageView.image = UIImage(named: name)
             self?.resetBorder(dropDown: self!.dronesDropDown)
-            self?.mappingSourcesDropDown.text = ""
-            self?.mappingSourcesDropDown.selectedRowColor = .clear
+            self?.scenariousDropDown.text = ""
+            self?.scenariousDropDown.selectedRowColor = .clear
         }
     }
     
-    func specifyMappingSourceName() {
-        mappingSourcesDropDown.didSelect { [weak self] (_, index, _) in
+    func defineScenarioSections() {
+        scenariousDropDown.didSelect { [weak self] (_, index, _) in
             if self?.selectedDrone != nil {
                 self?.selectedScenarioSections = self?.checklist.defineSelectedScenarioSections(scenarioAt: index, from: self!.selectedDrone!)
-                self?.resetBorder(dropDown: self!.mappingSourcesDropDown)
-                self?.mappingSourcesDropDown.selectedRowColor = .systemGray4
+                self?.resetBorder(dropDown: self!.scenariousDropDown)
+                self?.scenariousDropDown.selectedRowColor = .systemGray4
             }
         }
     }
@@ -106,10 +106,10 @@ class SelectDroneAndProgramViewController: UIViewController {
     func validateRequiredInfoInput() {
         if dronesDropDown.text == "" {
             markBorder(dropDown: dronesDropDown)
-            markBorder(dropDown: mappingSourcesDropDown)
+            markBorder(dropDown: scenariousDropDown)
         }
-        if mappingSourcesDropDown.text == "" {
-            markBorder(dropDown: mappingSourcesDropDown)
+        if scenariousDropDown.text == "" {
+            markBorder(dropDown: scenariousDropDown)
         }
         else {
             performSegue(withIdentifier: Constants.Segues.toProgramPartSelection, sender: nil)

@@ -71,6 +71,7 @@
 		18BFFDFE267BE6430087421C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFFDFD267BE6430087421C /* AccountViewController.swift */; };
 		18CBAC0D2698882100D5A2DF /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */; };
 		18CBAC1326B5611700D5A2DF /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBAC1226B5611700D5A2DF /* Alerts.swift */; };
+		18CF99522747E13300802766 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CF99512747E13300802766 /* NetworkMonitor.swift */; };
 		18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */; };
 		18DCB76025EF7E1500AE1463 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */; };
 		18DCB76E25F1366900AE1463 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCB76D25F1366900AE1463 /* String+localized.swift */; };
@@ -152,6 +153,7 @@
 		18BFFDFD267BE6430087421C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		18CBAC1226B5611700D5A2DF /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		18CF99512747E13300802766 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		18DCB75D25EF7E1500AE1463 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		18DCB75E25EF7E1500AE1463 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
 		18DCB76D25F1366900AE1463 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				18DCB77025F136BF00AE1463 /* Constants.swift */,
 				18DCB77925F13AF400AE1463 /* PasswordValidator.swift */,
 				188BBF4A25F578F30060E34E /* LocalizedKeys.swift */,
+				18CF99512747E13300802766 /* NetworkMonitor.swift */,
 			);
 			path = "Supporting Classes";
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				18CBAC0D2698882100D5A2DF /* ChangePasswordViewController.swift in Sources */,
 				18DCB77125F136BF00AE1463 /* Constants.swift in Sources */,
 				18CBAC1326B5611700D5A2DF /* Alerts.swift in Sources */,
+				18CF99522747E13300802766 /* NetworkMonitor.swift in Sources */,
 				18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */,
 				1880BD9025D6D71B004B6BFE /* AppDelegate.swift in Sources */,
 				188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */,

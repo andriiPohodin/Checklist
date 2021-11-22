@@ -4,11 +4,7 @@ import AVKit
 class FirstScreenViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var contentView: UIView! {
-        didSet {
-            setUpVideo()
-        }
-    }
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var logInBtn: UIButton! {
         didSet {
             logInBtn.layer.cornerRadius = CGFloat(logInBtn.frame.height/2)
@@ -28,8 +24,9 @@ class FirstScreenViewController: UIViewController {
     }
     var playerLooper: AVPlayerLooper?
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        activityIndicator.stopAnimating()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpVideo()
     }
     
     func setUpVideo() {
@@ -43,15 +40,14 @@ class FirstScreenViewController: UIViewController {
         contentView.layer.addSublayer(layer)
         playerLooper = AVPlayerLooper(player: player, templateItem: item)
         player.playImmediately(atRate: 2)
+        activityIndicator.stopAnimating()
     }
     
     @IBAction func logInBtnAction(_ sender: UIButton) {
-        activityIndicator.startAnimating()
         performSegue(withIdentifier: "toLogIn", sender: nil)
     }
     
     @IBAction func signUpBtnAction(_ sender: UIButton) {
-        activityIndicator.startAnimating()
         performSegue(withIdentifier: "toSignUp", sender: nil)
     }
 }

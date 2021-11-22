@@ -3,10 +3,10 @@ import UIKit
 class Navigation {
     
     static func ifLoggedIn() {
-        if UserSettings.userDefaults.value(forKey: UserSettings.userName) != nil {
+        if UserSettings.defaults.value(forKey: UserSettings.userName) != nil {
             goToMainVC()
         }
-        else if UserSettings.userDefaults.value(forKey: UserSettings.userName) == nil {
+        else if UserSettings.defaults.value(forKey: UserSettings.userName) == nil {
             goToFirstVC()
         }
     }

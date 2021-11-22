@@ -68,10 +68,6 @@ class SignUpViewController: UIViewController {
         view.endEditing(true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        activityIndicator.stopAnimating()
-    }
-    
     @objc func keyboardWillChange(notification: Notification) {
         switch notification.name {
         case UIResponder.keyboardDidShowNotification:
@@ -114,8 +110,8 @@ class SignUpViewController: UIViewController {
         }
         if !emptyTextFields.isEmpty {
             Alerts.fillInAllFieldsAlert(emptyTextFields: emptyTextFields, presentAlertOn: self)
-            emptyTextFields.removeAll()
             activityIndicator.stopAnimating()
+            emptyTextFields.removeAll()
         }
         else {
             if PasswordValidator.isPasswordValid(passwordTf.text!) == true {
@@ -127,39 +123,26 @@ class SignUpViewController: UIViewController {
                     guard let password = passwordTf.text else { return }
                     Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, err) in
                         if err != nil {
-                            Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
-                            self?.activityIndicator.stopAnimating()
+                            DispatchQueue.main.async {
+                                Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
+                                self?.activityIndicator.stopAnimating()
+                            }
                         }
                         else {
                             let db = Firestore.firestore()
                             db.collection("users").document("\(result!.user.uid)").setData(["name":name, "corporation":corporation, "email":email, "phoneNumber":phoneNumber, "uid":result!.user.uid]) { [weak self] err in
                                 if err != nil {
-                                    Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
-                                    self?.activityIndicator.stopAnimating()
+                                    DispatchQueue.main.async {
+                                        Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
+                                        self?.activityIndicator.stopAnimating()
+                                    }
                                 }
                                 else {
                                     UserSettings.setUserData(name, result!.user.uid)
-                                    guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(result!.user.uid) else { return }
-                                    let storageRef = Storage.storage().reference(forURL: Constants.storageRef).child(result!.user.uid)
-                                    let img = UIImage(named: "defaultProfileImage")
-                                    guard let imageData = img?.jpegData(compressionQuality: 0.4) else { return }
-                                    do {
-                                        try imageData.write(to: localUrl)
-                                    } catch {
-                                        Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: error.localizedDescription, presentAlertOn: self)
+                                    DispatchQueue.main.async {
                                         self?.activityIndicator.stopAnimating()
-                                        return
+                                        Navigation.goToMainVC()
                                     }
-                                    let metadata = StorageMetadata()
-                                    metadata.contentType = "image/jpeg"
-                                    storageRef.putData(imageData, metadata: metadata) { (storageMetaData, err) in
-                                        if err != nil {
-                                            Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
-                                            self?.activityIndicator.stopAnimating()
-                                            return
-                                        }
-                                    }
-                                    Navigation.goToMainVC()
                                 }
                             }
                         }

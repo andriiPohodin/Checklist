@@ -1,8 +1,8 @@
 import Foundation
 
-class Checklist {
+struct Checklist {
     
-    var drones: [Drone]
+    let drones: [Drone]
     
     func defineSelectedDrone (at index: Int) -> Drone {
         let index = drones[index]
@@ -15,14 +15,10 @@ class Checklist {
         return sections
     }
     
-    func defineAvailableMappingSources(drone: Drone) -> [String] {
+    func defineAvailableScenarioNames(drone: Drone) -> [String] {
         let drone = drone
         let scenarious = drone.availableScenarious
         let mappingSourcesString = scenarious.map { "\($0.mappingSource)".localized }
         return mappingSourcesString
-    }
-    
-    init (drones: [Drone]) {
-        self.drones = drones
     }
 }

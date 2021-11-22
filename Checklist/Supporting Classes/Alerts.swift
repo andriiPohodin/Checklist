@@ -13,7 +13,7 @@ class Alerts {
         }
         alert.addAction(confirmAction)
         guard let vc = presentAlertOn else {
-            print("Parent VC no more exist!")
+            print("Parent VC no more exists!")
             return
         }
         vc.present(alert, animated: true, completion: nil)

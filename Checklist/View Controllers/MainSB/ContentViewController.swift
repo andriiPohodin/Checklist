@@ -38,7 +38,7 @@ class ContentViewController: UIViewController {
     }
     @IBOutlet weak var contentView: UIView! {
         didSet {
-            pdfView.frame = contentView.bounds
+            getPdfDocument()
             contentView.addSubview(pdfView)
         }
     }
@@ -49,20 +49,20 @@ class ContentViewController: UIViewController {
     var nextSlideIndex = Int()
     var contentSlideNames = [String]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print(contentSlideNames)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        pdfView.frame = contentView.bounds
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getPdfDocument()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(_:)))
         swipeLeft.direction = .left
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(_:)))
         swipeRight.direction = .right
         pdfView.addGestureRecognizer(swipeLeft)
         pdfView.addGestureRecognizer(swipeRight)
+        print(contentSlideNames)
     }
     
     @objc private func didSwipe(_ sender: UISwipeGestureRecognizer) {

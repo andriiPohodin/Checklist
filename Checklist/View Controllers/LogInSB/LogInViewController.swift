@@ -49,10 +49,6 @@ class LogInViewController: UIViewController {
         view.endEditing(true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        activityIndicator.stopAnimating()
-    }
-    
     func validateFields() {
         activityIndicator.startAnimating()
         view.endEditing(true)
@@ -66,9 +62,9 @@ class LogInViewController: UIViewController {
             }
         }
         if !emptyTextFields.isEmpty {
-            Alerts.fillInAllFieldsAlert(emptyTextFields: emptyTextFields, presentAlertOn: self)
+                Alerts.fillInAllFieldsAlert(emptyTextFields: emptyTextFields, presentAlertOn: self)
+                activityIndicator.stopAnimating()
             emptyTextFields.removeAll()
-            activityIndicator.stopAnimating()
         }
         else {
             guard let email = emailTf.text else { return }
@@ -77,16 +73,39 @@ class LogInViewController: UIViewController {
                 if error != nil {
                     switch error!.localizedDescription {
                     case "The password is invalid or the user does not have a password.":
-                        guard let passwordTf = self?.passwordTf else { return }
-                        Alerts.errorAlert(fieldsToRemoveTextIn: [passwordTf], errorText: error!.localizedDescription, presentAlertOn: self)
-                        self?.activityIndicator.stopAnimating()
+                        DispatchQueue.main.async {
+                            guard let passwordTf = self?.passwordTf else { return }
+                            Alerts.errorAlert(fieldsToRemoveTextIn: [passwordTf], errorText: error!.localizedDescription, presentAlertOn: self)
+                            self?.activityIndicator.stopAnimating()
+                        }
                     default:
-                        Alerts.errorAlert(fieldsToRemoveTextIn: self?.textFields, errorText: error!.localizedDescription, presentAlertOn: self)
-                        self?.activityIndicator.stopAnimating()
+                        DispatchQueue.main.async {
+                            Alerts.errorAlert(fieldsToRemoveTextIn: self?.textFields, errorText: error!.localizedDescription, presentAlertOn: self)
+                            self?.activityIndicator.stopAnimating()
+                        }
                     }
                 }
                 else {
-                    UserSettings.getUserDataAndGoToMainVC(parentVC: self)
+                    let docRef = Firestore.firestore().collection("users").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid ?? "")
+                    docRef.getDocuments { (snapshot, err) in
+                        if err != nil {
+                            DispatchQueue.main.async {
+                                Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
+                                self?.activityIndicator.stopAnimating()
+                            }
+                        }
+                        else {
+                            let document = snapshot!.documents.first
+                            let data = document?.data()
+                            guard let name = data?["name"] as? String else { return }
+                            guard let uid = data?["uid"] as? String else { return }
+                            UserSettings.setUserData(name, uid)
+                            DispatchQueue.main.async {
+                                self?.activityIndicator.stopAnimating()
+                                Navigation.goToMainVC()
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -30,20 +30,24 @@ class ForgotPasswordViewController: UIViewController {
         activityIndicator.startAnimating()
         view.endEditing(true)
         if emailTF.text == "" {
-            Alerts.fillInAllFieldsAlert(emptyTextFields: [emailTF], presentAlertOn: self)
-            activityIndicator.stopAnimating()
+                Alerts.fillInAllFieldsAlert(emptyTextFields: [emailTF], presentAlertOn: self)
+                activityIndicator.stopAnimating()
         }
         else {
             emailTF.layer.borderWidth = 0
             guard let email = emailTF.text else { return }
             Auth.auth().sendPasswordReset(withEmail: email) { [weak self] err in
                 if err != nil {
-                    Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
-                    self?.activityIndicator.stopAnimating()
+                    DispatchQueue.main.async {
+                        Alerts.errorAlert(fieldsToRemoveTextIn: nil, errorText: err!.localizedDescription, presentAlertOn: self)
+                        self?.activityIndicator.stopAnimating()
+                    }
                 }
                 else {
-                    Alerts.successfulPasswordResetAlert(navigationController: self?.navigationController, presentAlertOn: self)
-                    self?.activityIndicator.stopAnimating()
+                    DispatchQueue.main.async {
+                        Alerts.successfulPasswordResetAlert(navigationController: self?.navigationController, presentAlertOn: self)
+                        self?.activityIndicator.stopAnimating()
+                    }
                 }
             }
         }
