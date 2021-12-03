@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jFB-aC-ogH">
-                                <rect key="frame" x="20" y="94" width="984" height="765.5"/>
+                                <rect key="frame" x="16" y="90" width="992" height="770.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Select a drone" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ejl-4R-OP7" customClass="DropDown" customModule="iOSDropDown">
-                                        <rect key="frame" x="0.0" y="0.0" width="984" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="992" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="pO9-M4-ekr"/>
                                         </constraints>
@@ -34,13 +34,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gbq-Oc-Hgo">
-                                        <rect key="frame" x="167.5" y="58" width="649" height="649.5"/>
+                                        <rect key="frame" x="168.5" y="58" width="655" height="654.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Gbq-Oc-Hgo" secondAttribute="height" multiplier="1:1" id="Qmw-2R-iSi"/>
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Mapping source" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FLK-ut-2OS" customClass="DropDown" customModule="iOSDropDown">
-                                        <rect key="frame" x="0.0" y="715.5" width="984" height="50"/>
+                                        <rect key="frame" x="0.0" y="720.5" width="992" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -78,10 +78,10 @@
                         <viewLayoutGuide key="safeArea" id="OIZ-f2-n5f"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jFB-aC-ogH" firstAttribute="top" secondItem="OIZ-f2-n5f" secondAttribute="top" constant="20" id="4kQ-sv-mW0"/>
-                            <constraint firstItem="OIZ-f2-n5f" firstAttribute="trailing" secondItem="jFB-aC-ogH" secondAttribute="trailing" constant="20" id="8Yk-2j-Jss"/>
+                            <constraint firstItem="jFB-aC-ogH" firstAttribute="top" secondItem="OIZ-f2-n5f" secondAttribute="top" constant="16" id="4kQ-sv-mW0"/>
+                            <constraint firstItem="OIZ-f2-n5f" firstAttribute="trailing" secondItem="jFB-aC-ogH" secondAttribute="trailing" constant="16" id="8Yk-2j-Jss"/>
                             <constraint firstItem="OIZ-f2-n5f" firstAttribute="trailing" secondItem="l3N-9b-J9b" secondAttribute="trailing" constant="20" id="OAP-po-FdK"/>
-                            <constraint firstItem="jFB-aC-ogH" firstAttribute="leading" secondItem="OIZ-f2-n5f" secondAttribute="leading" constant="20" id="Sam-ya-3fe"/>
+                            <constraint firstItem="jFB-aC-ogH" firstAttribute="leading" secondItem="OIZ-f2-n5f" secondAttribute="leading" constant="16" id="Sam-ya-3fe"/>
                             <constraint firstItem="l3N-9b-J9b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OIZ-f2-n5f" secondAttribute="leading" symbolic="YES" id="m8W-SI-qlm"/>
                             <constraint firstItem="OIZ-f2-n5f" firstAttribute="bottom" secondItem="l3N-9b-J9b" secondAttribute="bottom" constant="20" id="mYO-YT-dJg"/>
                         </constraints>

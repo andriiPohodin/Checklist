@@ -26,21 +26,26 @@ class FirstScreenViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         setUpVideo()
     }
     
     func setUpVideo() {
-        guard let bundlePath = Bundle.main.path(forResource: "My Movie", ofType: "mp4") else { return }
-        let url = URL(fileURLWithPath: bundlePath)
-        let item = AVPlayerItem(url: url)
-        let player = AVQueuePlayer(playerItem: item)
-        let layer = AVPlayerLayer(player: player)
-        layer.frame = contentView.bounds
-        layer.videoGravity = .resizeAspectFill
-        contentView.layer.addSublayer(layer)
-        playerLooper = AVPlayerLooper(player: player, templateItem: item)
-        player.playImmediately(atRate: 2)
-        activityIndicator.stopAnimating()
+        if splitViewController?.viewControllers.count == 1 {
+            guard let bundlePath = Bundle.main.path(forResource: "My Movie", ofType: "mp4") else { return }
+            let url = URL(fileURLWithPath: bundlePath)
+            let item = AVPlayerItem(url: url)
+            let player = AVQueuePlayer(playerItem: item)
+            let layer = AVPlayerLayer(player: player)
+            layer.frame = contentView.bounds
+            layer.videoGravity = .resizeAspectFill
+            contentView.layer.addSublayer(layer)
+            playerLooper = AVPlayerLooper(player: player, templateItem: item)
+            player.playImmediately(atRate: 2)
+            activityIndicator.stopAnimating()
+        }
     }
     
     @IBAction func logInBtnAction(_ sender: UIButton) {
