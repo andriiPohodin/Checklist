@@ -18,7 +18,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView! {
         didSet {
             profileImage.isUserInteractionEnabled = true
-            profileImage.layer.cornerRadius = profileImage.frame.width/2
+//            profileImage.layer.cornerRadius = profileImage.frame.height/2
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
             profileImage.addGestureRecognizer(tapGesture)
             fetchImage()
@@ -50,12 +50,17 @@ class AccountViewController: UIViewController {
         }
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+//        profileImage.layer.cornerRadius = profileImage.frame.height/2
+    }
+    
     func fetchImage() {
         guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(UserSettings.defaults.string(forKey: UserSettings.currentUserUid) ?? "") else { return }
         if NetworkMonitor.shared.isConnected {
             print("Network is connected")
             let imageRef = Storage.storage().reference(forURL: Constants.storageRef).child(UserSettings.defaults.string(forKey: UserSettings.currentUserUid)!)
-            imageRef.getData(maxSize: 512 * 512) { [weak self] data, err in
+            imageRef.getData(maxSize: 1024 * 1024) { [weak self] data, err in
                 if err != nil {
                     if let data = try? Data(contentsOf: localUrl) {
                         DispatchQueue.main.async {
@@ -102,7 +107,7 @@ class AccountViewController: UIViewController {
     }
     
     @objc func didTapImage() {
-        let alert = UIAlertController(title: "Image Selection", message: "From where you want to pick this image?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Image Selection", message: "From where you want to pick this image?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] (action: UIAlertAction) in
             let permission = SPPermissions.Permission.camera
             if permission.authorized {
