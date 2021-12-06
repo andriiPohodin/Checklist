@@ -3,6 +3,8 @@ import iOSDropDown
 
 class SelectDroneAndProgramViewController: UIViewController {
     
+    private var lastSeguedVC: UIViewController?
+    
     @IBOutlet weak var dronesDropDown: DropDown! {
         didSet {
             defineAvailableDronesAndScenarious()

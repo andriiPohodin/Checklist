@@ -36,7 +36,16 @@ class ContentsTableViewController: UIViewController {
             let stepString = "\(step)"
             contentStrings.append(selectedDroneNameString + stepString)
         }
-        performSegue(withIdentifier: Constants.Segues.toProgramStepContent, sender: nil)
+        
+        if (splitViewController?.viewControllers.count)! > 1 {
+            guard let secondaryVC = splitViewController?.viewController(for: .secondary) as? ContentViewController else { return }
+            secondaryVC.contentSlideNames = contentStrings
+            secondaryVC.currentSlideIndex = index
+            secondaryVC.updateUI()
+        }
+        else {
+            performSegue(withIdentifier: Constants.Segues.toProgramStepContent, sender: nil)
+        }
     }
 }
 
@@ -69,6 +78,6 @@ extension ContentsTableViewController: UITableViewDelegate, UITableViewDataSourc
         else {
             moveToSlides()
         }
-        tableView.deselectRow(at: indexPath, animated: false)
+//        tableView.deselectRow(at: indexPath, animated: false)
     }
 }

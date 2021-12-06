@@ -24,16 +24,15 @@ class FirstScreenViewController: UIViewController {
     }
     var playerLooper: AVPlayerLooper?
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setUpVideo()
+        activityIndicator.stopAnimating()
     }
     
     func setUpVideo() {
-        if splitViewController?.viewControllers.count == 1 {
+        if UIDevice.current.userInterfaceIdiom == .phone, UIDevice.current.orientation == .portrait || UIScreen.main.traitCollection.horizontalSizeClass == .compact {
+            contentView.isHidden = false
             guard let bundlePath = Bundle.main.path(forResource: "My Movie", ofType: "mp4") else { return }
             let url = URL(fileURLWithPath: bundlePath)
             let item = AVPlayerItem(url: url)
@@ -44,7 +43,9 @@ class FirstScreenViewController: UIViewController {
             contentView.layer.addSublayer(layer)
             playerLooper = AVPlayerLooper(player: player, templateItem: item)
             player.playImmediately(atRate: 2)
-            activityIndicator.stopAnimating()
+        }
+        else {
+            contentView.isHidden = true
         }
     }
     

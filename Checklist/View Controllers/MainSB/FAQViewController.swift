@@ -88,8 +88,16 @@ extension FAQViewController: UITableViewDelegate, UITableViewDataSource {
                     faqStepStringsArray.append(stepString)
                 }
             }
-            tableView.deselectRow(at: indexPath, animated: false)
-            performSegue(withIdentifier: Constants.Segues.toFAQContent, sender: nil)
+//            tableView.deselectRow(at: indexPath, animated: false)
+            if (splitViewController?.viewControllers.count)! > 1 {
+                guard let secondaryVC = splitViewController?.viewController(for: .secondary) as? ContentViewController else { return }
+                secondaryVC.currentSlideIndex = selectedFaqStepIndex
+                secondaryVC.contentSlideNames = faqStepStringsArray
+                secondaryVC.updateUI()
+            }
+            else {
+                performSegue(withIdentifier: Constants.Segues.toFAQContent, sender: nil)
+            }
         }
     }
 }
