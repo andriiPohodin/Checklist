@@ -47,6 +47,8 @@
 		18218C3D27021183007C46A4 /* xp2020activation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 18218C1627021182007C46A4 /* xp2020activation.pdf */; };
 		1827CF7DC441388BCD4EFB23 /* Pods_Checklist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA730AE8023FD7EE14F9E606 /* Pods_Checklist.framework */; };
 		1834F9EC275AB7770059B096 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834F9EB275AB7770059B096 /* VideoViewController.swift */; };
+		1834F9EE275F6B190059B096 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834F9ED275F6B180059B096 /* VideoManager.swift */; };
+		1834F9F0275F6B420059B096 /* SplitViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834F9EF275F6B420059B096 /* SplitViewManager.swift */; };
 		1857A9D02670DB9600A57D7A /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9CF2670DB9600A57D7A /* FirstScreenViewController.swift */; };
 		1857A9D22670DBB600A57D7A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9D12670DBB600A57D7A /* SignUpViewController.swift */; };
 		1857A9D42670DBC100A57D7A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9D32670DBC100A57D7A /* LogInViewController.swift */; };
@@ -126,6 +128,8 @@
 		18218C1527021180007C46A4 /* xp2020work.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020work.pdf; sourceTree = "<group>"; };
 		18218C1627021182007C46A4 /* xp2020activation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = xp2020activation.pdf; sourceTree = "<group>"; };
 		1834F9EB275AB7770059B096 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		1834F9ED275F6B180059B096 /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
+		1834F9EF275F6B420059B096 /* SplitViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewManager.swift; sourceTree = "<group>"; };
 		1857A9CF2670DB9600A57D7A /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		1857A9D12670DBB600A57D7A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1857A9D32670DBC100A57D7A /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 				18DCB77925F13AF400AE1463 /* PasswordValidator.swift */,
 				188BBF4A25F578F30060E34E /* LocalizedKeys.swift */,
 				18CF99512747E13300802766 /* NetworkMonitor.swift */,
+				1834F9ED275F6B180059B096 /* VideoManager.swift */,
+				1834F9EF275F6B420059B096 /* SplitViewManager.swift */,
 			);
 			path = "Supporting Classes";
 			sourceTree = "<group>";
@@ -564,6 +570,7 @@
 				1857A9D62670DBDC00A57D7A /* ForgotPasswordViewController.swift in Sources */,
 				18A0772025EE5677005E7C20 /* ContentViewController.swift in Sources */,
 				187136352718A25B00E3D90E /* ContactUsTableViewCell.swift in Sources */,
+				1834F9F0275F6B420059B096 /* SplitViewManager.swift in Sources */,
 				1880BDA825D6D77E004B6BFE /* Drone.swift in Sources */,
 				1880BD9425D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift in Sources */,
 				18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */,
@@ -576,6 +583,7 @@
 				18CF99522747E13300802766 /* NetworkMonitor.swift in Sources */,
 				18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */,
 				1880BD9025D6D71B004B6BFE /* AppDelegate.swift in Sources */,
+				1834F9EE275F6B190059B096 /* VideoManager.swift in Sources */,
 				188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */,
 				185D93B9264D40A70031A6F8 /* FAQViewController.swift in Sources */,
 				18DCB77A25F13AF400AE1463 /* PasswordValidator.swift in Sources */,

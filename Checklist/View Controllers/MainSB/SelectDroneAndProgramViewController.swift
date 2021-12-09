@@ -49,6 +49,7 @@ class SelectDroneAndProgramViewController: UIViewController {
                                         Section(sectionTitle: .outdoorSectionTitle, sectionDescription: .outdoorSectionDescription, sectionContent: [OutdoorSectionContent.setUpMobileStation, .xMissionFlight, .field, .surveyingXmission, .sprayWidthAndSafeDistances, .scissors, .uploadField, .operation, .visualCheck, .battery, .propulsionSystem, .sprayingSystem, .sprayingSystemCalibration, .flightParameters, .start, .rth, .speed, .height, .dosage, .work, .fillTank, .takeOff]),
                                         Section(sectionTitle: .maintenanceSectionTitle, sectionDescription: .maintenanceSectionDescription, sectionContent: [MaintenanceSectionContent.endShiftMaintenance, .scheduledMaintenance])])])])
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Constants.Segues.toProgramPartSelection:

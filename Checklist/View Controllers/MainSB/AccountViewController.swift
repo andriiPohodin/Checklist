@@ -50,11 +50,6 @@ class AccountViewController: UIViewController {
         }
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-//        profileImage.layer.cornerRadius = profileImage.frame.height/2
-    }
-    
     func fetchImage() {
         guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(UserSettings.defaults.string(forKey: UserSettings.currentUserUid) ?? "") else { return }
         if NetworkMonitor.shared.isConnected {

@@ -3,7 +3,8 @@ import AVKit
 
 class FirstScreenViewController: UIViewController {
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var playerLooper: AVPlayerLooper?
+
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var logInBtn: UIButton! {
         didSet {
@@ -22,27 +23,21 @@ class FirstScreenViewController: UIViewController {
             signUpBtn.setTitleColor(.systemRed, for: .normal)
         }
     }
-    var playerLooper: AVPlayerLooper?
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setUpVideo()
-        activityIndicator.stopAnimating()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        playerLooper = nil
     }
     
     func setUpVideo() {
-        if UIDevice.current.userInterfaceIdiom == .phone, UIDevice.current.orientation == .portrait || UIScreen.main.traitCollection.horizontalSizeClass == .compact {
+        if UIDevice.current.userInterfaceIdiom == .phone, UIScreen.main.traitCollection.horizontalSizeClass == .compact {
             contentView.isHidden = false
-            guard let bundlePath = Bundle.main.path(forResource: "My Movie", ofType: "mp4") else { return }
-            let url = URL(fileURLWithPath: bundlePath)
-            let item = AVPlayerItem(url: url)
-            let player = AVQueuePlayer(playerItem: item)
-            let layer = AVPlayerLayer(player: player)
-            layer.frame = contentView.bounds
-            layer.videoGravity = .resizeAspectFill
-            contentView.layer.addSublayer(layer)
-            playerLooper = AVPlayerLooper(player: player, templateItem: item)
-            player.playImmediately(atRate: 2)
+            playerLooper = VideoManager.play(onSuperview: contentView, forResource: "My Movie", ofType: "mp4")
         }
         else {
             contentView.isHidden = true
@@ -54,6 +49,9 @@ class FirstScreenViewController: UIViewController {
     }
     
     @IBAction func signUpBtnAction(_ sender: UIButton) {
-        performSegue(withIdentifier: "toSignUp", sender: nil)
+//        performSegue(withIdentifier: "toSignUp", sender: nil)
+        print("Horizontal " + "\(UIScreen.main.traitCollection.horizontalSizeClass.rawValue)")
+        print("Vertical " + "\(UIScreen.main.traitCollection.verticalSizeClass.rawValue)")
+        print(UIDevice.current.orientation.rawValue)
     }
 }

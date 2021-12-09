@@ -30,18 +30,10 @@ class ContentViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        SplitViewManager.showMasterInOverlay(splitViewController: splitViewController, viewBounds: view.bounds)
         pdfView.frame = contentView.bounds
         if UIScreen.main.traitCollection.horizontalSizeClass == .regular {
-            guard let bundlePath = Bundle.main.path(forResource: "My Movie", ofType: "mp4") else { return }
-            let url = URL(fileURLWithPath: bundlePath)
-            let item = AVPlayerItem(url: url)
-            let player = AVQueuePlayer(playerItem: item)
-            let layer = AVPlayerLayer(player: player)
-            layer.frame = backgroundVideoView.bounds
-            layer.videoGravity = .resizeAspectFill
-            backgroundVideoView.layer.addSublayer(layer)
-            playerLooper = AVPlayerLooper(player: player, templateItem: item)
-            player.playImmediately(atRate: 2)
+            playerLooper = VideoManager.play(onSuperview: backgroundVideoView, forResource: "My Movie", ofType: "mp4")
         }
     }
     
@@ -56,6 +48,7 @@ class ContentViewController: UIViewController {
     }
     
     func updateUI() {
+        playerLooper = nil
         backgroundVideoView.isHidden = true
 
         getPdfDocument()
