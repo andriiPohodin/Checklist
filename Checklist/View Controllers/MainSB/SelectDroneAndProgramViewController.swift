@@ -64,7 +64,7 @@ class SelectDroneAndProgramViewController: UIViewController {
         }
     }
     
-    func defineAvailableDronesAndScenarious() {
+    private func defineAvailableDronesAndScenarious() {
         let dronesList = checklist.drones.map { $0.name.rawValue.localized }
         dronesDropDown.optionArray = dronesList
         dronesDropDown.didSelect { [weak self] (name, index, _) in
@@ -77,7 +77,7 @@ class SelectDroneAndProgramViewController: UIViewController {
         }
     }
     
-    func defineScenarioSections() {
+    private func defineScenarioSections() {
         scenariousDropDown.didSelect { [weak self] (_, index, _) in
             if self?.selectedDrone != nil {
                 self?.selectedScenarioSections = self?.checklist.defineSelectedScenarioSections(scenarioAt: index, from: self!.selectedDrone!)
@@ -87,7 +87,7 @@ class SelectDroneAndProgramViewController: UIViewController {
         }
     }
     
-    func setUp(dropDown: DropDown, placeholder: String) {
+    private func setUp(dropDown: DropDown, placeholder: String) {
         dropDown.isSearchEnable = false
         dropDown.checkMarkEnabled = false
         dropDown.rowHeight = dropDown.frame.height
@@ -97,17 +97,17 @@ class SelectDroneAndProgramViewController: UIViewController {
         dropDown.placeholder = placeholder
     }
     
-    func resetBorder(dropDown: DropDown) {
+    private func resetBorder(dropDown: DropDown) {
         dropDown.borderWidth = 1
         dropDown.borderColor = .black
     }
     
-    func markBorder(dropDown: DropDown) {
+    private func markBorder(dropDown: DropDown) {
         dropDown.borderWidth = 3
         dropDown.borderColor = .systemRed
     }
     
-    func validateRequiredInfoInput() {
+    private func validateRequiredInfoInput() {
         if dronesDropDown.text == "" {
             markBorder(dropDown: dronesDropDown)
             markBorder(dropDown: scenariousDropDown)

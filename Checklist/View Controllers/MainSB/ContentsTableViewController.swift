@@ -33,7 +33,7 @@ class ContentsTableViewController: UIViewController {
         }
     }
     
-    func moveToSlides() {
+    private func moveToSlides() {
         guard let selectedDroneNameString = selectedDroneName?.rawValue else { return }
         for step in sectionsContent {
             let stepString = "\(step)"

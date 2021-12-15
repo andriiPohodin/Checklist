@@ -27,7 +27,6 @@ class ContentViewController: UIViewController {
         else {
             updateUI()
         }
-        print(contentSlideNames)
     }
     
     override func viewDidLayoutSubviews() {
@@ -102,7 +101,6 @@ class ContentViewController: UIViewController {
     }
     
     private func toNextSlide() {
-        
         if nextSlideIndex == contentSlideNames.endIndex-1 {
             currentSlideIndex+=1
             contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
@@ -132,7 +130,6 @@ class ContentViewController: UIViewController {
     }
     
     private func toPreviousSlide() {
-        
         if previousSlideIndex == contentSlideNames.startIndex {
             currentSlideIndex-=1
             contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized

@@ -67,7 +67,7 @@ extension FirstScreenViewController: UISplitViewControllerDelegate {
             AppCurrentStateSaver.navigationStack = primaryNav.viewControllers
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            AppCurrentStateSaver.rebuiltNavigationHierarchy(svc: svc, collapsing: true)
+            AppCurrentStateSaver.rebuildNavigationHierarchy(svc: svc, collapsing: true)
         }
         return proposedTopColumn
     }
@@ -78,9 +78,8 @@ extension FirstScreenViewController: UISplitViewControllerDelegate {
         if let compactNav = splitViewController?.viewController(for: .compact) as? UINavigationController {
             AppCurrentStateSaver.navigationStack = compactNav.viewControllers
         }
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            AppCurrentStateSaver.rebuiltNavigationHierarchy(svc: svc, collapsing: false)
+            AppCurrentStateSaver.rebuildNavigationHierarchy(svc: svc, collapsing: false)
         }
         return proposedDisplayMode
     }

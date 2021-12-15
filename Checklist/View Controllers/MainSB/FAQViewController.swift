@@ -31,7 +31,7 @@ class FAQViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
     
-    func showMailComposer() {
+    private func showMailComposer() {
         if MFMailComposeViewController.canSendMail() {
             let composer = MFMailComposeViewController()
             composer.delegate = self

@@ -4,7 +4,7 @@ class AppCurrentStateSaver {
     
     static var navigationStack = [UIViewController]()
     
-    static func rebuiltNavigationHierarchy(svc: UISplitViewController, collapsing: Bool) {
+    static func rebuildNavigationHierarchy(svc: UISplitViewController, collapsing: Bool) {
         guard let primaryNavVC = svc.viewController(for: .primary) as? UINavigationController else { return }
         guard let compactNavVC = svc.viewController(for: .compact) as? UINavigationController else { return }
         primaryNavVC.popToRootViewController(animated: false)

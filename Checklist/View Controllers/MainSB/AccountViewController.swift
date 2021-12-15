@@ -6,7 +6,7 @@ import FirebaseStorage
 
 class AccountViewController: UIViewController {
     
-    var textField = UITextField()
+    private var textField = UITextField()
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var helloLabel: UILabel! {
@@ -50,7 +50,7 @@ class AccountViewController: UIViewController {
         }
     }
     
-    func fetchImage() {
+    private func fetchImage() {
         guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(UserSettings.defaults.string(forKey: UserSettings.currentUserUid) ?? "") else { return }
         if NetworkMonitor.shared.isConnected {
             print("Network is connected")
@@ -101,7 +101,7 @@ class AccountViewController: UIViewController {
         }
     }
     
-    @objc func didTapImage() {
+    @objc private func didTapImage() {
         let alert = UIAlertController(title: "Image Selection", message: "From where you want to pick this image?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] (action: UIAlertAction) in
             let permission = SPPermissions.Permission.camera
@@ -129,7 +129,7 @@ class AccountViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func saveNewProfileImage() {
+    private func saveNewProfileImage() {
         guard let imageData = self.profileImage.image?.jpegData(compressionQuality: 0.4) else { return }
         DispatchQueue.global().async {
             guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(UserSettings.defaults.string(forKey: UserSettings.currentUserUid)!) else { return }
