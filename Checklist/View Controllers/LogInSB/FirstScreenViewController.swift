@@ -24,6 +24,11 @@ class FirstScreenViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        splitViewController?.delegate = self
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setUpVideo()
@@ -49,9 +54,34 @@ class FirstScreenViewController: UIViewController {
     }
     
     @IBAction func signUpBtnAction(_ sender: UIButton) {
-//        performSegue(withIdentifier: "toSignUp", sender: nil)
-        print("Horizontal " + "\(UIScreen.main.traitCollection.horizontalSizeClass.rawValue)")
-        print("Vertical " + "\(UIScreen.main.traitCollection.verticalSizeClass.rawValue)")
-        print(UIDevice.current.orientation.rawValue)
+        performSegue(withIdentifier: "toSignUp", sender: nil)
+    }
+}
+
+extension FirstScreenViewController: UISplitViewControllerDelegate {
+    func splitViewController(_ svc: UISplitViewController,
+                             topColumnForCollapsingToProposedTopColumn
+                             proposedTopColumn: UISplitViewController.Column)
+    -> UISplitViewController.Column {
+        if let primaryNav = splitViewController?.viewController(for: .primary) as? UINavigationController {
+            AppCurrentStateSaver.navigationStack = primaryNav.viewControllers
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            AppCurrentStateSaver.rebuiltNavigationHierarchy(svc: svc, collapsing: true)
+        }
+        return proposedTopColumn
+    }
+    func splitViewController(_ svc: UISplitViewController,
+                             displayModeForExpandingToProposedDisplayMode
+                             proposedDisplayMode: UISplitViewController.DisplayMode)
+    -> UISplitViewController.DisplayMode {
+        if let compactNav = splitViewController?.viewController(for: .compact) as? UINavigationController {
+            AppCurrentStateSaver.navigationStack = compactNav.viewControllers
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            AppCurrentStateSaver.rebuiltNavigationHierarchy(svc: svc, collapsing: false)
+        }
+        return proposedDisplayMode
     }
 }

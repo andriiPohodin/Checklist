@@ -13,15 +13,18 @@ class ContentsTableViewController: UIViewController {
     
     var selectedDroneName: Name?
     var sectionsContent = [SectionsContent]()
-    var contentStrings = [String]()
+    var contentSlideNames = [String]()
+    var contentLabelTextStrings = [String]()
     var index = Int()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         switch segue.identifier {
         case Constants.Segues.toProgramStepContent:
             guard let destinationVC = segue.destination as? ContentViewController else { return }
-            destinationVC.contentSlideNames = contentStrings
+            destinationVC.contentSlideNames = contentSlideNames
             destinationVC.currentSlideIndex = index
+            destinationVC.contentLabelTextStrings = contentLabelTextStrings
         case Constants.Segues.toFAQ:
             guard let destinationVC = segue.destination as? FAQViewController else { return }
             destinationVC.selectedFaqStepIndex = index
@@ -34,12 +37,14 @@ class ContentsTableViewController: UIViewController {
         guard let selectedDroneNameString = selectedDroneName?.rawValue else { return }
         for step in sectionsContent {
             let stepString = "\(step)"
-            contentStrings.append(selectedDroneNameString + stepString)
+            contentLabelTextStrings.append(stepString)
+            contentSlideNames.append(selectedDroneNameString + stepString)
         }
-        
         if (splitViewController?.viewControllers.count)! > 1 {
             guard let secondaryVC = splitViewController?.viewController(for: .secondary) as? ContentViewController else { return }
-            secondaryVC.contentSlideNames = contentStrings
+            _ = secondaryVC.view
+            secondaryVC.contentLabelTextStrings = contentLabelTextStrings
+            secondaryVC.contentSlideNames = contentSlideNames
             secondaryVC.currentSlideIndex = index
             secondaryVC.updateUI()
         }
@@ -65,7 +70,7 @@ extension ContentsTableViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        contentStrings.removeAll()
+        contentSlideNames.removeAll()
         index = indexPath.row
         if let selectedRow = sectionsContent[index] as? QuickStartGuideSectionContent {
             switch selectedRow {

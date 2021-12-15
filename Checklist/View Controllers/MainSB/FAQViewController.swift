@@ -19,11 +19,13 @@ class FAQViewController: UIViewController, UINavigationControllerDelegate {
     var faqStepStringsArray = [String]()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         switch segue.identifier {
         case Constants.Segues.toFAQContent:
             guard let destinationVC = segue.destination as? ContentViewController else { return }
             destinationVC.currentSlideIndex = selectedFaqStepIndex
             destinationVC.contentSlideNames = faqStepStringsArray
+            destinationVC.contentLabelTextStrings = faqStepStringsArray
         default:
             break
         }

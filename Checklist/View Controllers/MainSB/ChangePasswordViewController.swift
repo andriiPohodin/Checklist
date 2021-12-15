@@ -31,7 +31,6 @@ class ChangePasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         textFields = [newPasswordTf, confirmNewPasswordTf]
         for tf in textFields {
             tf.delegate = self

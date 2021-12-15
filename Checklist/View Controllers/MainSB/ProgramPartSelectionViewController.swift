@@ -16,6 +16,7 @@ class ProgramPartSelectionViewController: UIViewController {
     var selectedSectionsContent = [SectionsContent]()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         switch segue.identifier {
         case Constants.Segues.toContentsTable:
             guard let destinationVC = segue.destination as? ContentsTableViewController else { return }

@@ -19,6 +19,5 @@ class UserSettings {
         defaults.removeObject(forKey: currentUserUid)
         Navigation.goToFirstVC()
     }
-    
 }
 

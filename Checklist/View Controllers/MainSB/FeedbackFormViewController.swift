@@ -3,11 +3,6 @@ import MessageUI
 import SafariServices
 
 class FeedbackFormViewController: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
     
     func showMailComposer() {
         if MFMailComposeViewController.canSendMail() {

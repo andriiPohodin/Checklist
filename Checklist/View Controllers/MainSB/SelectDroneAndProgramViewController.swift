@@ -51,6 +51,7 @@ class SelectDroneAndProgramViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         switch segue.identifier {
         case Constants.Segues.toProgramPartSelection:
             guard let destinationVC = segue.destination as? ProgramPartSelectionViewController else { return }

@@ -71,6 +71,7 @@
 		188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188BBF4A25F578F30060E34E /* LocalizedKeys.swift */; };
 		18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */; };
 		18A0772025EE5677005E7C20 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771F25EE5677005E7C20 /* ContentViewController.swift */; };
+		18B3AF1A27688BF9007BDE63 /* AppCurrentStateSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3AF1927688BF9007BDE63 /* AppCurrentStateSaver.swift */; };
 		18BFFDFE267BE6430087421C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFFDFD267BE6430087421C /* AccountViewController.swift */; };
 		18CBAC0D2698882100D5A2DF /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */; };
 		18CBAC1326B5611700D5A2DF /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBAC1226B5611700D5A2DF /* Alerts.swift */; };
@@ -156,6 +157,7 @@
 		188BBF4A25F578F30060E34E /* LocalizedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedKeys.swift; sourceTree = "<group>"; };
 		18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPartSelectionViewController.swift; sourceTree = "<group>"; };
 		18A0771F25EE5677005E7C20 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		18B3AF1927688BF9007BDE63 /* AppCurrentStateSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCurrentStateSaver.swift; sourceTree = "<group>"; };
 		18BFFDFD267BE6430087421C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		18CBAC1226B5611700D5A2DF /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				18CF99512747E13300802766 /* NetworkMonitor.swift */,
 				1834F9ED275F6B180059B096 /* VideoManager.swift */,
 				1834F9EF275F6B420059B096 /* SplitViewManager.swift */,
+				18B3AF1927688BF9007BDE63 /* AppCurrentStateSaver.swift */,
 			);
 			path = "Supporting Classes";
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				1834F9EE275F6B190059B096 /* VideoManager.swift in Sources */,
 				188BBF4B25F578F30060E34E /* LocalizedKeys.swift in Sources */,
 				185D93B9264D40A70031A6F8 /* FAQViewController.swift in Sources */,
+				18B3AF1A27688BF9007BDE63 /* AppCurrentStateSaver.swift in Sources */,
 				18DCB77A25F13AF400AE1463 /* PasswordValidator.swift in Sources */,
 				1857A9D22670DBB600A57D7A /* SignUpViewController.swift in Sources */,
 				18BFFDFE267BE6430087421C /* AccountViewController.swift in Sources */,

@@ -10,9 +10,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Navigation.ifLoggedIn()
         
 //        guard let window = window else { return }
-//        guard let splitView = window.rootViewController as? UISplitViewController else { return }
-//        let bounds = window.bounds
-//        SplitViewManager.showMasterInOverlay(splitViewController: splitView, bounds: bounds)
+//        guard let splitViewController = window.rootViewController as? UISplitViewController else { return }
+//        if splitViewController.viewControllers.count == 1 {
+//            guard let navigationController = splitViewController.viewControllers.first as? UINavigationController else { return }
+//            navigationController.popViewController(animated: false)
+//        }
         
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.

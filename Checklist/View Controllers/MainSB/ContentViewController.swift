@@ -15,10 +15,12 @@ class ContentViewController: UIViewController {
     var previousSlideIndex = Int()
     var nextSlideIndex = Int()
     var contentSlideNames = [String]()
+    var contentLabelTextStrings = [String]()
     var playerLooper: AVPlayerLooper?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        SplitViewManager.showMasterInOverlay(splitViewController: splitViewController, viewHeight: view.bounds.height, viewWidth: view.bounds.width)
         if UIScreen.main.traitCollection.horizontalSizeClass == .regular {
             backgroundVideoView.isHidden = false
         }
@@ -30,11 +32,15 @@ class ContentViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        SplitViewManager.showMasterInOverlay(splitViewController: splitViewController, viewBounds: view.bounds)
         pdfView.frame = contentView.bounds
         if UIScreen.main.traitCollection.horizontalSizeClass == .regular {
             playerLooper = VideoManager.play(onSuperview: backgroundVideoView, forResource: "My Movie", ofType: "mp4")
         }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        SplitViewManager.showMasterInOverlay(splitViewController: splitViewController, viewHeight: size.height, viewWidth: size.width)
     }
     
     @objc private func didSwipe(_ sender: UISwipeGestureRecognizer) {
@@ -77,7 +83,7 @@ class ContentViewController: UIViewController {
         
         contentView.addSubview(pdfView)
         
-        contentLabel.text = contentSlideNames[currentSlideIndex].localized
+        contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(_:)))
         swipeLeft.direction = .left
@@ -99,7 +105,7 @@ class ContentViewController: UIViewController {
         
         if nextSlideIndex == contentSlideNames.endIndex-1 {
             currentSlideIndex+=1
-            contentLabel.text = contentSlideNames[currentSlideIndex].localized
+            contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
             getPdfDocument()
             
             previousSlideIndex+=1
@@ -112,7 +118,7 @@ class ContentViewController: UIViewController {
         }
         else if nextSlideIndex < contentSlideNames.endIndex {
             currentSlideIndex+=1
-            contentLabel.text = contentSlideNames[currentSlideIndex].localized
+            contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
             getPdfDocument()
             
             previousSlideIndex+=1
@@ -129,7 +135,7 @@ class ContentViewController: UIViewController {
         
         if previousSlideIndex == contentSlideNames.startIndex {
             currentSlideIndex-=1
-            contentLabel.text = contentSlideNames[currentSlideIndex].localized
+            contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
             getPdfDocument()
             
             nextSlideIndex-=1
@@ -142,7 +148,7 @@ class ContentViewController: UIViewController {
         }
         else if previousSlideIndex > contentSlideNames.startIndex {
             currentSlideIndex-=1
-            contentLabel.text = contentSlideNames[currentSlideIndex].localized
+            contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
             getPdfDocument()
             
             nextSlideIndex-=1
