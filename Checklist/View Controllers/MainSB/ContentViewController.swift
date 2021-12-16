@@ -90,6 +90,7 @@ class ContentViewController: UIViewController {
         swipeRight.direction = .right
         pdfView.addGestureRecognizer(swipeLeft)
         pdfView.addGestureRecognizer(swipeRight)
+        NavigationStackManager.secondaryVC = self
     }
     
     private func getPdfDocument() {

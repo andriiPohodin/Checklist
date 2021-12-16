@@ -40,7 +40,7 @@ class ContentsTableViewController: UIViewController {
             contentLabelTextStrings.append(stepString)
             contentSlideNames.append(selectedDroneNameString + stepString)
         }
-        if (splitViewController?.viewControllers.count)! > 1 {
+        if UIScreen.main.traitCollection.horizontalSizeClass == .regular {
             guard let secondaryVC = splitViewController?.viewController(for: .secondary) as? ContentViewController else { return }
             _ = secondaryVC.view
             secondaryVC.contentLabelTextStrings = contentLabelTextStrings

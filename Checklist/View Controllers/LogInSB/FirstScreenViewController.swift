@@ -39,7 +39,7 @@ class FirstScreenViewController: UIViewController {
         playerLooper = nil
     }
     
-    func setUpVideo() {
+    private func setUpVideo() {
         if UIDevice.current.userInterfaceIdiom == .phone, UIScreen.main.traitCollection.horizontalSizeClass == .compact {
             contentView.isHidden = false
             playerLooper = VideoManager.play(onSuperview: contentView, forResource: "My Movie", ofType: "mp4")
@@ -63,11 +63,9 @@ extension FirstScreenViewController: UISplitViewControllerDelegate {
                              topColumnForCollapsingToProposedTopColumn
                              proposedTopColumn: UISplitViewController.Column)
     -> UISplitViewController.Column {
-        if let primaryNav = splitViewController?.viewController(for: .primary) as? UINavigationController {
-            AppCurrentStateSaver.navigationStack = primaryNav.viewControllers
-        }
+        NavigationStackManager.saveHierarchyFromRegular(svc: svc)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            AppCurrentStateSaver.rebuildNavigationHierarchy(svc: svc, collapsing: true)
+            NavigationStackManager.rebuildNavigationHierarchy(svc: svc, collapsing: true)
         }
         return proposedTopColumn
     }
@@ -75,11 +73,9 @@ extension FirstScreenViewController: UISplitViewControllerDelegate {
                              displayModeForExpandingToProposedDisplayMode
                              proposedDisplayMode: UISplitViewController.DisplayMode)
     -> UISplitViewController.DisplayMode {
-        if let compactNav = splitViewController?.viewController(for: .compact) as? UINavigationController {
-            AppCurrentStateSaver.navigationStack = compactNav.viewControllers
-        }
+        NavigationStackManager.saveHierarchyFromCompact(svc: svc)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            AppCurrentStateSaver.rebuildNavigationHierarchy(svc: svc, collapsing: false)
+            NavigationStackManager.rebuildNavigationHierarchy(svc: svc, collapsing: false)
         }
         return proposedDisplayMode
     }

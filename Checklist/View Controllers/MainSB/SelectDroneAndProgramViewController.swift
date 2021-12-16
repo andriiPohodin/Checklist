@@ -49,6 +49,10 @@ class SelectDroneAndProgramViewController: UIViewController {
                                         Section(sectionTitle: .outdoorSectionTitle, sectionDescription: .outdoorSectionDescription, sectionContent: [OutdoorSectionContent.setUpMobileStation, .xMissionFlight, .field, .surveyingXmission, .sprayWidthAndSafeDistances, .scissors, .uploadField, .operation, .visualCheck, .battery, .propulsionSystem, .sprayingSystem, .sprayingSystemCalibration, .flightParameters, .start, .rth, .speed, .height, .dosage, .work, .fillTank, .takeOff]),
                                         Section(sectionTitle: .maintenanceSectionTitle, sectionDescription: .maintenanceSectionDescription, sectionContent: [MaintenanceSectionContent.endShiftMaintenance, .scheduledMaintenance])])])])
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        splitViewController?.delegate = self
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -125,3 +129,28 @@ class SelectDroneAndProgramViewController: UIViewController {
     }
 }
 
+extension SelectDroneAndProgramViewController: UISplitViewControllerDelegate {
+    func splitViewController(_ svc: UISplitViewController,
+                             topColumnForCollapsingToProposedTopColumn
+                             proposedTopColumn: UISplitViewController.Column)
+    -> UISplitViewController.Column {
+        NavigationStackManager.saveHierarchyFromRegular(svc: svc)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            NavigationStackManager.rebuildNavigationHierarchy(svc: svc, collapsing: true)
+        }
+        return proposedTopColumn
+    }
+    func splitViewController(_ svc: UISplitViewController,
+                             displayModeForExpandingToProposedDisplayMode
+                             proposedDisplayMode: UISplitViewController.DisplayMode)
+    -> UISplitViewController.DisplayMode {
+        NavigationStackManager.saveHierarchyFromCompact(svc: svc)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            NavigationStackManager.rebuildNavigationHierarchy(svc: svc, collapsing: false)
+            if let secondaryNav = svc.viewController(for: .secondary) as? UINavigationController, NavigationStackManager.secondaryVC != nil {
+                secondaryNav.viewControllers = [NavigationStackManager.secondaryVC!]
+            }
+        }
+        return proposedDisplayMode
+    }
+}
