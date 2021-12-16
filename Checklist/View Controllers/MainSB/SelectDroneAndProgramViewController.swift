@@ -3,7 +3,7 @@ import iOSDropDown
 
 class SelectDroneAndProgramViewController: UIViewController {
     
-    private var lastSeguedVC: UIViewController?
+//    static var didPerformedSegueFromRoot = false
     
     @IBOutlet weak var dronesDropDown: DropDown! {
         didSet {
@@ -51,7 +51,13 @@ class SelectDroneAndProgramViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        splitViewController?.delegate = self
+//        splitViewController?.delegate = self
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -129,28 +135,29 @@ class SelectDroneAndProgramViewController: UIViewController {
     }
 }
 
-extension SelectDroneAndProgramViewController: UISplitViewControllerDelegate {
-    func splitViewController(_ svc: UISplitViewController,
-                             topColumnForCollapsingToProposedTopColumn
-                             proposedTopColumn: UISplitViewController.Column)
-    -> UISplitViewController.Column {
-        NavigationStackManager.saveHierarchyFromRegular(svc: svc)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            NavigationStackManager.rebuildNavigationHierarchy(svc: svc, collapsing: true)
-        }
-        return proposedTopColumn
-    }
-    func splitViewController(_ svc: UISplitViewController,
-                             displayModeForExpandingToProposedDisplayMode
-                             proposedDisplayMode: UISplitViewController.DisplayMode)
-    -> UISplitViewController.DisplayMode {
-        NavigationStackManager.saveHierarchyFromCompact(svc: svc)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            NavigationStackManager.rebuildNavigationHierarchy(svc: svc, collapsing: false)
-            if let secondaryNav = svc.viewController(for: .secondary) as? UINavigationController, NavigationStackManager.secondaryVC != nil {
-                secondaryNav.viewControllers = [NavigationStackManager.secondaryVC!]
-            }
-        }
-        return proposedDisplayMode
-    }
-}
+//extension SelectDroneAndProgramViewController: UISplitViewControllerDelegate {
+//    func splitViewController(_ svc: UISplitViewController,
+//                             topColumnForCollapsingToProposedTopColumn
+//                             proposedTopColumn: UISplitViewController.Column)
+//    -> UISplitViewController.Column {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+//            NavigationStackManager.saveHierarchyFromRegular(svc: svc)
+//            NavigationStackManager.rebuildNavigationHierarchy(svc: svc, collapsing: true)
+//        }
+//        return proposedTopColumn
+//    }
+//
+//    func splitViewController(_ svc: UISplitViewController,
+//                             displayModeForExpandingToProposedDisplayMode
+//                             proposedDisplayMode: UISplitViewController.DisplayMode)
+//    -> UISplitViewController.DisplayMode {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+//            NavigationStackManager.saveHierarchyFromCompact(svc: svc)
+//            NavigationStackManager.rebuildNavigationHierarchy(svc: svc, collapsing: false)
+////            if let secondaryNav = svc.viewController(for: .secondary) as? UINavigationController, NavigationStackManager.secondaryVC != nil {
+////                secondaryNav.viewControllers = [NavigationStackManager.secondaryVC!]
+////            }
+//        }
+//        return proposedDisplayMode
+//    }
+//}

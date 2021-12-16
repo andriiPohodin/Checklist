@@ -72,6 +72,7 @@
 		18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */; };
 		18A0772025EE5677005E7C20 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A0771F25EE5677005E7C20 /* ContentViewController.swift */; };
 		18B3AF1A27688BF9007BDE63 /* NavigationStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3AF1927688BF9007BDE63 /* NavigationStackManager.swift */; };
+		18B3AF1C276B8541007BDE63 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B3AF1B276B8541007BDE63 /* RootViewController.swift */; };
 		18BFFDFE267BE6430087421C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFFDFD267BE6430087421C /* AccountViewController.swift */; };
 		18CBAC0D2698882100D5A2DF /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */; };
 		18CBAC1326B5611700D5A2DF /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CBAC1226B5611700D5A2DF /* Alerts.swift */; };
@@ -158,6 +159,7 @@
 		18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPartSelectionViewController.swift; sourceTree = "<group>"; };
 		18A0771F25EE5677005E7C20 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		18B3AF1927688BF9007BDE63 /* NavigationStackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackManager.swift; sourceTree = "<group>"; };
+		18B3AF1B276B8541007BDE63 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		18BFFDFD267BE6430087421C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		18CBAC1226B5611700D5A2DF /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -262,13 +264,14 @@
 			isa = PBXGroup;
 			children = (
 				18BFFDFD267BE6430087421C /* AccountViewController.swift */,
+				18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */,
 				1880BD9325D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift */,
 				18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */,
 				185D93B5264D17690031A6F8 /* ContentsTableViewController.swift */,
 				185D93B8264D40A70031A6F8 /* FAQViewController.swift */,
 				18A0771F25EE5677005E7C20 /* ContentViewController.swift */,
-				18CBAC0C2698882100D5A2DF /* ChangePasswordViewController.swift */,
 				18F621DA26FCB3DC00E83C93 /* FeedbackFormViewController.swift */,
+				18B3AF1B276B8541007BDE63 /* RootViewController.swift */,
 			);
 			path = MainSB;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				1834F9EC275AB7770059B096 /* VideoViewController.swift in Sources */,
 				18CBAC0D2698882100D5A2DF /* ChangePasswordViewController.swift in Sources */,
 				18DCB77125F136BF00AE1463 /* Constants.swift in Sources */,
+				18B3AF1C276B8541007BDE63 /* RootViewController.swift in Sources */,
 				18CBAC1326B5611700D5A2DF /* Alerts.swift in Sources */,
 				18CF99522747E13300802766 /* NetworkMonitor.swift in Sources */,
 				18A0771D25EE5662005E7C20 /* ProgramPartSelectionViewController.swift in Sources */,

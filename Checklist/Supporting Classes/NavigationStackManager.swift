@@ -12,11 +12,15 @@ class NavigationStackManager {
         guard let primaryNavVC = svc.viewController(for: .primary) as? UINavigationController else { return }
         guard let compactNavVC = svc.viewController(for: .compact) as? UINavigationController else { return }
         if collapsing {
+            guard let rootVC = compactNavVC.topViewController as? RootViewController else { return }
+            rootVC.didPerformSegueFromRoot = true
             for vc in navigationStack {
                 compactNavVC.pushViewController(vc, animated: false)
             }
         }
         else {
+            guard let rootVC = primaryNavVC.topViewController as? RootViewController else { return }
+            rootVC.didPerformSegueFromRoot = true
             for vc in navigationStack {
                 primaryNavVC.pushViewController(vc, animated: false)
             }
