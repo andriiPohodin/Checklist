@@ -20,7 +20,7 @@ class ContentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        SplitViewManager.showMasterInOverlay(splitViewController: splitViewController, viewHeight: view.bounds.height, viewWidth: view.bounds.width)
+        SplitViewBehaviourManager.showMasterInOverlay(splitViewController: splitViewController, viewHeight: view.bounds.height, viewWidth: view.bounds.width)
         if UIScreen.main.traitCollection.horizontalSizeClass == .regular {
             backgroundVideoView.isHidden = false
         }
@@ -39,7 +39,12 @@ class ContentViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        SplitViewManager.showMasterInOverlay(splitViewController: splitViewController, viewHeight: size.height, viewWidth: size.width)
+        SplitViewBehaviourManager.showMasterInOverlay(splitViewController: splitViewController, viewHeight: size.height, viewWidth: size.width)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        backgroundVideoView.isHidden = true
     }
     
     @objc private func didSwipe(_ sender: UISwipeGestureRecognizer) {
@@ -53,7 +58,6 @@ class ContentViewController: UIViewController {
     }
     
     func updateUI() {
-        playerLooper = nil
         backgroundVideoView.isHidden = true
 
         getPdfDocument()
@@ -90,7 +94,7 @@ class ContentViewController: UIViewController {
         swipeRight.direction = .right
         pdfView.addGestureRecognizer(swipeLeft)
         pdfView.addGestureRecognizer(swipeRight)
-        NavigationStackManager.secondaryVC = self
+//        NavigationStackManager.secondaryVC = self
     }
     
     private func getPdfDocument() {

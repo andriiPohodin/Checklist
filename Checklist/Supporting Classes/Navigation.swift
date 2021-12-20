@@ -20,5 +20,4 @@ class Navigation {
         guard let vc = UIStoryboard(name: Constants.Storyboard.logIn, bundle: nil).instantiateInitialViewController() else { return }
         UIApplication.shared.windows.first?.rootViewController = vc
     }
-    
 }

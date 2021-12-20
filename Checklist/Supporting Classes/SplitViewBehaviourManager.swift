@@ -1,7 +1,6 @@
-import Foundation
 import UIKit
 
-class SplitViewManager {
+class SplitViewBehaviourManager {
     
     static func showMasterInOverlay(splitViewController: UISplitViewController?, viewHeight: CGFloat, viewWidth: CGFloat) {
         if splitViewController != nil {
@@ -13,4 +12,11 @@ class SplitViewManager {
             }
         }
     }
+}
+
+protocol SplitViewHierarchyManager {
+    
+    var navigationStack: [UIViewController] { get set }
+    
+    func rebuildNavigationHierarchy(in svc: UISplitViewController, from current: UIViewController?, to target: UIViewController?)
 }

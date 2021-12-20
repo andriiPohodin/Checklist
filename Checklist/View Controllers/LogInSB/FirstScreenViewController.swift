@@ -3,8 +3,8 @@ import AVKit
 
 class FirstScreenViewController: UIViewController {
     
-    var playerLooper: AVPlayerLooper?
-
+    private var playerLooper: AVPlayerLooper?
+    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var logInBtn: UIButton! {
         didSet {
@@ -31,15 +31,7 @@ class FirstScreenViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setUpVideo()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        playerLooper = nil
-    }
-    
-    private func setUpVideo() {
+//        setUpVideo()
         if UIDevice.current.userInterfaceIdiom == .phone, UIScreen.main.traitCollection.horizontalSizeClass == .compact {
             contentView.isHidden = false
             playerLooper = VideoManager.play(onSuperview: contentView, forResource: "My Movie", ofType: "mp4")
@@ -47,6 +39,15 @@ class FirstScreenViewController: UIViewController {
         else {
             contentView.isHidden = true
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        contentView.isHidden = true
+    }
+    
+    private func setUpVideo() {
+        
     }
     
     @IBAction func logInBtnAction(_ sender: UIButton) {
@@ -58,25 +59,57 @@ class FirstScreenViewController: UIViewController {
     }
 }
 
+extension FirstScreenViewController: SplitViewHierarchyManager {
+    
+    internal var navigationStack: [UIViewController] {
+        get {
+            return [UIViewController]()
+        }
+        set {}
+    }
+    
+    internal func rebuildNavigationHierarchy(in svc: UISplitViewController, from current: UIViewController?, to target: UIViewController?) {
+        if let currentNav = current as? UINavigationController, let targetNav = target as? UINavigationController {
+            navigationStack = currentNav.viewControllers
+            currentNav.popToRootViewController(animated: false)
+            if !self.navigationStack.isEmpty {
+                self.navigationStack.removeFirst()
+            }
+            switch currentNav {
+            case svc.viewController(for: .primary):
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                    svc.setViewController(currentNav, for: .compact)
+                    for vc in self.navigationStack {
+                        targetNav.pushViewController(vc, animated: false)
+                    }
+                }
+            case svc.viewController(for: .compact):
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                    svc.setViewController(currentNav, for: .primary)
+                    for vc in self.navigationStack {
+                        targetNav.pushViewController(vc, animated: false)
+                    }
+                }
+            default: break
+            }
+        }
+    }
+}
+
 extension FirstScreenViewController: UISplitViewControllerDelegate {
     func splitViewController(_ svc: UISplitViewController,
                              topColumnForCollapsingToProposedTopColumn
                              proposedTopColumn: UISplitViewController.Column)
     -> UISplitViewController.Column {
-        NavigationStackManager.saveHierarchyFromRegular(svc: svc)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            NavigationStackManager.rebuildNavigationHierarchy(svc: svc, collapsing: true)
-        }
+        rebuildNavigationHierarchy(in: svc, from: svc.viewController(for: .primary), to: svc.viewController(for: .compact))
         return proposedTopColumn
     }
+
     func splitViewController(_ svc: UISplitViewController,
                              displayModeForExpandingToProposedDisplayMode
                              proposedDisplayMode: UISplitViewController.DisplayMode)
     -> UISplitViewController.DisplayMode {
-        NavigationStackManager.saveHierarchyFromCompact(svc: svc)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            NavigationStackManager.rebuildNavigationHierarchy(svc: svc, collapsing: false)
-        }
+        rebuildNavigationHierarchy(in: svc, from: svc.viewController(for: .compact), to: svc.viewController(for: .primary))
         return proposedDisplayMode
     }
 }

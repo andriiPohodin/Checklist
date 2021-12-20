@@ -38,7 +38,7 @@
                                             <action selector="logInBtnAction:" destination="GFj-Db-Xwm" eventType="touchUpInside" id="z3d-bg-L1X"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO7-bZ-1Zy">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hO7-bZ-1Zy">
                                         <rect key="frame" x="37.666666666666686" y="76" width="224" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Don't have an account?">
@@ -116,7 +116,7 @@
                                             <action selector="confirmBtnAction:" destination="l7x-rE-JHo" eventType="touchUpInside" id="q4b-k1-HF0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9p-5T-T5G">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9p-5T-T5G">
                                         <rect key="frame" x="50.666666666666686" y="204" width="198" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Forgot password?"/>
