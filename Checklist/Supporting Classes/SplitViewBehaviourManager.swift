@@ -1,6 +1,6 @@
 import UIKit
 
-class SplitViewBehaviourManager {
+final class SplitViewBehaviourManager {
     
     static func showMasterInOverlay(splitViewController: UISplitViewController?, viewHeight: CGFloat, viewWidth: CGFloat) {
         if splitViewController != nil {
@@ -16,7 +16,8 @@ class SplitViewBehaviourManager {
 
 protocol SplitViewHierarchyManager {
     
-    var navigationStack: [UIViewController] { get set }
+//    var wasPresented: Bool { get set }
+//    var navigationStack: [UIViewController] { get set }
     
-    func rebuildNavigationHierarchy(in svc: UISplitViewController, from current: UIViewController?, to target: UIViewController?)
+    func transferNavigationStack(svc: UISplitViewController, collapsing: Bool)
 }

@@ -28,8 +28,8 @@ class SelectDroneAndProgramViewController: UIViewController {
         }
     }
     
-    var selectedDrone: Drone?
-    var selectedScenarioSections: [Section]?
+    private var selectedDrone: Drone?
+    private var selectedScenarioSections: [Section]?
     
     let checklist =
         Checklist(drones: [
@@ -47,16 +47,16 @@ class SelectDroneAndProgramViewController: UIViewController {
                                         Section(sectionTitle: .outdoorSectionTitle, sectionDescription: .outdoorSectionDescription, sectionContent: [OutdoorSectionContent.setUpMobileStation, .xMissionFlight, .field, .surveyingXmission, .sprayWidthAndSafeDistances, .scissors, .uploadField, .operation, .visualCheck, .battery, .propulsionSystem, .sprayingSystem, .sprayingSystemCalibration, .flightParameters, .start, .rth, .speed, .height, .dosage, .work, .fillTank, .takeOff]),
                                         Section(sectionTitle: .maintenanceSectionTitle, sectionDescription: .maintenanceSectionDescription, sectionContent: [MaintenanceSectionContent.endShiftMaintenance, .scheduledMaintenance])])])])
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        splitViewController?.delegate = self
+        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
     
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationController?.isNavigationBarHidden = true
-//    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -130,60 +130,5 @@ class SelectDroneAndProgramViewController: UIViewController {
     
     @IBAction func nextBtnAction(_ sender: UIButton) {
         validateRequiredInfoInput()
-    }
-}
-
-extension SelectDroneAndProgramViewController: SplitViewHierarchyManager {
-    
-    internal var navigationStack: [UIViewController] {
-        get {
-            return [UIViewController]()
-        }
-        set {}
-    }
-    
-    internal func rebuildNavigationHierarchy(in svc: UISplitViewController, from current: UIViewController?, to target: UIViewController?) {
-        if let currentNav = current as? UINavigationController, let targetNav = target as? UINavigationController {
-            navigationStack = currentNav.viewControllers
-            currentNav.popToRootViewController(animated: false)
-            if !self.navigationStack.isEmpty {
-                self.navigationStack.removeFirst()
-            }
-            switch currentNav {
-            case svc.viewController(for: .primary):
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                    svc.setViewController(currentNav, for: .compact)
-                    for vc in self.navigationStack {
-                        targetNav.pushViewController(vc, animated: false)
-                    }
-                }
-            case svc.viewController(for: .compact):
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                    svc.setViewController(currentNav, for: .primary)
-                    for vc in self.navigationStack {
-                        targetNav.pushViewController(vc, animated: false)
-                    }
-                }
-            default: break
-            }
-        }
-    }
-}
-
-extension SelectDroneAndProgramViewController: UISplitViewControllerDelegate {
-    func splitViewController(_ svc: UISplitViewController,
-                             topColumnForCollapsingToProposedTopColumn
-                             proposedTopColumn: UISplitViewController.Column)
-    -> UISplitViewController.Column {
-        rebuildNavigationHierarchy(in: svc, from: svc.viewController(for: .primary), to: svc.viewController(for: .compact))
-        return proposedTopColumn
-    }
-
-    func splitViewController(_ svc: UISplitViewController,
-                             displayModeForExpandingToProposedDisplayMode
-                             proposedDisplayMode: UISplitViewController.DisplayMode)
-    -> UISplitViewController.DisplayMode {
-        rebuildNavigationHierarchy(in: svc, from: svc.viewController(for: .compact), to: svc.viewController(for: .primary))
-        return proposedDisplayMode
     }
 }

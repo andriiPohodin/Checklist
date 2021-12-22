@@ -1,7 +1,7 @@
 import UIKit
 import SPPermissions
 
-class Alerts {
+final class Alerts {
         
     static func fillInAllFieldsAlert(emptyTextFields: [UITextField], presentAlertOn: UIViewController?) {
         let alert = UIAlertController(title: "error".localized, message: "fillInAllFields".localized, preferredStyle: .alert)

@@ -19,7 +19,7 @@ class ContentViewController: UIViewController {
     var playerLooper: AVPlayerLooper?
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         SplitViewBehaviourManager.showMasterInOverlay(splitViewController: splitViewController, viewHeight: view.bounds.height, viewWidth: view.bounds.width)
         if UIScreen.main.traitCollection.horizontalSizeClass == .regular {
             backgroundVideoView.isHidden = false
@@ -35,11 +35,6 @@ class ContentViewController: UIViewController {
         if UIScreen.main.traitCollection.horizontalSizeClass == .regular {
             playerLooper = VideoManager.play(onSuperview: backgroundVideoView, forResource: "My Movie", ofType: "mp4")
         }
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        SplitViewBehaviourManager.showMasterInOverlay(splitViewController: splitViewController, viewHeight: size.height, viewWidth: size.width)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

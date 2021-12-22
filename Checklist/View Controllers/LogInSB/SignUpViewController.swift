@@ -46,7 +46,7 @@ class SignUpViewController: UIViewController {
             confirmBtn.titleLabel?.font = .systemFont(ofSize: 25)
         }
     }
-    var textFields = [UITextField]()
+    private var textFields = [UITextField]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,7 @@ class SignUpViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @objc func keyboardWillChange(notification: Notification) {
+    @objc private func keyboardWillChange(notification: Notification) {
         switch notification.name {
         case UIResponder.keyboardDidShowNotification:
             if nameTf.isFirstResponder {
@@ -96,7 +96,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func validateFields() {
+    private func validateFields() {
         activityIndicator.startAnimating()
         view.endEditing(true)
         var emptyTextFields = [UITextField]()

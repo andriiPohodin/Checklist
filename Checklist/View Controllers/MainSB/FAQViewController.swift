@@ -16,7 +16,7 @@ class FAQViewController: UIViewController, UINavigationControllerDelegate {
     }
     let faq = FAQ(steps: [.whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .whatIf, .canI, .shouldI, .contactUs])
     var selectedFaqStepIndex = Int()
-    var faqStepStringsArray = [String]()
+    private var faqStepStringsArray = [String]()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)

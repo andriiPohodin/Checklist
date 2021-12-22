@@ -27,7 +27,7 @@ class ChangePasswordViewController: UIViewController {
             confirmBtn.layer.backgroundColor = UIColor.systemRed.cgColor
         }
     }
-    var textFields = [UITextField]()
+    private var textFields = [UITextField]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,16 +38,11 @@ class ChangePasswordViewController: UIViewController {
         }
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationController?.isNavigationBarHidden = false
-//    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
-    func validateFields() {
+    private func validateFields() {
         view.endEditing(true)
         var emptyTextFields = [UITextField]()
         for emptyField in textFields {

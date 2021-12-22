@@ -1,6 +1,6 @@
 import UIKit
 
-class Navigation {
+final class Navigation {
     
     static func ifLoggedIn() {
         if UserSettings.defaults.value(forKey: UserSettings.userName) != nil {

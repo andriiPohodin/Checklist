@@ -1,6 +1,6 @@
 import Foundation
 
-class UserSettings {
+final class UserSettings {
     static let defaults = UserDefaults.standard
     static let userName = "user"
     static let currentUserUid = "currentUserUid"

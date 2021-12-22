@@ -25,7 +25,7 @@ class ForgotPasswordViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func validateFields() {
+    private func validateFields() {
         activityIndicator.startAnimating()
         view.endEditing(true)
         if emailTF.text == "" {

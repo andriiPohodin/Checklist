@@ -1,7 +1,7 @@
 import AVKit
 import UIKit
 
-class VideoManager {
+final class VideoManager {
     
     static func play(onSuperview superview: UIView, forResource name: String, ofType type: String) -> AVPlayerLooper? {
         guard let bundlePath = Bundle.main.path(forResource: name, ofType: type) else { return nil }

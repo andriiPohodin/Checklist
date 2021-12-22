@@ -13,9 +13,9 @@ class ContentsTableViewController: UIViewController {
     
     var selectedDroneName: Name?
     var sectionsContent = [SectionsContent]()
-    var contentSlideNames = [String]()
-    var contentLabelTextStrings = [String]()
-    var index = Int()
+    private var contentSlideNames = [String]()
+    private var contentLabelTextStrings = [String]()
+    private var index = Int()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VZ0-4M-6wg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VZ0-4M-6wg">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -447,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFv-pj-VQ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736" y="759"/>
+            <point key="canvasLocation" x="-64" y="789"/>
         </scene>
         <!--Item-->
         <scene sceneID="Mgs-Vh-5zq">
@@ -461,12 +461,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="JVP-t9-tcH" kind="relationship" relationship="rootViewController" id="lgY-IG-RG3"/>
+                        <segue destination="HP5-xF-mFS" kind="relationship" relationship="rootViewController" id="MTj-JU-N9H"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71a-Qc-NRb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736" y="37"/>
+            <point key="canvasLocation" x="-64" y="35"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Hat-pM-nmK">
@@ -480,7 +480,26 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bd-w9-mlt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-231" y="386"/>
+            <point key="canvasLocation" x="-971" y="398"/>
+        </scene>
+        <!--Root View Controller For Split View-->
+        <scene sceneID="7UH-YB-jV9">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ttT-0h-60S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="HP5-xF-mFS" customClass="RootViewControllerForSplitView" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hbk-9K-Hu8">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5Ue-3m-o0b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Cci-7n-shJ"/>
+                    <connections>
+                        <segue destination="JVP-t9-tcH" kind="show" identifier="fromRoot" id="FoH-85-kbM"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="833" y="35"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0ki-8n-slQ">

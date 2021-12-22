@@ -34,7 +34,7 @@ class LogInViewController: UIViewController {
             forgotPasswordBtn.setTitleColor(.systemRed, for: .normal)
         }
     }
-    var textFields = [UITextField]()
+    private var textFields = [UITextField]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class LogInViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func validateFields() {
+    private func validateFields() {
         activityIndicator.startAnimating()
         view.endEditing(true)
         var emptyTextFields = [UITextField]()

@@ -50,11 +50,6 @@ class AccountViewController: UIViewController {
         }
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationController?.isNavigationBarHidden = true
-//    }
-    
     private func fetchImage() {
         guard let localUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(UserSettings.defaults.string(forKey: UserSettings.currentUserUid) ?? "") else { return }
         if NetworkMonitor.shared.isConnected {
@@ -261,6 +256,7 @@ class AccountViewController: UIViewController {
 }
 
 extension AccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if NetworkMonitor.shared.isConnected {
             guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
