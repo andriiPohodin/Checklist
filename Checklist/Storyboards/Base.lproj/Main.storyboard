@@ -485,7 +485,6 @@
         <!--Root View Controller For Split View-->
         <scene sceneID="7UH-YB-jV9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ttT-0h-60S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="HP5-xF-mFS" customClass="RootViewControllerForSplitView" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hbk-9K-Hu8">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
@@ -498,6 +497,7 @@
                         <segue destination="JVP-t9-tcH" kind="show" identifier="fromRoot" id="FoH-85-kbM"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ttT-0h-60S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="833" y="35"/>
         </scene>

@@ -9,7 +9,11 @@ class RootViewControllerForSplitView: UIViewController {
         super.viewDidLoad()
         splitViewController?.delegate = self
         if !wasPresented {
-            performSegue(withIdentifier: "fromRoot", sender: nil)
+            wasPresented = true
+            performSegue(withIdentifier: "fromRoot", sender: self)
+        }
+        else {
+            wasPresented = false
         }
     }
     
@@ -43,12 +47,16 @@ extension RootViewControllerForSplitView: UISplitViewControllerDelegate, SplitVi
             navigationStack.removeFirst()
             primaryNav.popToRootViewController(animated: false)
             compactNav.popToRootViewController(animated: false)
+            compactNav.isNavigationBarHidden = true
             if let root = compactNav.topViewController as? RootViewControllerForSplitView {
                 root.wasPresented = true
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                 for vc in self.navigationStack {
                     compactNav.pushViewController(vc, animated: false)
+                }
+                if compactNav.viewControllers.count > 2 {
+                    compactNav.isNavigationBarHidden = false
                 }
             }
         }
@@ -57,12 +65,16 @@ extension RootViewControllerForSplitView: UISplitViewControllerDelegate, SplitVi
             navigationStack.removeFirst()
             compactNav.popToRootViewController(animated: false)
             primaryNav.popToRootViewController(animated: false)
+            primaryNav.isNavigationBarHidden = true
             if let root = primaryNav.topViewController as? RootViewControllerForSplitView {
                 root.wasPresented = true
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
                 for vc in self.navigationStack {
                     primaryNav.pushViewController(vc, animated: false)
+                }
+                if primaryNav.viewControllers.count > 2 {
+                    primaryNav.isNavigationBarHidden = false
                 }
             }
         }

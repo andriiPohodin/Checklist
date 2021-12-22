@@ -24,8 +24,8 @@ class FirstScreenViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         navigationController?.isNavigationBarHidden = true
     }
     
@@ -34,8 +34,8 @@ class FirstScreenViewController: UIViewController {
         setUpVideo()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         navigationController?.isNavigationBarHidden = false
         contentView.isHidden = true
     }

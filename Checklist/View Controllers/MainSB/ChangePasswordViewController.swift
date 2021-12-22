@@ -24,7 +24,7 @@ class ChangePasswordViewController: UIViewController {
             confirmBtn.titleLabel?.font = .systemFont(ofSize: 25)
             confirmBtn.setTitle("confirm".localized, for: .normal)
             confirmBtn.setTitleColor(.white, for: .normal)
-            confirmBtn.layer.backgroundColor = UIColor.systemRed.cgColor
+            confirmBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
         }
     }
     private var textFields = [UITextField]()
@@ -36,6 +36,11 @@ class ChangePasswordViewController: UIViewController {
             tf.delegate = self
             tf.layer.borderColor = UIColor.red.cgColor
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
