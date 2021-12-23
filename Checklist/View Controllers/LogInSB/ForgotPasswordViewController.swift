@@ -17,7 +17,7 @@ class ForgotPasswordViewController: UIViewController {
             resetPasswordBtn.layer.cornerRadius = resetPasswordBtn.frame.height/2
             resetPasswordBtn.setTitle("resetPassword".localized, for: .normal)
             resetPasswordBtn.setTitleColor(.white, for: .normal)
-            resetPasswordBtn.titleLabel?.font = UIFont.systemFont(ofSize: 22)
+            resetPasswordBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         }
     }
     

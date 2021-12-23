@@ -11,21 +11,21 @@ class FirstScreenViewController: UIViewController {
             logInBtn.layer.cornerRadius = CGFloat(logInBtn.frame.height/2)
             logInBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
             logInBtn.setTitleColor(.white, for: .normal)
-            logInBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25)
+            logInBtn.titleLabel?.adjustsFontSizeToFitWidth = true
             logInBtn.setTitle("logIn".localized, for: .normal)
         }
     }
     @IBOutlet weak var signUpBtn: UIButton! {
         didSet {
             signUpBtn.layer.cornerRadius = CGFloat(signUpBtn.frame.height/2)
-            signUpBtn.titleLabel?.font = UIFont.systemFont(ofSize: 22)
+            signUpBtn.titleLabel?.adjustsFontSizeToFitWidth = true
             signUpBtn.setTitle("signUp".localized, for: .normal)
             signUpBtn.setTitleColor(.systemRed, for: .normal)
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
     }
     
@@ -36,8 +36,8 @@ class FirstScreenViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        navigationController?.isNavigationBarHidden = false
-        contentView.isHidden = true
+//        navigationController?.isNavigationBarHidden = false
+//        contentView.isHidden = true
     }
     
     private func setUpVideo() {

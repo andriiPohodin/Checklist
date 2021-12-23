@@ -13,6 +13,7 @@ class AccountViewController: UIViewController {
         didSet {
             guard let userName = UserSettings.defaults.string(forKey: UserSettings.userName) else { return }
             helloLabel.text = "Hello, ".localized + userName
+            helloLabel.adjustsFontSizeToFitWidth = true
         }
     }
     @IBOutlet weak var profileImage: UIImageView! {
@@ -30,6 +31,7 @@ class AccountViewController: UIViewController {
             changeNameBtn.layer.cornerRadius = changeNameBtn.frame.height/2
             changeNameBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
             changeNameBtn.setTitleColor(.white, for: .normal)
+            changeNameBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         }
     }
     @IBOutlet weak var changePasswordBtn: UIButton! {
@@ -38,6 +40,7 @@ class AccountViewController: UIViewController {
             changePasswordBtn.layer.cornerRadius = changePasswordBtn.frame.height/2
             changePasswordBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
             changePasswordBtn.setTitleColor(.white, for: .normal)
+            changeNameBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         }
     }
     @IBOutlet weak var signOutBtn: UIButton! {
@@ -47,6 +50,7 @@ class AccountViewController: UIViewController {
             signOutBtn.layer.borderColor = UIColor.systemGray5.cgColor
             signOutBtn.layer.cornerRadius = signOutBtn.frame.height/2
             signOutBtn.setTitleColor(.red, for: .normal)
+            signOutBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         }
     }
     

@@ -9,8 +9,16 @@ import UIKit
 
 class ContactUsTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var contactUsLabel: UILabel!
-    @IBOutlet weak var contactUsBtn: UIButton!
+    @IBOutlet weak var contactUsLabel: UILabel! {
+        didSet {
+            contactUsLabel.adjustsFontSizeToFitWidth = true
+        }
+    }
+    @IBOutlet weak var contactUsBtn: UIButton! {
+        didSet {
+            contactUsBtn.titleLabel?.adjustsFontSizeToFitWidth = true
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

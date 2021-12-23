@@ -25,6 +25,7 @@ class SelectDroneAndProgramViewController: UIViewController {
             nextBtn.layer.cornerRadius = nextBtn.frame.height/2
             nextBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
             nextBtn.setTitle(LocalizedKeys.BtnTitles.nextBtn, for: .normal)
+            nextBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         }
     }
     

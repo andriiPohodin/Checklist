@@ -20,7 +20,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var confirmBtn: UIButton! {
         didSet {
             confirmBtn.layer.cornerRadius = confirmBtn.frame.height/2
-            confirmBtn.titleLabel?.font = .systemFont(ofSize: 25)
+            confirmBtn.titleLabel?.adjustsFontSizeToFitWidth = true
             confirmBtn.setTitle("confirm".localized, for: .normal)
             confirmBtn.setTitleColor(.white, for: .normal)
             confirmBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
@@ -30,7 +30,7 @@ class LogInViewController: UIViewController {
         didSet {
             forgotPasswordBtn.layer.cornerRadius = confirmBtn.frame.height/2
             forgotPasswordBtn.setTitle("forgotPassword".localized, for: .normal)
-            forgotPasswordBtn.titleLabel?.font = .systemFont(ofSize: 22)
+            forgotPasswordBtn.titleLabel?.adjustsFontSizeToFitWidth = true
             forgotPasswordBtn.setTitleColor(.systemRed, for: .normal)
         }
     }
@@ -43,6 +43,11 @@ class LogInViewController: UIViewController {
             textField.delegate = self
             textField.layer.borderColor = UIColor.red.cgColor
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

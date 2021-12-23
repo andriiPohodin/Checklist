@@ -49,7 +49,7 @@
 		18287B4127734C51009E2121 /* RootViewControllerForSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18287B4027734C51009E2121 /* RootViewControllerForSplitView.swift */; };
 		1834F9EC275AB7770059B096 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834F9EB275AB7770059B096 /* VideoViewController.swift */; };
 		1834F9EE275F6B190059B096 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834F9ED275F6B180059B096 /* VideoManager.swift */; };
-		1834F9F0275F6B420059B096 /* SplitViewBehaviourManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834F9EF275F6B420059B096 /* SplitViewBehaviourManager.swift */; };
+		1834F9F0275F6B420059B096 /* SplitViewHierarchyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1834F9EF275F6B420059B096 /* SplitViewHierarchyManager.swift */; };
 		1857A9D02670DB9600A57D7A /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9CF2670DB9600A57D7A /* FirstScreenViewController.swift */; };
 		1857A9D22670DBB600A57D7A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9D12670DBB600A57D7A /* SignUpViewController.swift */; };
 		1857A9D42670DBC100A57D7A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1857A9D32670DBC100A57D7A /* LogInViewController.swift */; };
@@ -131,7 +131,7 @@
 		18287B4027734C51009E2121 /* RootViewControllerForSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewControllerForSplitView.swift; sourceTree = "<group>"; };
 		1834F9EB275AB7770059B096 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		1834F9ED275F6B180059B096 /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
-		1834F9EF275F6B420059B096 /* SplitViewBehaviourManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewBehaviourManager.swift; sourceTree = "<group>"; };
+		1834F9EF275F6B420059B096 /* SplitViewHierarchyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewHierarchyManager.swift; sourceTree = "<group>"; };
 		1857A9CF2670DB9600A57D7A /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		1857A9D12670DBB600A57D7A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1857A9D32670DBC100A57D7A /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -285,7 +285,7 @@
 				188BBF4A25F578F30060E34E /* LocalizedKeys.swift */,
 				18CF99512747E13300802766 /* NetworkMonitor.swift */,
 				1834F9ED275F6B180059B096 /* VideoManager.swift */,
-				1834F9EF275F6B420059B096 /* SplitViewBehaviourManager.swift */,
+				1834F9EF275F6B420059B096 /* SplitViewHierarchyManager.swift */,
 			);
 			path = "Supporting Classes";
 			sourceTree = "<group>";
@@ -573,7 +573,7 @@
 				1857A9D62670DBDC00A57D7A /* ForgotPasswordViewController.swift in Sources */,
 				18A0772025EE5677005E7C20 /* ContentViewController.swift in Sources */,
 				187136352718A25B00E3D90E /* ContactUsTableViewCell.swift in Sources */,
-				1834F9F0275F6B420059B096 /* SplitViewBehaviourManager.swift in Sources */,
+				1834F9F0275F6B420059B096 /* SplitViewHierarchyManager.swift in Sources */,
 				1880BDA825D6D77E004B6BFE /* Drone.swift in Sources */,
 				1880BD9425D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift in Sources */,
 				18DCB75F25EF7E1500AE1463 /* MyTableViewCell.swift in Sources */,

@@ -1,9 +1,21 @@
 import UIKit
 
 class MyTableViewCell: UITableViewCell {
-    @IBOutlet weak var itemLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var itemLabel: UILabel! {
+        didSet {
+            itemLabel.adjustsFontSizeToFitWidth = true
+        }
+    }
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.adjustsFontSizeToFitWidth = true
+        }
+    }
+    @IBOutlet weak var descriptionLabel: UILabel! {
+        didSet {
+            descriptionLabel.adjustsFontSizeToFitWidth = true
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

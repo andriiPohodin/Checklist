@@ -20,7 +20,7 @@ class ContentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        SplitViewBehaviourManager.showMasterInOverlay(splitViewController: splitViewController, viewHeight: view.bounds.height, viewWidth: view.bounds.width)
+        splitViewController?.preferredDisplayMode = .oneOverSecondary
         if UIScreen.main.traitCollection.horizontalSizeClass == .regular {
             backgroundVideoView.isHidden = false
         }
@@ -57,6 +57,7 @@ class ContentViewController: UIViewController {
 
         getPdfDocument()
         
+        previousSlideBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         previousSlideBtn.setTitleColor(.systemRed, for: .normal)
         previousSlideIndex = currentSlideIndex-1
         switch currentSlideIndex {
@@ -68,6 +69,7 @@ class ContentViewController: UIViewController {
             previousSlideBtn.setTitle("< " + "\(LocalizedKeys.BtnTitles.previousBtn)", for: .normal)
         }
         
+        nextSlideBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         nextSlideBtn.setTitleColor(.systemRed, for: .normal)
         nextSlideIndex = currentSlideIndex+1
         switch currentSlideIndex {
@@ -81,6 +83,7 @@ class ContentViewController: UIViewController {
         
         contentView.addSubview(pdfView)
         
+        contentLabel.adjustsFontSizeToFitWidth = true
         contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(_:)))

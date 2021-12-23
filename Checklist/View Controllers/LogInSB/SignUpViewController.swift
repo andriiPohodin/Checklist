@@ -43,7 +43,7 @@ class SignUpViewController: UIViewController {
             confirmBtn.layer.backgroundColor = UIColor.systemGreen.cgColor
             confirmBtn.setTitle("confirm".localized, for: .normal)
             confirmBtn.setTitleColor(.white, for: .normal)
-            confirmBtn.titleLabel?.font = .systemFont(ofSize: 25)
+            confirmBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         }
     }
     private var textFields = [UITextField]()
@@ -62,6 +62,11 @@ class SignUpViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

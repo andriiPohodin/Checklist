@@ -19,7 +19,7 @@ class RootViewControllerForSplitView: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        SplitViewBehaviourManager.showMasterInOverlay(splitViewController: splitViewController, viewHeight: size.height, viewWidth: size.width)
+        splitViewController?.preferredDisplayMode = .oneOverSecondary
     }
 }
 
