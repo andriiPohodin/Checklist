@@ -5,6 +5,7 @@ import FirebaseStorage
 
 class SignUpViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var nameTf: UITextField! {
         didSet {
@@ -50,55 +51,17 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         textFields = [nameTf, phoneNumberTf, corporationTf, emailTf, passwordTf, confirmPasswordTf]
         for textField in textFields {
             textField.delegate = self
             textField.layer.borderColor = UIColor.red.cgColor
         }
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
-    @objc private func keyboardWillChange(notification: Notification) {
-        switch notification.name {
-        case UIResponder.keyboardDidShowNotification:
-            if nameTf.isFirstResponder {
-                view.frame.origin.y = 0
-            }
-            else if phoneNumberTf.isFirstResponder {
-                view.frame.origin.y = 0
-            }
-            else if corporationTf.isFirstResponder {
-                view.frame.origin.y = -corporationTf.frame.height
-            }
-            else if emailTf.isFirstResponder {
-                view.frame.origin.y = -emailTf.frame.height
-            }
-            else if passwordTf.isFirstResponder {
-                view.frame.origin.y = -passwordTf.frame.height*2
-            }
-            else if confirmPasswordTf.isFirstResponder {
-                view.frame.origin.y = -confirmPasswordTf.frame.height*2
-            }
-            else { return }
-        case UIResponder.keyboardWillHideNotification:
-            view.frame.origin.y = 0
-        default: break
-        }
     }
     
     private func validateFields() {
@@ -168,9 +131,13 @@ class SignUpViewController: UIViewController {
     @IBAction func confirmBtnAction(_ sender: UIButton) {
         validateFields()
     }
+    
+    @IBAction func SignUpViewEndEditingTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }
 
-extension SignUpViewController: UITextFieldDelegate {
+extension SignUpViewController: UITextFieldDelegate, UIScrollViewDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
@@ -190,5 +157,9 @@ extension SignUpViewController: UITextFieldDelegate {
         default: break
         }
         return true
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.x = 0
     }
 }

@@ -5,6 +5,7 @@ import FirebaseStorage
 
 class LogInViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailTf: UITextField! {
         didSet {
@@ -48,10 +49,6 @@ class LogInViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
     }
     
     private func validateFields() {
@@ -127,9 +124,14 @@ class LogInViewController: UIViewController {
         }
         performSegue(withIdentifier: "toForgotPassword", sender: nil)
     }
+    
+    @IBAction func LogInViewEndEditingTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }
 
-extension LogInViewController: UITextFieldDelegate {
+extension LogInViewController: UITextFieldDelegate, UIScrollViewDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case emailTf:
@@ -141,5 +143,9 @@ extension LogInViewController: UITextFieldDelegate {
             break
         }
         return true
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.x = 0
     }
 }
