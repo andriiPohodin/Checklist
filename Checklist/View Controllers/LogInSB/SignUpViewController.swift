@@ -5,7 +5,7 @@ import FirebaseStorage
 
 class SignUpViewController: UIViewController {
     
-    private var lastOffset: CGPoint?
+    private var initialOffset: CGPoint?
     private var keyboardHeight: CGFloat?
     
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
@@ -90,7 +90,7 @@ class SignUpViewController: UIViewController {
                         return
                     }
                     UIView.animate(withDuration: 0.3, animations: {
-                        self.scrollView.contentOffset = CGPoint(x: (self.lastOffset?.x)!, y: collapseSpace)
+                        self.scrollView.contentOffset = CGPoint(x: (self.initialOffset?.x)!, y: collapseSpace)
                     })
                 }
             }
@@ -98,7 +98,7 @@ class SignUpViewController: UIViewController {
             if keyboardHeight != nil {
                 UIView.animate(withDuration: 0.3) {
                     self.contentViewHeightConstraint.constant -= self.keyboardHeight!
-                    self.scrollView.contentOffset = self.lastOffset!
+                    self.scrollView.contentOffset = self.initialOffset!
                 }
                 keyboardHeight = nil
             }
@@ -182,7 +182,7 @@ class SignUpViewController: UIViewController {
 extension SignUpViewController: UITextFieldDelegate, UIScrollViewDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        lastOffset = scrollView.contentOffset
+                initialOffset = scrollView.contentOffset
         return true
     }
     
