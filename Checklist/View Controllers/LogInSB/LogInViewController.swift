@@ -5,6 +5,7 @@ import FirebaseStorage
 
 class LogInViewController: UIViewController {
     
+    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var emailTf: UITextField! {
@@ -35,6 +36,9 @@ class LogInViewController: UIViewController {
             forgotPasswordBtn.setTitleColor(.systemRed, for: .normal)
         }
     }
+    
+    private var lastOffset: CGPoint?
+    private var keyboardHeight: CGFloat?
     private var textFields = [UITextField]()
     
     override func viewDidLoad() {
@@ -43,6 +47,43 @@ class LogInViewController: UIViewController {
         for textField in textFields {
             textField.delegate = self
             textField.layer.borderColor = UIColor.red.cgColor
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func handleKeyboard(notification: Notification) {
+        switch notification.name {
+        case UIResponder.keyboardWillShowNotification:
+            if keyboardHeight == nil {
+                if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size {
+                    keyboardHeight = keyboardSize.height
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.contentViewHeightConstraint.constant += self.keyboardHeight!
+                    })
+                    let distanceToBottom = scrollView.frame.size.height
+                    let collapseSpace = keyboardHeight! - distanceToBottom
+                    if collapseSpace < 0 {
+                        return
+                    }
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.scrollView.contentOffset = CGPoint(x: (self.lastOffset?.x)!, y: collapseSpace)
+                    })
+                }
+            }
+        case UIResponder.keyboardWillHideNotification:
+            if keyboardHeight != nil {
+                UIView.animate(withDuration: 0.3) {
+                    self.contentViewHeightConstraint.constant -= self.keyboardHeight!
+                    self.scrollView.contentOffset = self.lastOffset!
+                }
+                keyboardHeight = nil
+            }
+        default: break
         }
     }
     
@@ -64,8 +105,8 @@ class LogInViewController: UIViewController {
             }
         }
         if !emptyTextFields.isEmpty {
-                Alerts.fillInAllFieldsAlert(emptyTextFields: emptyTextFields, presentAlertOn: self)
-                activityIndicator.stopAnimating()
+            Alerts.fillInAllFieldsAlert(emptyTextFields: emptyTextFields, presentAlertOn: self)
+            activityIndicator.stopAnimating()
             emptyTextFields.removeAll()
         }
         else {
@@ -131,6 +172,11 @@ class LogInViewController: UIViewController {
 }
 
 extension LogInViewController: UITextFieldDelegate, UIScrollViewDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        lastOffset = scrollView.contentOffset
+        return true
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {

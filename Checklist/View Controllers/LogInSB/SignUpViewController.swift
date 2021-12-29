@@ -5,6 +5,10 @@ import FirebaseStorage
 
 class SignUpViewController: UIViewController {
     
+    private var lastOffset: CGPoint?
+    private var keyboardHeight: CGFloat?
+    
+    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var nameTf: UITextField! {
@@ -57,11 +61,49 @@ class SignUpViewController: UIViewController {
             textField.delegate = self
             textField.layer.borderColor = UIColor.red.cgColor
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    @objc private func handleKeyboard(notification: Notification) {
+        switch notification.name {
+        case UIResponder.keyboardWillShowNotification:
+            if keyboardHeight == nil {
+                if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size {
+                    keyboardHeight = keyboardSize.height
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.contentViewHeightConstraint.constant += self.keyboardHeight!
+                    })
+                    let distanceToBottom = scrollView.frame.size.height
+                    let collapseSpace = keyboardHeight! - distanceToBottom
+                    if collapseSpace < 0 {
+                        return
+                    }
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.scrollView.contentOffset = CGPoint(x: (self.lastOffset?.x)!, y: collapseSpace)
+                    })
+                }
+            }
+        case UIResponder.keyboardWillHideNotification:
+            if keyboardHeight != nil {
+                UIView.animate(withDuration: 0.3) {
+                    self.contentViewHeightConstraint.constant -= self.keyboardHeight!
+                    self.scrollView.contentOffset = self.lastOffset!
+                }
+                keyboardHeight = nil
+            }
+        default: break
+        }
     }
     
     private func validateFields() {
@@ -138,6 +180,11 @@ class SignUpViewController: UIViewController {
 }
 
 extension SignUpViewController: UITextFieldDelegate, UIScrollViewDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        lastOffset = scrollView.contentOffset
+        return true
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {

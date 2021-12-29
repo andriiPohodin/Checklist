@@ -116,7 +116,7 @@
                                 <rect key="frame" x="0.0" y="88" width="428" height="804"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6E-j1-Wa4">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="528"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="290.33333333333331"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pe7-sM-vNT">
                                                 <rect key="frame" x="64.333333333333343" y="32" width="299.33333333333326" height="264"/>
@@ -170,7 +170,7 @@
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="pe7-sM-vNT" firstAttribute="top" secondItem="w6E-j1-Wa4" secondAttribute="top" constant="32" id="8Jx-4O-ZEi"/>
-                                            <constraint firstAttribute="height" secondItem="pe7-sM-vNT" secondAttribute="height" multiplier="2" id="k5y-Nw-6Ox"/>
+                                            <constraint firstAttribute="height" secondItem="pe7-sM-vNT" secondAttribute="height" multiplier="1.1" id="k5y-Nw-6Ox"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="E7F-cd-aKL" appends="YES" id="jry-gR-OO6"/>
@@ -203,6 +203,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="WTp-4N-nLb" id="sLU-ye-QyN"/>
                         <outlet property="confirmBtn" destination="AiY-Ug-Fas" id="8xR-9u-lzU"/>
+                        <outlet property="contentViewHeightConstraint" destination="k5y-Nw-6Ox" id="i2e-fd-rbm"/>
                         <outlet property="emailTf" destination="bqV-gM-3c8" id="KWw-26-57B"/>
                         <outlet property="forgotPasswordBtn" destination="C9p-5T-T5G" id="kTt-kN-xG8"/>
                         <outlet property="passwordTf" destination="PE7-0C-c2a" id="OKC-i0-IMU"/>
@@ -295,7 +296,7 @@
                                 <rect key="frame" x="0.0" y="88" width="428" height="804"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9O4-Mz-31r">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="702"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="514.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="E3l-dC-ENc">
                                                 <rect key="frame" x="64.333333333333343" y="32" width="299.33333333333326" height="468"/>
@@ -367,7 +368,7 @@
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="E3l-dC-ENc" firstAttribute="top" secondItem="9O4-Mz-31r" secondAttribute="top" constant="32" id="TeT-gC-1kc"/>
-                                            <constraint firstAttribute="height" secondItem="E3l-dC-ENc" secondAttribute="height" multiplier="1.5" id="Yuf-4x-X02"/>
+                                            <constraint firstAttribute="height" secondItem="E3l-dC-ENc" secondAttribute="height" multiplier="1.1" id="vJ4-P7-YGc"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="4yv-xR-N3g" appends="YES" id="qj6-16-wJa"/>
@@ -405,6 +406,7 @@
                         <outlet property="activityIndicator" destination="FXv-Zm-0ix" id="Zex-j5-iqP"/>
                         <outlet property="confirmBtn" destination="LHG-2F-yke" id="Rej-MP-Ill"/>
                         <outlet property="confirmPasswordTf" destination="WfC-rz-Mxk" id="eID-IX-bUS"/>
+                        <outlet property="contentViewHeightConstraint" destination="vJ4-P7-YGc" id="PNh-v2-F7b"/>
                         <outlet property="corporationTf" destination="oto-yc-Z4L" id="rQZ-W3-Qvm"/>
                         <outlet property="emailTf" destination="CDo-5V-1SH" id="YwV-p8-MnZ"/>
                         <outlet property="nameTf" destination="eFu-Mk-9h5" id="NtO-3u-NjG"/>
