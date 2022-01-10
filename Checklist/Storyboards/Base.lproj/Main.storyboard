@@ -60,11 +60,10 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3N-9b-J9b">
-                                <rect key="frame" x="308" y="773" width="100" height="50"/>
+                                <rect key="frame" x="270.66666666666669" y="767" width="141.33333333333331" height="60"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="OdC-x7-Q8C"/>
-                                    <constraint firstAttribute="height" constant="50" id="hiU-R3-pjp"/>
+                                    <constraint firstAttribute="height" constant="60" id="hiU-R3-pjp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <state key="normal" title="Next">
@@ -79,11 +78,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jFB-aC-ogH" firstAttribute="top" secondItem="OIZ-f2-n5f" secondAttribute="top" constant="16" id="4kQ-sv-mW0"/>
+                            <constraint firstItem="l3N-9b-J9b" firstAttribute="width" secondItem="OIZ-f2-n5f" secondAttribute="width" multiplier="0.33" id="5P8-p8-aqi"/>
                             <constraint firstItem="OIZ-f2-n5f" firstAttribute="trailing" secondItem="jFB-aC-ogH" secondAttribute="trailing" constant="16" id="8Yk-2j-Jss"/>
-                            <constraint firstItem="OIZ-f2-n5f" firstAttribute="trailing" secondItem="l3N-9b-J9b" secondAttribute="trailing" constant="20" id="OAP-po-FdK"/>
+                            <constraint firstItem="OIZ-f2-n5f" firstAttribute="trailing" secondItem="l3N-9b-J9b" secondAttribute="trailing" constant="16" id="OAP-po-FdK"/>
                             <constraint firstItem="jFB-aC-ogH" firstAttribute="leading" secondItem="OIZ-f2-n5f" secondAttribute="leading" constant="16" id="Sam-ya-3fe"/>
-                            <constraint firstItem="l3N-9b-J9b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OIZ-f2-n5f" secondAttribute="leading" symbolic="YES" id="m8W-SI-qlm"/>
-                            <constraint firstItem="OIZ-f2-n5f" firstAttribute="bottom" secondItem="l3N-9b-J9b" secondAttribute="bottom" constant="20" id="mYO-YT-dJg"/>
+                            <constraint firstItem="OIZ-f2-n5f" firstAttribute="bottom" secondItem="l3N-9b-J9b" secondAttribute="bottom" constant="16" id="mYO-YT-dJg"/>
+                            <constraint firstItem="l3N-9b-J9b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OIZ-f2-n5f" secondAttribute="leading" symbolic="YES" id="yVx-xY-eD6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="cRt-tG-6ws"/>

@@ -31,21 +31,16 @@ class FirstScreenViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setUpVideo()
+        setUpUI()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-//        navigationController?.isNavigationBarHidden = false
-//        contentView.isHidden = true
-    }
-    
-    private func setUpVideo() {
+    private func setUpUI() {
         if UIDevice.current.userInterfaceIdiom == .phone, UIScreen.main.traitCollection.horizontalSizeClass == .compact {
             contentView.isHidden = false
             playerLooper = VideoManager.play(onSuperview: contentView, forResource: "My Movie", ofType: "mp4")
         }
         else {
+            view.backgroundColor = UIColor.white.withAlphaComponent(0.5)
             contentView.isHidden = true
         }
     }

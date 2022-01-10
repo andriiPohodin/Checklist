@@ -5,9 +5,6 @@ import FirebaseStorage
 
 class SignUpViewController: UIViewController {
     
-    private var initialOffset: CGPoint?
-    private var keyboardHeight: CGFloat?
-    
     @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -51,6 +48,9 @@ class SignUpViewController: UIViewController {
             confirmBtn.titleLabel?.adjustsFontSizeToFitWidth = true
         }
     }
+    
+    private var initialOffset: CGPoint?
+    private var keyboardHeight: CGFloat?
     private var textFields = [UITextField]()
     
     override func viewDidLoad() {
