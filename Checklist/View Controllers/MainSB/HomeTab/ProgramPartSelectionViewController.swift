@@ -15,10 +15,6 @@ class ProgramPartSelectionViewController: UIViewController {
     var sections = [Section]()
     private var selectedSectionsContent = [SectionsContent]()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)

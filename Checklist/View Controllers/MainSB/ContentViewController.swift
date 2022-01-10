@@ -20,7 +20,6 @@ class ContentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        splitViewController?.preferredDisplayMode = .oneOverSecondary
         if UIScreen.main.traitCollection.horizontalSizeClass == .regular {
             backgroundVideoView.isHidden = false
         }
@@ -92,7 +91,6 @@ class ContentViewController: UIViewController {
         swipeRight.direction = .right
         pdfView.addGestureRecognizer(swipeLeft)
         pdfView.addGestureRecognizer(swipeRight)
-//        NavigationStackManager.secondaryVC = self
     }
     
     private func getPdfDocument() {

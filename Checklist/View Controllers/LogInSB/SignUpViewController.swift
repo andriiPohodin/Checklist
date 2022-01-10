@@ -70,11 +70,6 @@ class SignUpViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
-    }
-    
     @objc private func handleKeyboard(notification: Notification) {
         switch notification.name {
         case UIResponder.keyboardWillShowNotification:

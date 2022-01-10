@@ -372,11 +372,11 @@
             <objects>
                 <viewController storyboardIdentifier="ContentViewController" id="9D4-ds-Pc3" customClass="ContentViewController" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MYc-nY-egt">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3gb-8C-h5Q">
-                                <rect key="frame" x="0.33333333333334281" y="8" width="427.33333333333326" height="50"/>
+                                <rect key="frame" x="0.33333333333334281" y="96" width="427.33333333333326" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwv-6g-rxt">
                                         <rect key="frame" x="0.0" y="0.0" width="124" height="50"/>
@@ -411,11 +411,11 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qra-l1-wbF">
-                                <rect key="frame" x="0.0" y="58" width="428" height="780"/>
+                                <rect key="frame" x="0.0" y="146" width="428" height="746"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKP-J3-0ON">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -447,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFv-pj-VQ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-64" y="789"/>
+            <point key="canvasLocation" x="805" y="776"/>
         </scene>
         <!--Item-->
         <scene sceneID="Mgs-Vh-5zq">
@@ -461,12 +461,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="HP5-xF-mFS" kind="relationship" relationship="rootViewController" id="MTj-JU-N9H"/>
+                        <segue destination="JVP-t9-tcH" kind="relationship" relationship="rootViewController" id="rd3-fU-S8F"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71a-Qc-NRb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-64" y="35"/>
+            <point key="canvasLocation" x="805" y="37"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Hat-pM-nmK">
@@ -480,26 +480,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bd-w9-mlt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-971" y="398"/>
-        </scene>
-        <!--Root View Controller For Split View-->
-        <scene sceneID="7UH-YB-jV9">
-            <objects>
-                <viewController id="HP5-xF-mFS" customClass="RootViewControllerForSplitView" customModule="Checklist" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Hbk-9K-Hu8">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="5Ue-3m-o0b"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Cci-7n-shJ"/>
-                    <connections>
-                        <segue destination="JVP-t9-tcH" kind="show" identifier="fromRoot" id="FoH-85-kbM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ttT-0h-60S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="833" y="35"/>
+            <point key="canvasLocation" x="-128" y="406"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0ki-8n-slQ">
@@ -525,7 +506,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="mlL-vQ-Cka"/>
-        <segue reference="kzV-BF-6cQ"/>
+        <segue reference="ad0-4X-mMa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>

@@ -5,12 +5,6 @@ class VideoViewController: UIViewController {
     
     private var playerLooper: AVPlayerLooper?
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        splitViewController?.preferredDisplayMode = .oneOverSecondary
-
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setUpVideo()
