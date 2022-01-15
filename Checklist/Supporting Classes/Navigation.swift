@@ -23,20 +23,15 @@ final class Navigation {
     
     static func svcSetUp(window: UIWindow?) {
         guard let window = window else { return }
-        guard let svc = window.rootViewController as? UISplitViewController else { return }
-        svc.preferredDisplayMode = .oneOverSecondary
-        switch UIScreen.main.traitCollection.horizontalSizeClass {
-        case .regular:
-            svc.setViewController(svc.viewController(for: .primary), for: .compact)
-        case .compact:
-            svc.setViewController(svc.viewController(for: .compact), for: .primary)
-        default: break
+        if let svc = window.rootViewController as? UISplitViewController {
+            svc.preferredDisplayMode = .oneOverSecondary
+            switch UIScreen.main.traitCollection.horizontalSizeClass {
+            case .regular:
+                svc.setViewController(svc.viewController(for: .primary), for: .compact)
+            case .compact:
+                svc.setViewController(svc.viewController(for: .compact), for: .primary)
+            default: break
+            }
         }
-//        if UIScreen.main.traitCollection.horizontalSizeClass == .regular {
-//            svc.setViewController(svc.viewController(for: .primary), for: .compact)
-//        }
-//        else if UIScreen.main.traitCollection.horizontalSizeClass == .compact {
-//            svc.setViewController(svc.viewController(for: .compact), for: .primary)
-//        }
     }
 }

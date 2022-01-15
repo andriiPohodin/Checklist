@@ -257,8 +257,9 @@
 		1857A9CE2670DB4300A57D7A /* MainSB */ = {
 			isa = PBXGroup;
 			children = (
-				1868FDE4278C5BA600689650 /* HomeTab */,
 				1868FDE2278C5B6800689650 /* AccountTab */,
+				1868FDE4278C5BA600689650 /* HomeTab */,
+				185D93B5264D17690031A6F8 /* ContentsTableViewController.swift */,
 				18A0771F25EE5677005E7C20 /* ContentViewController.swift */,
 			);
 			path = MainSB;
@@ -294,7 +295,6 @@
 			children = (
 				1880BD9325D6D71B004B6BFE /* SelectDroneAndProgramViewController.swift */,
 				18A0771C25EE5662005E7C20 /* ProgramPartSelectionViewController.swift */,
-				185D93B5264D17690031A6F8 /* ContentsTableViewController.swift */,
 				185D93B8264D40A70031A6F8 /* FAQViewController.swift */,
 				18F621DA26FCB3DC00E83C93 /* FeedbackFormViewController.swift */,
 			);

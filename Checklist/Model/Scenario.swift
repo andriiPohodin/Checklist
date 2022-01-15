@@ -108,6 +108,4 @@ enum FAQsteps: SectionsContent {
     case contactUs
 }
 
-protocol SectionsContent {
-    
-}
+protocol SectionsContent {}

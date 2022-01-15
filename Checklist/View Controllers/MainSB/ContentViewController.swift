@@ -4,27 +4,27 @@ import AVKit
 
 class ContentViewController: UIViewController {
     
+    let pdfView = PDFView()
     @IBOutlet weak var previousSlideBtn: UIButton!
     @IBOutlet weak var nextSlideBtn: UIButton!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var backgroundVideoView: UIView!
     
-    let pdfView = PDFView()
-    var currentSlideIndex = Int()
-    var previousSlideIndex = Int()
-    var nextSlideIndex = Int()
-    var contentSlideNames = [String]()
-    var contentLabelTextStrings = [String]()
-    var playerLooper: AVPlayerLooper?
+    private var playerLooper: AVPlayerLooper?
+    var uiWasUpdated = false
+    
+    var didTapNext: (() -> Void)?
+    var didTapPrevious: (() -> Void)?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if UIScreen.main.traitCollection.horizontalSizeClass == .regular {
+        setUpUi()
+        if UIScreen.main.traitCollection.horizontalSizeClass == .regular, !uiWasUpdated {
             backgroundVideoView.isHidden = false
         }
         else {
-            updateUI()
+            backgroundVideoView.isHidden = true
         }
     }
     
@@ -38,52 +38,21 @@ class ContentViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        backgroundVideoView.isHidden = true
+        playerLooper = nil
     }
     
     @objc private func didSwipe(_ sender: UISwipeGestureRecognizer) {
         switch sender.direction {
         case .right:
-            toPreviousSlide()
+            didTapPrevious?()
         case .left:
-            toNextSlide()
+            didTapNext?()
         default: break
         }
     }
     
-    func updateUI() {
-        backgroundVideoView.isHidden = true
-
-        getPdfDocument()
-        
-        previousSlideBtn.titleLabel?.adjustsFontSizeToFitWidth = true
-        previousSlideBtn.setTitleColor(.systemRed, for: .normal)
-        previousSlideIndex = currentSlideIndex-1
-        switch currentSlideIndex {
-        case contentSlideNames.startIndex:
-            previousSlideBtn.isUserInteractionEnabled = false
-            previousSlideBtn.setTitle("", for: .normal)
-        default:
-            previousSlideBtn.isUserInteractionEnabled = true
-            previousSlideBtn.setTitle("< " + "\(LocalizedKeys.BtnTitles.previousBtn)", for: .normal)
-        }
-        
-        nextSlideBtn.titleLabel?.adjustsFontSizeToFitWidth = true
-        nextSlideBtn.setTitleColor(.systemRed, for: .normal)
-        nextSlideIndex = currentSlideIndex+1
-        switch currentSlideIndex {
-        case contentSlideNames.endIndex-1:
-            nextSlideBtn.isUserInteractionEnabled = false
-            nextSlideBtn.setTitle("", for: .normal)
-        default:
-            nextSlideBtn.isUserInteractionEnabled = true
-            nextSlideBtn.setTitle("\(LocalizedKeys.BtnTitles.nextBtn)" + " >", for: .normal)
-        }
-        
+    private func setUpUi() {
         contentView.addSubview(pdfView)
-        
-        contentLabel.adjustsFontSizeToFitWidth = true
-        contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(_:)))
         swipeLeft.direction = .left
@@ -93,77 +62,11 @@ class ContentViewController: UIViewController {
         pdfView.addGestureRecognizer(swipeRight)
     }
     
-    private func getPdfDocument() {
-        guard let url = Bundle.main.url(forResource: contentSlideNames[currentSlideIndex], withExtension: "pdf") else { return }
-        guard let pdfDocument = PDFDocument(url: url) else { return }
-        pdfView.autoScales = true
-        pdfView.goToFirstPage(nil)
-        pdfView.document = pdfDocument
-    }
-    
-    private func toNextSlide() {
-        if nextSlideIndex == contentSlideNames.endIndex-1 {
-            currentSlideIndex+=1
-            contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
-            getPdfDocument()
-            
-            previousSlideIndex+=1
-            previousSlideBtn.isUserInteractionEnabled = true
-            previousSlideBtn.setTitle("< " + "\(LocalizedKeys.BtnTitles.previousBtn)", for: .normal)
-            
-            nextSlideIndex+=1
-            nextSlideBtn.isUserInteractionEnabled = false
-            nextSlideBtn.setTitle("", for: .normal)
-        }
-        else if nextSlideIndex < contentSlideNames.endIndex {
-            currentSlideIndex+=1
-            contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
-            getPdfDocument()
-            
-            previousSlideIndex+=1
-            previousSlideBtn.isUserInteractionEnabled = true
-            previousSlideBtn.setTitle("< " + "\(LocalizedKeys.BtnTitles.previousBtn)", for: .normal)
-            
-            nextSlideIndex+=1
-            nextSlideBtn.isUserInteractionEnabled = true
-            nextSlideBtn.setTitle("\(LocalizedKeys.BtnTitles.nextBtn)" + " >", for: .normal)
-        }
-    }
-    
-    private func toPreviousSlide() {
-        if previousSlideIndex == contentSlideNames.startIndex {
-            currentSlideIndex-=1
-            contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
-            getPdfDocument()
-            
-            nextSlideIndex-=1
-            nextSlideBtn.isUserInteractionEnabled = true
-            nextSlideBtn.setTitle("\(LocalizedKeys.BtnTitles.nextBtn)" + " >", for: .normal)
-            
-            previousSlideIndex-=1
-            previousSlideBtn.isUserInteractionEnabled = false
-            previousSlideBtn.setTitle("", for: .normal)
-        }
-        else if previousSlideIndex > contentSlideNames.startIndex {
-            currentSlideIndex-=1
-            contentLabel.text = contentLabelTextStrings[currentSlideIndex].localized
-            getPdfDocument()
-            
-            nextSlideIndex-=1
-            nextSlideBtn.isUserInteractionEnabled = true
-            nextSlideBtn.setTitle("\(LocalizedKeys.BtnTitles.nextBtn)" + " >", for: .normal)
-            
-            previousSlideIndex-=1
-            previousSlideBtn.isUserInteractionEnabled = true
-            previousSlideBtn.setTitle("< " + "\(LocalizedKeys.BtnTitles.previousBtn)", for: .normal)
-        }
-    }
-    
     @IBAction func previousSlideBtnAction(_ sender: UIButton) {
-        toPreviousSlide()
+        didTapPrevious?()
     }
     
     @IBAction func nextSlideBtnAction(_ sender: UIButton) {
-        toNextSlide()
+        didTapNext?()
     }
 }

@@ -23,9 +23,9 @@ class FAQViewController: UIViewController, UINavigationControllerDelegate {
         switch segue.identifier {
         case Constants.Segues.toFAQContent:
             guard let destinationVC = segue.destination as? ContentViewController else { return }
-            destinationVC.currentSlideIndex = selectedFaqStepIndex
-            destinationVC.contentSlideNames = faqStepStringsArray
-            destinationVC.contentLabelTextStrings = faqStepStringsArray
+//            destinationVC.currentSlideIndex = selectedFaqStepIndex
+//            destinationVC.contentSlideNames = faqStepStringsArray
+//            destinationVC.contentLabelTextStrings = faqStepStringsArray
         default:
             break
         }
@@ -93,9 +93,9 @@ extension FAQViewController: UITableViewDelegate, UITableViewDataSource {
 //            tableView.deselectRow(at: indexPath, animated: false)
             if (splitViewController?.viewControllers.count)! > 1 {
                 guard let secondaryVC = splitViewController?.viewController(for: .secondary) as? ContentViewController else { return }
-                secondaryVC.currentSlideIndex = selectedFaqStepIndex
-                secondaryVC.contentSlideNames = faqStepStringsArray
-                secondaryVC.updateUI()
+//                secondaryVC.currentSlideIndex = selectedFaqStepIndex
+//                secondaryVC.contentSlideNames = faqStepStringsArray
+//                secondaryVC.updateUI()
             }
             else {
                 performSegue(withIdentifier: Constants.Segues.toFAQContent, sender: nil)
