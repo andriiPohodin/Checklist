@@ -47,7 +47,6 @@ extension ProgramPartSelectionViewController: UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedSection = sections[indexPath.row]
         selectedSectionsContent = selectedSection.sectionContent
-//        tableView.deselectRow(at: indexPath, animated: false)
         performSegue(withIdentifier: Constants.Segues.toContentsTable, sender: nil)
     }
 }

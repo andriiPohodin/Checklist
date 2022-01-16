@@ -34,9 +34,9 @@ class ContentsTableViewController: UIViewController {
             contentVc = destination
             updateUiForContentVc(destination: contentVc)
             assignClosuresForContentVc()
-        case Constants.Segues.toFAQ:
-            guard let destinationVC = segue.destination as? FAQViewController else { return }
-            destinationVC.selectedFaqStepIndex = rowIndex
+//        case Constants.Segues.toFAQ:
+//            guard let destinationVC = segue.destination as? FAQViewController else { return }
+//            destinationVC.selectedFaqStepIndex = rowIndex
         default:
             break
         }
@@ -48,6 +48,7 @@ class ContentsTableViewController: UIViewController {
             contentVc = destination
             updateUiForContentVc(destination: contentVc)
             assignClosuresForContentVc()
+            splitViewController?.hide(.primary)
         }
         else {
             performSegue(withIdentifier: Constants.Segues.toProgramStepContent, sender: nil)
