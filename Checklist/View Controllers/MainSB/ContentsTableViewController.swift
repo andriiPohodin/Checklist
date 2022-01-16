@@ -58,7 +58,7 @@ class ContentsTableViewController: UIViewController {
     //MARK: Keep tableView in sync with slide on screen
     
     private func syncTableViewWithSlideOnScreen() {
-        tableView.selectRow(at: IndexPath(row: rowIndex, section: rowSection), animated: true, scrollPosition: UITableView.ScrollPosition(rawValue: rowIndex) ?? UITableView.ScrollPosition.none)
+        tableView.selectRow(at: IndexPath(row: rowIndex, section: rowSection), animated: true, scrollPosition: UITableView.ScrollPosition.middle)
     }
     
     private func assignClosuresForContentVc() {
